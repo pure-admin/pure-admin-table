@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "preserve",
+    "target": "ES2017",
+    "module": "ESNext",
+    "declaration": true,
+    "lib": ["DOM", "ESNext"],
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "emitDeclarationOnly": true,
+    "resolveJsonModule": true
+  },
+  "include": ["packages/**/**/*", "packages/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
