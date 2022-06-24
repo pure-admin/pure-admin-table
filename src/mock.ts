@@ -128,5 +128,18 @@ export const dataMock = [
     id: 107,
     createTime: "2020-10-30",
     remark: "备注、备注、备注、备注、备注、备注、备注"
+  },
+  {
+    name: "运维部门",
+    type: 3,
+    parentId: 101,
+    sort: 5,
+    leaderUserId: null,
+    phone: "123456789",
+    email: "aaa@qq.com",
+    status: 0,
+    id: 107,
+    createTime: "2020-10-30",
+    remark: "备注、备注、备注、备注、备注、备注、备注"
   }
 ];
