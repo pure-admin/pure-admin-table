@@ -1,12 +1,19 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { dataMock } from "./mock";
+import { ref, reactive } from "vue";
 import { useColumns } from "./columns";
-import { PureTable } from "../packages";
+import { PureTable, PurePagination } from "../packages";
 
 let dataList = ref(dataMock);
-let pageSize = ref(10);
-let totalPage = dataList.value.length;
+
+const pagerConfig = reactive({
+  currentPage: 1,
+  pageSize: 10,
+  total: dataList.value.length,
+  pageSizes: [10, 20, 30, 50],
+  background: true,
+  layout: "total, sizes, prev, pager, next, jumper, slot"
+});
 
 const { columns } = useColumns();
 
@@ -25,10 +32,12 @@ function handleSelectionChange(val) {
 }
 
 function handleCurrentChange(val: number) {
+  pagerConfig.currentPage = val;
   console.log(`current page: ${val}`);
 }
 
 function handleSizeChange(val: number) {
+  pagerConfig.pageSize = val;
   console.log(`${val} items per page`);
 }
 
@@ -52,7 +61,12 @@ function rowClick(row, column, event) {
       row-key="id"
       table-layout="auto"
       default-expand-all
-      :data="dataList"
+      :data="
+        dataList.slice(
+          (pagerConfig.currentPage - 1) * pagerConfig.pageSize,
+          pagerConfig.currentPage * pagerConfig.pageSize
+        )
+      "
       :columns="columns"
       :header-cell-style="{
         background: 'var(--el-table-row-hover-bg-color)',
@@ -84,15 +98,11 @@ function rowClick(row, column, event) {
         </el-popconfirm>
       </template>
     </PureTable>
-    <el-pagination
-      class="flex justify-end mt-4"
-      v-model:page-size="pageSize"
-      :page-sizes="[10, 20, 30, 50]"
-      :background="true"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="totalPage"
+    <PurePagination
+      v-bind="pagerConfig"
       @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
+      @current-Change="handleCurrentChange"
+      class="flex justify-end mt-4"
     />
   </div>
 </template>
