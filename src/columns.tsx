@@ -3,6 +3,11 @@ import { ref } from "vue";
 export function useColumns() {
   const columns = ref([
     {
+      type: "selection",
+      width: 55,
+      align: "left"
+    },
+    {
       label: "部门名称",
       prop: "name",
       width: 180,

@@ -31,6 +31,16 @@ function handleCurrentChange(val: number) {
 function handleSizeChange(val: number) {
   console.log(`${val} items per page`);
 }
+
+function rowClick(row, column, event) {
+  console.log(
+    "%crow, column, event===>>>: ",
+    "color: MidnightBlue; background: Aquamarine; font-size: 20px;",
+    row,
+    column,
+    event
+  );
+}
 </script>
 
 <template>
@@ -49,6 +59,7 @@ function handleSizeChange(val: number) {
         color: 'var(--el-text-color-primary)'
       }"
       @selection-change="handleSelectionChange"
+      @row-click="rowClick"
     >
       <template #operation="{ row }">
         <el-button

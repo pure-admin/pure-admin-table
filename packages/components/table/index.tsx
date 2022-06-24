@@ -1,5 +1,4 @@
 import props from "./props";
-import { emits } from "./emits";
 import Renderer from "../renderer";
 import { isFunction } from "../helper";
 import { defineComponent, toRefs, ref, unref } from "vue";
@@ -10,7 +9,6 @@ const TableRef = ref();
 export default defineComponent({
   name: "PureTable",
   props,
-  emits,
   methods: {
     /** Get Table Methods */
     getTableRef() {
