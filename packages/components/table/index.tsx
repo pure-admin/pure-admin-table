@@ -1,7 +1,14 @@
 import props from "./props";
 import Renderer from "../renderer";
 import { isFunction } from "../helper";
-import { defineComponent, toRefs, ref, unref } from "vue";
+import {
+  ref,
+  unref,
+  toRefs,
+  computed,
+  defineComponent,
+  type CSSProperties
+} from "vue";
 import { PureTableProps, TableColumnScope } from "../../types";
 
 const TableRef = ref();
@@ -15,10 +22,35 @@ export default defineComponent({
       return TableRef.value;
     }
   },
-  setup(props, { slots, attrs }) {
-    const { columns, align, headerAlign, showOverflowTooltip } = toRefs(
-      props
-    ) as unknown as PureTableProps;
+  emits: ["size-change", "current-change"],
+  setup(props, { slots, attrs, emit }) {
+    const { columns, align, headerAlign, showOverflowTooltip, pagination } =
+      toRefs(props) as unknown as PureTableProps;
+
+    const handleSizeChange = val => {
+      unref(pagination).pageSize = val;
+      emit("size-change", val);
+    };
+
+    const handleCurrentChange = val => {
+      unref(pagination).currentPage = val;
+      emit("current-change", val);
+    };
+
+    const getStyle = computed((): CSSProperties => {
+      return {
+        width: "100%",
+        margin: "16px 0",
+        display: "flex",
+        justifyContent:
+          unref(pagination).align === "left"
+            ? "flex-start"
+            : unref(pagination).align === "center"
+            ? "center"
+            : "flex-end"
+      };
+    });
+
     return () => (
       <>
         <el-table {...props} {...attrs} ref={TableRef}>
@@ -86,6 +118,18 @@ export default defineComponent({
             );
           })}
         </el-table>
+        <el-pagination
+          {...attrs}
+          style={unref(getStyle)}
+          {...unref(pagination)}
+          layout={
+            unref(pagination).layout ??
+            "total, sizes, prev, pager, next, jumper"
+          }
+          pageSizes={unref(pagination).pageSizes ?? [5, 10, 15, 20]}
+          onSizeChange={val => handleSizeChange(val)}
+          onCurrentChange={val => handleCurrentChange(val)}
+        ></el-pagination>
       </>
     );
   }

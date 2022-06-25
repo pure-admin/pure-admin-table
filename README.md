@@ -22,12 +22,14 @@ English | [简体中文](./README.zh_CN.md)
 ## 📦 Install
 
 ```bash
-npm install @pureadmin/table -D
+npm install @pureadmin/table
 or 
-pnpm add @pureadmin/table -D
+pnpm add @pureadmin/table
 ```
 
 ## 🦄 Usage
+
+### Partial registration (single file)
 
 ```ts
 import { PureTable } from "@pureadmin/table";
@@ -35,8 +37,34 @@ import { PureTable } from "@pureadmin/table";
 <pure-table :data="dataList" :columns="columns"></pure-table>
 ```
 
-[Click to view the specific usage](https://github.com/xiaoxian521/vue-pure-admin)
+### Global registration (main.ts)
 
+```ts
+import { createApp } from "vue";
+import App from "./App.vue";
+
+import Table from "@pureadmin/table";
+
+const app = createApp(App);
+
+app.use(Table).mount("#app");
+```
+
+[Click to view the specific usage](https://github.com/xiaoxian521/pure-admin-table/blob/main/src/App.vue)
+
+## Volar support
+
+- If you are using `Volar`, you can configure compilerOptions.types in tsconfig.json to specify the global component type (especially if you want to get type hints during global registration, you need to add the following configuration)
+
+```js
+// tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "types": ["@pureadmin/table/volar"]
+  }
+}
+```
 ## License
 
 [MIT © xiaoxian521-2022](./LICENSE)

@@ -7,12 +7,14 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["node", "vite/client"],
   },
   "include": [
     "packages/**/**/*",
     "packages/**/*",
-    "vite.config.ts"
+    "vite.config.ts",
+    "volar.d.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }

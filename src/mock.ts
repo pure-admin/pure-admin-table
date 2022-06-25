@@ -1,7 +1,7 @@
 export const dataMock = [
   {
-    name: "杭州总公司",
-    type: 1, // 1 公司 2 分公司 3 部门
+    name: "Hangzhou Head Office",
+    type: 1, // 1 company 2 branch company 3 department
     parentId: 0,
     sort: 0,
     leaderUserId: 1,
@@ -10,10 +10,10 @@ export const dataMock = [
     status: 0,
     id: 100,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "郑州分公司",
+    name: "Zhengzhou Branch",
     type: 2,
     parentId: 100,
     sort: 1,
@@ -23,10 +23,10 @@ export const dataMock = [
     status: 0,
     id: 101,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "研发部门",
+    name: "R & D department",
     type: 3,
     parentId: 101,
     sort: 1,
@@ -36,10 +36,10 @@ export const dataMock = [
     status: 0,
     id: 103,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "市场部门",
+    name: "marketing department",
     type: 3,
     parentId: 102,
     sort: 1,
@@ -49,10 +49,10 @@ export const dataMock = [
     status: 0,
     id: 108,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "深圳分公司",
+    name: "Shenzhen Branch",
     type: 2,
     parentId: 100,
     sort: 2,
@@ -62,10 +62,10 @@ export const dataMock = [
     status: 0,
     id: 102,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "市场部门",
+    name: "marketing department",
     type: 3,
     parentId: 101,
     sort: 2,
@@ -75,10 +75,10 @@ export const dataMock = [
     status: 1,
     id: 104,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "财务部门",
+    name: "financial department",
     type: 3,
     parentId: 102,
     sort: 2,
@@ -88,10 +88,10 @@ export const dataMock = [
     status: 0,
     id: 109,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "测试部门",
+    name: "testing department",
     type: 3,
     parentId: 101,
     sort: 3,
@@ -101,10 +101,10 @@ export const dataMock = [
     status: 0,
     id: 105,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "财务部门",
+    name: "financial department",
     type: 3,
     parentId: 101,
     sort: 4,
@@ -114,10 +114,10 @@ export const dataMock = [
     status: 1,
     id: 106,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "运维部门",
+    name: "Operation department",
     type: 3,
     parentId: 101,
     sort: 5,
@@ -127,10 +127,10 @@ export const dataMock = [
     status: 0,
     id: 107,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   },
   {
-    name: "运维部门",
+    name: "Maintenance department",
     type: 3,
     parentId: 101,
     sort: 5,
@@ -140,6 +140,6 @@ export const dataMock = [
     status: 0,
     id: 107,
     createTime: "2020-10-30",
-    remark: "备注、备注、备注、备注、备注、备注、备注"
+    remark: "remark, remark, remark, remark, remark"
   }
 ];

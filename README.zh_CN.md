@@ -22,12 +22,14 @@
 ## 📦 安装
 
 ```bash
-npm install @pureadmin/table -D
+npm install @pureadmin/table
 or 
-pnpm add @pureadmin/table -D
+pnpm add @pureadmin/table
 ```
 
 ## 🦄 用法
+
+### 局部注册（单文件）
 
 ```ts
 import { PureTable } from "@pureadmin/table";
@@ -35,7 +37,34 @@ import { PureTable } from "@pureadmin/table";
 <pure-table :data="dataList" :columns="columns"></pure-table>
 ```
 
-[点击查看具体用法](https://github.com/xiaoxian521/vue-pure-admin)
+### 全局注册（main.ts）
+
+```ts
+import { createApp } from "vue";
+import App from "./App.vue";
+
+import Table from "@pureadmin/table";
+
+const app = createApp(App);
+
+app.use(Table).mount("#app");
+```
+
+[点击查看具体用法](https://github.com/xiaoxian521/pure-admin-table/blob/main/src/App.vue)
+
+## Volar 支持
+
+- 如果您在使用 `Volar`，那么可以在 tsconfig.json 中配置 compilerOptions.types 来指定全局组件类型（尤其是全局注册时要想获得类型提示就需要加上下面配置）
+
+```js
+// tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "types": ["@pureadmin/table/volar"]
+  }
+}
+```
 
 ## 许可证
 

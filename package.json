@@ -7,6 +7,7 @@
     "@pureadmin/table",
     "element-plus",
     "typescript",
+    "vue3",
     "vite",
     "tsx"
   ],
@@ -33,13 +34,15 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "volar.d.ts"
   ],
   "sideEffects": false,
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview",
-    "build": "vite build && vue-tsc -p tsconfig.build.json",
+    "lib": "vite build && vue-tsc -p tsconfig.build.json",
     "lint": "prettier --write  \"packages/**/*.{ts,tsx}\"",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "lint:pretty": "pretty-quick --staged",
