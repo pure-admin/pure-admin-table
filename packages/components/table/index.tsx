@@ -51,6 +51,8 @@ export default defineComponent({
       };
     });
 
+    let conditions = unref(pagination) && unref(pagination).currentPage;
+
     return () => (
       <>
         <el-table {...props} {...attrs} ref={TableRef}>
@@ -118,18 +120,20 @@ export default defineComponent({
             );
           })}
         </el-table>
-        <el-pagination
-          {...attrs}
-          style={unref(getStyle)}
-          {...unref(pagination)}
-          layout={
-            unref(pagination).layout ??
-            "total, sizes, prev, pager, next, jumper"
-          }
-          pageSizes={unref(pagination).pageSizes ?? [5, 10, 15, 20]}
-          onSizeChange={val => handleSizeChange(val)}
-          onCurrentChange={val => handleCurrentChange(val)}
-        ></el-pagination>
+        {conditions ? (
+          <el-pagination
+            {...attrs}
+            style={unref(getStyle)}
+            {...unref(pagination)}
+            layout={
+              unref(pagination).layout ??
+              "total, sizes, prev, pager, next, jumper"
+            }
+            pageSizes={unref(pagination).pageSizes ?? [5, 10, 15, 20]}
+            onSizeChange={val => handleSizeChange(val)}
+            onCurrentChange={val => handleCurrentChange(val)}
+          ></el-pagination>
+        ) : null}
       </>
     );
   }

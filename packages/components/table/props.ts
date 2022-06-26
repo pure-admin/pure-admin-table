@@ -27,7 +27,6 @@ export default {
       total: 0,
       pageSize: 5,
       align: "right",
-      currentPage: 1,
       background: false,
       pageSizes: [5, 10, 15, 20],
       layout: "total, sizes, prev, pager, next, jumper"
