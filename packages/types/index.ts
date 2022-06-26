@@ -45,6 +45,8 @@ export type PaginationProps = {
   align?: Align;
   /** 自定义分页样式 可选 */
   style?: CSSProperties;
+  /** 自定义类名 可选 */
+  class?: string;
 };
 
 /**

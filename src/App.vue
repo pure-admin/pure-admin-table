@@ -68,6 +68,7 @@ const pagination = reactive<PaginationProps>({
   pageSize: 10,
   currentPage: 1,
   background: true,
+  class: "testClassName",
   total: dataList.value.length
 });
 
