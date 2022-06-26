@@ -1,5 +1,6 @@
 export type {
   Align,
+  TableColumns,
   PureTableProps,
   PaginationProps,
   TableColumnScope

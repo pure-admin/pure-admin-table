@@ -4,6 +4,7 @@ import type { TableColumnCtx } from "element-plus/es/components/table/src/table-
 export type Align = "left" | "center" | "right";
 
 /**
+ * @description 分页相关配置 注意：`pageSize`、`total`、`currentPage`必传
  * @see {@link https://element-plus.org/en-US/component/pagination.html#attributes}
  */
 export type PaginationProps = {
