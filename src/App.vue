@@ -61,6 +61,8 @@ import { dataMock } from "./mock";
 import { ref, reactive } from "vue";
 import { useColumns } from "./columns";
 import { PureTable, type PaginationProps } from "../packages";
+// import { PureTable } from "../dist/index.es";
+// import { type PaginationProps } from "../dist";
 
 let dataList = ref(dataMock);
 

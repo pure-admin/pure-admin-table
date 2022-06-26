@@ -1,3 +1,13 @@
+## 1.0.0 (2022-06-26)
+
+### 🎫 Feat
+
+- add `pagination` component
+
+### 🍏 Perf
+
+- types files
+
 ## 0.0.1 (2022-06-22)
 
 ### 🎫 Feat
