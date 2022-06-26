@@ -1,3 +1,4 @@
+import "./index.css";
 import props from "./props";
 import Renderer from "../renderer";
 import { isFunction } from "../helper";
@@ -123,6 +124,7 @@ export default defineComponent({
         {conditions ? (
           <el-pagination
             {...attrs}
+            class="pure-pagination"
             style={unref(getStyle)}
             {...unref(pagination)}
             layout={
