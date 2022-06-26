@@ -8,6 +8,8 @@
 
 English | [简体中文](./README.zh_CN.md)
 
+- [Preview](http://pure-admin-table.vercel.app)
+
 ## 🤔 Original intention of development
 
 - `element-plus` [Table](https://element-plus.org/en-US/component/table.html#table-column-attributes) `Table-column` attribute can only be written in the `<template></template>` template at present, which is not very flexible. If the table has enough `column`, the code is written and looks bloated, but `element-plus` [Virtualized Table](https://element-plus.org/en-US/component/table-v2.html) The configurability is very high. In order to maintain unity, I encapsulated `Table` twice and used `cellRenderer`, `headerRenderer` These two custom renderers, Built-in `Pagination` component that can be rendered by configuration, of course, there are some additional properties, let's explore together

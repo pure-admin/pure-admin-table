@@ -8,6 +8,8 @@
 
 简体中文 | [English](./README.md)  
 
+- [预览地址](http://pure-admin-table.vercel.app)
+
 ## 🤔 开发初衷
 
 -  `element-plus` [Table](https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7) 的`Table-column`属性目前只能写在`<template></template>`模版里，这样不是很灵活，如果表格的`column`足够多，代码写、看起来很臃肿，但`element-plus` [Virtualized Table](https://element-plus.org/zh-CN/component/table-v2.html) 可配置性就很高，为了保持统一，我将`Table`二次封装并沿用了`cellRenderer`、`headerRenderer`这两个自定义renderer，内置了可通过配置渲染的分页组件，当然还有一些额外的属性，让我们一起探索吧
