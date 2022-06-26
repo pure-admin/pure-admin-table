@@ -20,9 +20,11 @@ const PureTable = Object.assign(Table, {
     app.component(Table.name, Table);
   }
 });
+
 const components = [PurePagination, PureTable];
 function install(app: App<any>) {
   components.forEach(component => component.install(app));
 }
+
 export { PurePagination, PureTable, install };
 export default install;

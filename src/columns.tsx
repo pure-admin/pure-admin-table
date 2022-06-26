@@ -8,18 +8,18 @@ export function useColumns() {
       align: "left"
     },
     {
-      label: "部门名称",
+      label: "Department Name",
       prop: "name",
       width: 180,
       align: "left"
     },
     {
-      label: "排序",
+      label: "Sort",
       prop: "sort",
       width: 60
     },
     {
-      label: "状态",
+      label: "Status",
       prop: "status",
       width: 80,
       cellRenderer: ({ row, props }) => (
@@ -33,16 +33,16 @@ export function useColumns() {
       )
     },
     {
-      label: "创建时间",
+      label: "Creation Time",
       width: 180,
       prop: "createTime"
     },
     {
-      label: "备注",
+      label: "Remark",
       prop: "remark"
     },
     {
-      label: "操作",
+      label: "Operate",
       fixed: "right",
       width: 140,
       slot: "operation"
