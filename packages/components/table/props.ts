@@ -32,5 +32,10 @@ export default {
       layout: "total, sizes, prev, pager, next, jumper"
     }
   },
+  /** pagination size */
+  paginationSmall: {
+    type: Boolean,
+    default: false
+  },
   ...ElTable.props
 };

@@ -39,20 +39,26 @@ export default defineComponent({
     };
 
     const getStyle = computed((): CSSProperties => {
-      return {
-        width: "100%",
-        margin: "16px 0",
-        display: "flex",
-        justifyContent:
-          unref(pagination).align === "left"
-            ? "flex-start"
-            : unref(pagination).align === "center"
-            ? "center"
-            : "flex-end"
-      };
+      return Object.assign(
+        {
+          width: "100%",
+          margin: "16px 0",
+          display: "flex",
+          justifyContent:
+            unref(pagination).align === "left"
+              ? "flex-start"
+              : unref(pagination).align === "center"
+              ? "center"
+              : "flex-end"
+        },
+        unref(pagination).style ?? {}
+      );
     });
 
-    let conditions = unref(pagination) && unref(pagination).currentPage;
+    let conditions =
+      unref(pagination) &&
+      unref(pagination).currentPage &&
+      unref(pagination).pageSize;
 
     return () => (
       <>
@@ -127,6 +133,13 @@ export default defineComponent({
             class="pure-pagination"
             style={unref(getStyle)}
             {...unref(pagination)}
+            small={
+              props?.paginationSmall
+                ? props?.paginationSmall
+                : unref(pagination).small
+                ? unref(pagination).small
+                : false
+            }
             layout={
               unref(pagination).layout ??
               "total, sizes, prev, pager, next, jumper"
