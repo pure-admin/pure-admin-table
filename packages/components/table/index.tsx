@@ -11,6 +11,7 @@ import {
   type CSSProperties
 } from "vue";
 import { PureTableProps, TableColumnScope } from "../../types";
+import { ElTable, ElTableColumn, ElPagination } from "element-plus";
 
 const TableRef = ref();
 
@@ -62,73 +63,85 @@ export default defineComponent({
 
     return () => (
       <>
-        <el-table {...props} {...attrs} ref={TableRef}>
-          {unref(columns).map((column, index) => {
-            const defaultSlots = {
-              default: (scope: TableColumnScope) => {
-                if (column?.cellRenderer) {
-                  return (
-                    <Renderer
-                      render={column.cellRenderer}
-                      params={Object.assign(scope, {
-                        index: scope.$index,
-                        props,
-                        attrs
-                      })}
-                    ></Renderer>
-                  );
-                } else if (column?.slot) {
-                  return slots?.[column.slot]?.(
-                    Object.assign(scope, {
-                      index: scope.$index,
-                      props,
-                      attrs
-                    })
-                  );
-                }
-              }
-            };
-            const scopedSlots = column?.headerRenderer
-              ? {
-                  header: (scope: TableColumnScope) => {
-                    return (
-                      <Renderer
-                        render={column.headerRenderer}
-                        params={Object.assign(scope, {
+        <ElTable {...props} {...attrs} ref={TableRef}>
+          {{
+            default: () => {
+              return unref(columns).map((column, index) => {
+                const defaultSlots = {
+                  default: (scope: TableColumnScope) => {
+                    if (column?.cellRenderer) {
+                      return (
+                        <Renderer
+                          render={column.cellRenderer}
+                          params={Object.assign(scope, {
+                            index: scope.$index,
+                            props,
+                            attrs
+                          })}
+                        ></Renderer>
+                      );
+                    } else if (column?.slot) {
+                      return slots?.[column.slot]?.(
+                        Object.assign(scope, {
                           index: scope.$index,
                           props,
                           attrs
-                        })}
-                      ></Renderer>
-                    );
-                  },
-                  ...defaultSlots
+                        })
+                      );
+                    }
+                  }
+                };
+                const scopedSlots = column?.headerRenderer
+                  ? {
+                      header: (scope: TableColumnScope) => {
+                        return (
+                          <Renderer
+                            render={column.headerRenderer}
+                            params={Object.assign(scope, {
+                              index: scope.$index,
+                              props,
+                              attrs
+                            })}
+                          ></Renderer>
+                        );
+                      },
+                      ...defaultSlots
+                    }
+                  : defaultSlots;
+                if (isFunction(column?.hide) && column?.hide(attrs)) {
+                  return column?.hide(attrs);
                 }
-              : defaultSlots;
-            if (isFunction(column?.hide) && column?.hide(attrs)) {
-              return column?.hide(attrs);
+                return (
+                  <ElTableColumn
+                    {...column}
+                    key={index}
+                    align={column.align ? column.align : unref(align)}
+                    headerAlign={
+                      column.headerAlign
+                        ? column.headerAlign
+                        : unref(headerAlign)
+                    }
+                    showOverflowTooltip={
+                      Object.keys(column).includes("showOverflowTooltip")
+                        ? column.showOverflowTooltip
+                        : unref(showOverflowTooltip)
+                    }
+                  >
+                    {scopedSlots}
+                  </ElTableColumn>
+                );
+              });
+            },
+            append: () => {
+              return slots.append && slots.append();
+            },
+            empty: () => {
+              return slots.empty && slots.empty();
             }
-            return (
-              <el-table-column
-                {...column}
-                key={index}
-                align={column.align ? column.align : unref(align)}
-                headerAlign={
-                  column.headerAlign ? column.headerAlign : unref(headerAlign)
-                }
-                showOverflowTooltip={
-                  Object.keys(column).includes("showOverflowTooltip")
-                    ? column.showOverflowTooltip
-                    : unref(showOverflowTooltip)
-                }
-              >
-                {scopedSlots}
-              </el-table-column>
-            );
-          })}
-        </el-table>
+          }}
+        </ElTable>
         {conditions ? (
-          <el-pagination
+          <ElPagination
             {...attrs}
             class="pure-pagination"
             style={unref(getStyle)}
@@ -147,7 +160,7 @@ export default defineComponent({
             pageSizes={unref(pagination).pageSizes ?? [5, 10, 15, 20]}
             onSizeChange={val => handleSizeChange(val)}
             onCurrentChange={val => handleCurrentChange(val)}
-          ></el-pagination>
+          ></ElPagination>
         ) : null}
       </>
     );

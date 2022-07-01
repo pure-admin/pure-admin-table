@@ -1,4 +1,9 @@
 import { ref } from "vue";
+let srcList: Array<string> = [];
+
+for (let i = 1; i <= 11; i++) {
+  srcList.push(`/imgs/${i}.jpg`);
+}
 
 export function useColumns() {
   const columns = ref([
@@ -16,12 +21,12 @@ export function useColumns() {
     {
       label: "Sort",
       prop: "sort",
-      width: 60
+      width: 80
     },
     {
       label: "Status",
       prop: "status",
-      width: 80,
+      width: 100,
       cellRenderer: ({ row, props }) => (
         <el-tag
           size={props.size}
@@ -36,6 +41,30 @@ export function useColumns() {
       label: "Creation Time",
       width: 180,
       prop: "createTime"
+    },
+    {
+      width: 150,
+      prop: "createTime",
+      headerRenderer: () => <p>🫠headerRenderer</p>,
+      cellRenderer: ({
+        index,
+        props: {
+          pagination: { currentPage, pageSize }
+        }
+      }) => {
+        let currentIndex = (currentPage - 1) * pageSize + index;
+        return (
+          <el-image
+            fit="cover"
+            loading="lazy"
+            preview-teleported={true}
+            initial-index={currentIndex}
+            src={srcList[currentIndex]}
+            preview-src-list={srcList}
+            style="width: 80px; height: 80px; border-radius: 6px"
+          />
+        );
+      }
     },
     {
       label: "Remark",

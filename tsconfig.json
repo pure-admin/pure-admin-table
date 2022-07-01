@@ -8,13 +8,14 @@
     "isolatedModules": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "types": ["node", "vite/client"],
+    "types": ["node", "vite/client", "vitest/globals"],
   },
   "include": [
     "packages/**/**/*",
     "packages/**/*",
     "vite.config.ts",
-    "volar.d.ts"
+    "__tests__/*",
+    "volar.d.ts",
   ],
   "exclude": ["node_modules", "dist"]
 }

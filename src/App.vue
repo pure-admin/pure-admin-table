@@ -67,7 +67,7 @@ import { PureTable, type PaginationProps } from "../packages";
 let dataList = ref(dataMock);
 
 const pagination = reactive<PaginationProps>({
-  pageSize: 10,
+  pageSize: 5,
   currentPage: 1,
   background: true,
   class: "testClassName",
