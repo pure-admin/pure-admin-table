@@ -1,4 +1,10 @@
 <template>
+  <el-button type="primary" style="margin: 0 10px 10px 0" @click="onRefresh">
+    Refresh Data
+  </el-button>
+  <el-button type="primary" style="margin: 0 10px 10px 0" @click="onEmpty">
+    Empty Data
+  </el-button>
   <el-button
     type="primary"
     style="margin: 0 10px 10px 0"
@@ -7,12 +13,13 @@
     Get Table Methods
   </el-button>
   <span>Please open the console to watch</span>
+
   <PureTable
     ref="tableRef"
     border
-    align="center"
     row-key="id"
-    table-layout="auto"
+    align="center"
+    :height="dataList.length > 0 ? 585.5 : ''"
     showOverflowTooltip
     :data="
       dataList.slice(
@@ -31,6 +38,11 @@
     @size-change="onSizeChange"
     @current-change="onCurrentChange"
   >
+    <template #empty>
+      <el-empty description="暂无数据" :image-size="60">
+        <template #image> <empty /> </template>
+      </el-empty>
+    </template>
     <template #operation="{ row }">
       <el-button
         class="reset-margin"
@@ -57,6 +69,7 @@
 </template>
 
 <script setup lang="ts">
+import empty from "./empty.svg";
 import { dataMock } from "./mock";
 import { ref, reactive } from "vue";
 import { useColumns } from "./columns";
@@ -77,6 +90,18 @@ const pagination = reactive<PaginationProps>({
 const { columns } = useColumns();
 
 const tableRef = ref();
+
+function onRefresh() {
+  dataList.value = dataMock;
+  pagination.total = dataMock.length;
+}
+
+function onEmpty() {
+  dataList.value = [];
+  pagination.pageSize = 5;
+  pagination.currentPage = 1;
+  pagination.total = 0;
+}
 
 function getTableMethods() {
   console.log("methods", tableRef.value.getTableRef());
@@ -106,3 +131,9 @@ function onCurrentChange(val) {
   console.log("onCurrentChange", val);
 }
 </script>
+
+<style>
+.el-empty__description {
+  margin: 0 !important;
+}
+</style>

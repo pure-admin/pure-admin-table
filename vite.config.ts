@@ -1,5 +1,6 @@
 import * as path from "path";
 import vue from "@vitejs/plugin-vue";
+import svgLoader from "vite-svg-loader";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { terser } from "rollup-plugin-terser";
 import { defineConfig, type UserConfig } from "vite";
@@ -42,6 +43,6 @@ function getConfigs(): UserConfig {
 
 // https://cn.vitejs.dev/guide/build.html#library-mode
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  plugins: [vue(), vueJsx(), svgLoader()],
   ...getConfigs()
 });
