@@ -19,7 +19,7 @@
     border
     row-key="id"
     align="center"
-    :height="dataList.length > 0 ? 585.5 : ''"
+    :height="dataList.length > 0 ? 635.5 : ''"
     showOverflowTooltip
     :data="
       dataList.slice(
@@ -42,6 +42,19 @@
       <el-empty description="暂无数据" :image-size="60">
         <template #image> <empty /> </template>
       </el-empty>
+    </template>
+    <template #append>
+      <p>
+        Hope
+        <el-link
+          type="primary"
+          href="https://github.com/xiaoxian521/pure-admin-table"
+          target="_blank"
+        >
+          @pureadmin/table
+        </el-link>
+        can help you. If you like it, please give it a star
+      </p>
     </template>
     <template #operation="{ row }">
       <el-button
