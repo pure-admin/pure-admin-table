@@ -5,15 +5,25 @@
   <el-button type="primary" style="margin: 0 10px 10px 0" @click="onEmpty">
     Empty Data
   </el-button>
-  <el-button
-    type="primary"
-    style="margin: 0 10px 10px 0"
-    @click="getTableMethods"
+  <el-tooltip
+    content="Please open the console to watch"
   >
-    Get Table Methods
-  </el-button>
-  <span>Please open the console to watch</span>
-
+   <el-button
+     type="primary"
+     style="margin: 0 10px 10px 0"
+     @click="getTableMethods"
+   >
+     Get Table Methods
+   </el-button>
+  </el-tooltip>
+  <el-switch
+    v-model="isDark"
+    inline-prompt
+    :active-icon="dayIcon"
+    :inactive-icon="darkIcon"
+    @change="dataThemeChange"
+  />
+  
   <div v-loading="loading" style="height: 635px">
     <PureTable
       v-if="!loading"
@@ -85,16 +95,20 @@
 </template>
 
 <script setup lang="ts">
-import empty from "./empty.svg";
-import { dataMock } from "./mock";
-import { useColumns } from "./columns";
-import { ref, reactive, onMounted } from "vue";
-import { PureTable, type PaginationProps } from "../packages";
+import { dataMock } from "./mock"
+import { useColumns } from "./columns"
+import { ref, reactive, onMounted } from "vue"
+import { PureTable, type PaginationProps } from "../packages"
 // import { PureTable } from "../dist/index.es";
 // import { type PaginationProps } from "../dist";
 
-let loading = ref(true);
-let dataList = ref<any>([]);
+import empty from "./svg/empty.svg"
+import dayIcon from "./svg/day.svg"
+import darkIcon from "./svg/dark.svg"
+
+let loading = ref(true)
+let isDark = ref(false)
+let dataList = ref<any>([])
 
 const pagination = reactive<PaginationProps>({
   pageSize: 5,
@@ -154,6 +168,15 @@ function onCurrentChange(val) {
   setTimeout(() => {
     loading.value = false;
   }, 300);
+}
+
+function dataThemeChange(val) {
+  isDark.value = val
+  if (val) {
+    document.documentElement.classList.add("dark")
+  } else {
+    document.documentElement.classList.remove("dark")
+  }
 }
 
 onMounted(() => {

@@ -52,6 +52,13 @@
   "peerDependencies": {
     "element-plus": "^2.0.0"
   },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack"
+      ]
+    }
+  },
   "dependencies": {
     "element-plus": "^2.2.6",
     "vue": "^3.2.37"
@@ -71,6 +78,8 @@
     "resize-observer-polyfill": "^1.5.1",
     "rollup": "^2.75.7",
     "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.54.3",
+    "sass-loader": "^13.0.2",
     "typescript": "^4.7.4",
     "vite": "^2.9.12",
     "vite-svg-loader": "^3.4.0",
