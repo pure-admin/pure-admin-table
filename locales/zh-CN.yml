@@ -9,3 +9,4 @@ text:
   help: 能帮你。如果你喜欢它，请给它一个star
   empty: 暂无数据
   sure: 是否确认删除？
+  console: 请打开浏览器控制台查看打印信息

@@ -22,7 +22,7 @@
     <el-button type="primary" @click="onEmpty">
       {{ t("button.empty") }}
     </el-button>
-    <el-tooltip content="Please open the console to watch">
+    <el-tooltip :content="t('text.console')">
       <el-button type="primary" @click="getTableMethods">
         {{ t("button.methods") }}
       </el-button>
@@ -107,8 +107,8 @@
 import { dataMock } from "./mock";
 import { useI18n } from "vue-i18n";
 import { useColumns } from "./columns";
+import { ElDivider } from "element-plus";
 import { h, ref, reactive, onMounted } from "vue";
-import { ElDivider, ElMessage } from "element-plus";
 import en from "element-plus/lib/locale/lang/en";
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
 import { PureTable, type PaginationProps } from "../packages";
@@ -157,14 +157,6 @@ function onEmpty() {
 }
 
 function getTableMethods() {
-  let message: any = Object.keys(tableRef.value.getTableRef());
-  ElMessage({
-    duration: 0,
-    zIndex: 99,
-    showClose: true,
-    message: message.join("、"),
-    type: "success"
-  });
   console.log("methods", tableRef.value.getTableRef());
 }
 
