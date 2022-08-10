@@ -1,27 +1,27 @@
 <h1 align="center">@pureadmin/table</h1>
-<p align="center">Secondary encapsulation of element-plus Table, providing flexible configuration items</p>
+<p align="center">二次封装element-plus的Table，提供灵活的配置项</p>
 
 <p align="center">
 <a href="https://www.npmjs.com/package/@pureadmin/table" target="__blank"><img src="https://img.shields.io/npm/v/@pureadmin/table?color=a1b858&label=" alt="NPM version"></a>
 <a href="https://www.npmjs.com/package/@pureadmin/table" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@pureadmin/table?color=50a36f&label="></a>
 </p>
 
-English | [简体中文](./README.zh_CN.md)
+简体中文 | [English](./README.en-US.md)  
 
-- [Preview](http://pure-admin-table.vercel.app)
+- [预览地址](http://pure-admin-table.vercel.app)
 
-## 🤔 Original intention of development
+## 🤔 开发初衷
 
-- `element-plus` [Table](https://element-plus.org/en-US/component/table.html#table-column-attributes) `Table-column` attribute can only be written in the `<template></template>` template at present, which is not very flexible. If the table has enough `column`, the code is written and looks bloated, but `element-plus` [Virtualized Table](https://element-plus.org/en-US/component/table-v2.html) The configurability is very high. In order to maintain unity, I encapsulated `Table` twice and used `cellRenderer`, `headerRenderer` These two custom renderers, Built-in `Pagination` component that can be rendered by configuration, of course, there are some additional properties, let's explore together
+-  `element-plus` [Table](https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7) 的`Table-column`属性目前只能写在`<template></template>`模版里，这样不是很灵活，如果表格的`column`足够多，代码写、看起来很臃肿，但`element-plus` [Virtualized Table](https://element-plus.org/zh-CN/component/table-v2.html) 可配置性就很高，为了保持统一，我将`Table`二次封装并沿用了`cellRenderer`、`headerRenderer`这两个自定义renderer，内置了可通过配置渲染的分页组件，当然还有一些额外的属性，让我们一起探索吧
 
-## 🚀 Features
+## 🚀 特性
 
-- 🦾 **High flexibility**: Written using `tsx` syntax, while ensuring the type, it provides developers with more flexible writing methods and provides users with more convenient configuration
-- ⚡ **Fully tree-shaking**: Comes with Tree-shaking, only packages the imported code
-- 🫶 **Code Zero Intrusion**: While keeping all `properties`, `slot`, `events` and `methods` of `element-plus` [Table](https://element-plus.org/en-US/component/table.html), Provides more flexible configuration, It also has built-in `Pagination` components that can be rendered by configuration
-- ⚓ **Verification before code submission**: Use [husky](https://typicode.github.io/husky/#/) to verify the rules before submitting code, enforce standard development process and prevent development mistakes
+- 🦾 **灵活度高**: 使用`tsx`语法编写，保证类型的同时，给开发者提供了更灵活的写法，给使用者提供了更方便的配置
+- ⚡ **完全可摇树**: 自带Tree-shaking，只对引入的代码进行打包
+- 🫶 **代码零侵入**: 保持`element-plus` [Table](https://element-plus.org/zh-CN/component/table.html) 的所有属性、插槽、事件、方法的同时，提供更灵活的配置，而且还内置了可通过配置渲染的分页组件
+- ⚓ **代码提交前校验**: 使用 [husky](https://typicode.github.io/husky/#/) 对提交代码前进行规则校验，强制规范开发流程，防止开发失误
 
-## 📦 Install
+## 📦 安装
 
 ```bash
 npm install @pureadmin/table
@@ -29,9 +29,9 @@ or
 pnpm add @pureadmin/table
 ```
 
-## 🦄 Usage
+## 🦄 用法
 
-### Partial registration (single file)
+### 局部注册（单文件）
 
 ```ts
 import { PureTable } from "@pureadmin/table";
@@ -39,7 +39,7 @@ import { PureTable } from "@pureadmin/table";
 <pure-table :data="dataList" :columns="columns" :pagination="pagination"></pure-table>
 ```
 
-### Global registration (main.ts)
+### 全局注册（main.ts）
 
 ```ts
 import { createApp } from "vue";
@@ -52,11 +52,11 @@ const app = createApp(App);
 app.use(Table).mount("#app");
 ```
 
-[Click to view the specific usage](https://github.com/xiaoxian521/pure-admin-table/blob/main/src/App.vue)
+[点击查看具体用法](https://github.com/xiaoxian521/pure-admin-table/blob/main/src/App.vue)
 
-## Volar support
+## Volar 支持
 
-- If you are using `Volar`, you can configure compilerOptions.types in tsconfig.json to specify the global component type (especially if you want to get type hints during global registration, you need to add the following configuration)
+- 如果您在使用 `Volar`，那么可以在 tsconfig.json 中配置 compilerOptions.types 来指定全局组件类型（尤其是全局注册时要想获得类型提示就需要加上下面配置）
 
 ```js
 // tsconfig.json
@@ -67,6 +67,7 @@ app.use(Table).mount("#app");
   }
 }
 ```
-## License
+
+## 许可证
 
 [MIT © xiaoxian521-2022](./LICENSE)
