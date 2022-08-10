@@ -13,6 +13,9 @@
   "include": [
     "packages/**/**/*",
     "packages/**/*",
+    "src/*.ts",
+    "src/*.tsx",
+    "src/*.vue",
     "vite.config.ts",
     "__tests__/*",
     "volar.d.ts",

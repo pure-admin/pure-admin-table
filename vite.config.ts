@@ -3,6 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import svgLoader from "vite-svg-loader";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { terser } from "rollup-plugin-terser";
+import VueI18n from "@intlify/vite-plugin-vue-i18n";
 import { defineConfig, type UserConfig } from "vite";
 
 const lifecycle = process.env.npm_lifecycle_event;
@@ -35,7 +36,6 @@ function getConfigs(): UserConfig {
     : {
         build: {
           sourcemap: false,
-          brotliSize: false,
           chunkSizeWarningLimit: 4000
         }
       };
@@ -43,6 +43,18 @@ function getConfigs(): UserConfig {
 
 // https://cn.vitejs.dev/guide/build.html#library-mode
 export default defineConfig({
-  plugins: [vue(), vueJsx(), svgLoader()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    svgLoader(),
+    VueI18n({
+      runtimeOnly: true,
+      compositionOnly: true,
+      include: [path.resolve(__dirname, "locales/**")]
+    })
+  ],
+  server: {
+    host: "0.0.0.0"
+  },
   ...getConfigs()
 });

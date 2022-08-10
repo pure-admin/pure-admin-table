@@ -1,0 +1,11 @@
+button:
+  refresh: Refresh Table
+  empty: Empty Table
+  methods: Get Table Component Instance
+  edit: Edit
+  delete: Delete
+text: 
+  hope: Hope
+  help: can help you. If you like it, please give it a star
+  empty: No Data
+  sure: Whether to confirm the deletion?

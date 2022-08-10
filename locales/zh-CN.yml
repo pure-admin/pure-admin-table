@@ -1,0 +1,11 @@
+button:
+  refresh: 刷新表格
+  empty: 空表格
+  methods: 获取表格组件实例
+  edit: 编辑
+  delete: 删除
+text: 
+  hope: 希望
+  help: 能帮你。如果你喜欢它，请给它一个star
+  empty: 暂无数据
+  sure: 是否确认删除？
