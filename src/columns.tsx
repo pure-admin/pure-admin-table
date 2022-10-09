@@ -2,7 +2,7 @@ import { ref } from "vue";
 let srcList: Array<string> = [];
 
 for (let i = 1; i <= 11; i++) {
-  srcList.push(`/imgs/${i}.jpg`);
+  srcList.push(`./imgs/${i}.jpg`);
 }
 
 export function useColumns() {
