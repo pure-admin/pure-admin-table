@@ -8,7 +8,7 @@
 
 English | [简体中文](./README.md)
 
-- [Preview](http://pure-admin-table.vercel.app)
+- [Preview](https://xiaoxian521.github.io/pure-admin-table/)
 
 ## 🤔 Original intention of development
 
@@ -25,7 +25,7 @@ English | [简体中文](./README.md)
 
 ```bash
 npm install @pureadmin/table
-or 
+or
 pnpm add @pureadmin/table
 ```
 
@@ -67,6 +67,7 @@ app.use(Table).mount("#app");
   }
 }
 ```
+
 ## License
 
 [MIT © xiaoxian521-2022](./LICENSE)

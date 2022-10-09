@@ -28,6 +28,7 @@ jobs:
         run: |
           pnpm install
           pnpm build
+          touch README.md .nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4

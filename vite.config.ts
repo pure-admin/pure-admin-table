@@ -34,6 +34,7 @@ function getConfigs(): UserConfig {
         }
       }
     : {
+        base: "/pure-admin-table/",
         build: {
           sourcemap: false,
           chunkSizeWarningLimit: 4000
