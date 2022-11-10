@@ -1,9 +1,14 @@
 <template>
   <h1 style="text-align: center">按需引入示例</h1>
-  <pure-table :data="tableData" :columns="columns"></pure-table>
+  <el-config-provider :locale="zhCn">
+    <pure-table :data="tableData" :columns="columns" :pagination="pagination"></pure-table>
+  </el-config-provider>
 </template>
 
 <script lang="ts" setup>
+import { reactive } from "vue"
+import zhCn from "element-plus/lib/locale/lang/zh-cn"
+
 const columns = [{
   label: "Date",
   prop: "date",
@@ -37,5 +42,12 @@ const tableData = [
     address: 'No. 189, Grove St, Los Angeles',
   },
 ]
+
+const pagination = reactive({
+  pageSize: 5,
+  currentPage: 1,
+  background: true,
+  total: tableData.length
+})
 </script>
 
