@@ -1,5 +1,11 @@
 export type {
   Align,
+  TableColumn,
+  TableColumnType,
+  TableColumnFixed,
+  TableColumnSortable,
+  TableColumnSortOrders,
+  TableColumnFilterPlacement,
   TableColumns,
   PureTableProps,
   PaginationProps,
