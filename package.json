@@ -43,7 +43,7 @@
     "test": "vitest run",
     "build": "vite build",
     "preview": "vite preview",
-    "lib": "vite build && vue-tsc -p tsconfig.build.json",
+    "lib": "vue-tsc -p tsconfig.build.json && vite build",
     "lint": "prettier --write  \"packages/**/*.{ts,tsx}\" \"__tests__/table.test.tsx\" \"src/*.{ts,tsx,vue}\"",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "lint:pretty": "pretty-quick --staged",
@@ -79,7 +79,7 @@
     "vite-svg-loader": "^3.4.0",
     "vitest": "^0.25.2",
     "vue-i18n": "^9.2.2",
-    "vue-tsc": "^0.39.5"
+    "vue-tsc": "^1.0.9"
   },
   "pnpm": {
     "peerDependencyRules": {
