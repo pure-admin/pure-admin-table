@@ -52,16 +52,9 @@
   "peerDependencies": {
     "element-plus": "^2.0.0"
   },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "webpack"
-      ]
-    }
-  },
   "dependencies": {
-    "element-plus": "^2.2.6",
-    "vue": "^3.2.37"
+    "element-plus": "^2.2.22",
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
@@ -69,23 +62,30 @@
     "@esbuild-kit/cjs-loader": "^2.2.0",
     "@intlify/vite-plugin-vue-i18n": "^6.0.0",
     "@types/node": "^18.0.0",
-    "@vitejs/plugin-vue": "^3.0.1",
-    "@vitejs/plugin-vue-jsx": "^2.0.0",
-    "@vue/test-utils": "^2.0.0",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "@vitejs/plugin-vue-jsx": "^2.1.1",
+    "@vue/test-utils": "^2.2.3",
     "husky": "^8.0.1",
-    "jsdom": "^20.0.0",
+    "jsdom": "^20.0.2",
     "lint-staged": "^13.0.2",
     "prettier": "^2.7.1",
     "resize-observer-polyfill": "^1.5.1",
     "rollup": "^2.75.7",
     "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.54.3",
-    "sass-loader": "^13.0.2",
-    "typescript": "^4.7.4",
-    "vite": "^3.0.5",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.4",
     "vite-svg-loader": "^3.4.0",
-    "vitest": "^0.21.1",
+    "vitest": "^0.25.2",
     "vue-i18n": "^9.2.2",
     "vue-tsc": "^0.39.5"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack"
+      ]
+    }
   }
 }
