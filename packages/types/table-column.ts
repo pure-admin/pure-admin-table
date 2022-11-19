@@ -29,10 +29,10 @@ type FilterMethods = (value, row: any, column: TableColumnCtx<any>) => void;
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7}
  */
 export type TableColumn = {
-  /** 显示的标题 `该属性为必填属性` */
-  label: string;
-  /** 字段名称，对应列内容的字段名，也可以使用 `property` 属性 `该属性为必填属性` */
-  prop: string;
+  /** 显示的标题 */
+  label?: string;
+  /** 字段名称，对应列内容的字段名，也可以使用 `property` 属性 */
+  prop?: string;
   /** 对应列的类型，如果设置了 `selection` 则显示多选框；如果设置了 `index` 则显示该行的索引（从 `1` 开始计算）；如果设置了 `expand` 则显示为一个可展开的按钮 */
   type?: TableColumnType;
   /** 如果设置了 `type=index`，可以通过传递 `index` 属性来自定义索引 */
