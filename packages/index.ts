@@ -1,15 +1,20 @@
 export type {
-  Align,
-  TableColumn,
   TableColumnType,
   TableColumnFixed,
   TableColumnSortable,
   TableColumnSortOrders,
   TableColumnFilterPlacement,
+  TableColumnScope,
+  TableColumnRenderer,
+  TableColumn,
   TableColumns,
-  PureTableProps,
   PaginationProps,
-  TableColumnScope
+  TableProps,
+  PureTableProps,
+  Align,
+  Size,
+  Effect,
+  Layout
 } from "./types";
 
 import type { App } from "vue";

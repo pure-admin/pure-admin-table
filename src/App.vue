@@ -36,7 +36,7 @@
         ref="tableRef"
         border
         row-key="id"
-        align="center"
+        alignWhole="center"
         :height="dataList.length > 0 ? 635.5 : ''"
         showOverflowTooltip
         :data="
@@ -64,7 +64,7 @@
           </el-empty>
         </template>
         <template #append>
-          <p>
+          <p style="text-align: center">
             {{ t("text.hope") }}
             <el-link
               type="primary"
@@ -115,7 +115,7 @@ import { PureTable, type PaginationProps } from "../packages";
 // import { PureTable } from "../dist/index.es";
 // import { type PaginationProps } from "../dist";
 
-import empty from "./svg/empty.svg";
+import empty from "./svg/empty.svg?component";
 import dayIcon from "./svg/day.svg";
 import darkIcon from "./svg/dark.svg";
 import chineseIcon from "./svg/chinese.svg";

@@ -26,8 +26,13 @@ export default defineComponent({
   },
   emits: ["size-change", "current-change"],
   setup(props, { slots, attrs, emit }) {
-    const { columns, align, headerAlign, showOverflowTooltip, pagination } =
-      toRefs(props) as unknown as PureTableProps;
+    const {
+      columns,
+      alignWhole,
+      headerAlign,
+      showOverflowTooltip,
+      pagination
+    } = toRefs(props) as unknown as PureTableProps;
 
     const handleSizeChange = val => {
       unref(pagination).pageSize = val;
@@ -61,83 +66,87 @@ export default defineComponent({
       unref(pagination).currentPage &&
       unref(pagination).pageSize;
 
+    const renderColumns = (columns: Record<string, any>, index: number) => {
+      const { cellRenderer, slot, headerRenderer, hide, children, ...args } =
+        columns;
+
+      const defaultSlots = {
+        default: (scope: TableColumnScope) => {
+          if (cellRenderer) {
+            return (
+              <Renderer
+                render={cellRenderer}
+                params={Object.assign(scope, {
+                  index: scope.$index,
+                  props,
+                  attrs
+                })}
+              ></Renderer>
+            );
+          } else if (slot) {
+            return slots?.[slot]?.(
+              Object.assign(scope, {
+                index: scope.$index,
+                props,
+                attrs
+              })
+            );
+          }
+        }
+      };
+
+      let scopedSlots = headerRenderer
+        ? {
+            header: (scope: TableColumnScope) => {
+              return (
+                <Renderer
+                  render={headerRenderer}
+                  params={Object.assign(scope, {
+                    index: scope.$index,
+                    props,
+                    attrs
+                  })}
+                ></Renderer>
+              );
+            },
+            ...defaultSlots
+          }
+        : defaultSlots;
+
+      if (isFunction(hide) && hide(attrs)) {
+        return hide(attrs);
+      }
+
+      if (children?.length > 0) {
+        scopedSlots = children.map(renderColumns);
+      }
+
+      return (
+        <ElTableColumn
+          key={index}
+          {...args}
+          align={columns?.align ? columns.align : unref(alignWhole)}
+          headerAlign={
+            columns?.headerAlign ? columns.headerAlign : unref(headerAlign)
+          }
+          showOverflowTooltip={
+            columns?.showOverflowTooltip
+              ? columns.showOverflowTooltip
+              : unref(showOverflowTooltip)
+          }
+        >
+          {scopedSlots}
+        </ElTableColumn>
+      );
+    };
+
     return () => (
       <>
         <ElTable {...props} {...attrs} ref={TableRef}>
           {{
-            default: () => {
-              return unref(columns).map((column, index) => {
-                const defaultSlots = {
-                  default: (scope: TableColumnScope) => {
-                    if (column?.cellRenderer) {
-                      return (
-                        <Renderer
-                          render={column.cellRenderer}
-                          params={Object.assign(scope, {
-                            index: scope.$index,
-                            props,
-                            attrs
-                          })}
-                        ></Renderer>
-                      );
-                    } else if (column?.slot) {
-                      return slots?.[column.slot]?.(
-                        Object.assign(scope, {
-                          index: scope.$index,
-                          props,
-                          attrs
-                        })
-                      );
-                    }
-                  }
-                };
-                const scopedSlots = column?.headerRenderer
-                  ? {
-                      header: (scope: TableColumnScope) => {
-                        return (
-                          <Renderer
-                            render={column.headerRenderer}
-                            params={Object.assign(scope, {
-                              index: scope.$index,
-                              props,
-                              attrs
-                            })}
-                          ></Renderer>
-                        );
-                      },
-                      ...defaultSlots
-                    }
-                  : defaultSlots;
-                if (isFunction(column?.hide) && column?.hide(attrs)) {
-                  return column?.hide(attrs);
-                }
-                return (
-                  <ElTableColumn
-                    {...column}
-                    key={index}
-                    align={column.align ? column.align : unref(align)}
-                    headerAlign={
-                      column.headerAlign
-                        ? column.headerAlign
-                        : unref(headerAlign)
-                    }
-                    showOverflowTooltip={
-                      Object.keys(column).includes("showOverflowTooltip")
-                        ? column.showOverflowTooltip
-                        : unref(showOverflowTooltip)
-                    }
-                  >
-                    {scopedSlots}
-                  </ElTableColumn>
-                );
-              });
-            },
-            append: () => {
-              return slots.append && slots.append();
-            },
-            empty: () => {
-              return slots.empty && slots.empty();
-            }
+            default: () => unref(columns).map(renderColumns),
+            append: () => slots.append && slots.append(),
+            empty: () => slots.empty && slots.empty()
           }}
         </ElTable>
         {conditions ? (

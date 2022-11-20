@@ -1,11 +1,11 @@
 import type { TableColumnCtx } from "element-plus/es/components/table/src/table-column/defaults";
+import { PureTableProps, Align } from "./index";
 import type { VNode } from "vue";
 
 export type TableColumnType = "selection" | "index" | "expand";
 export type TableColumnFixed = true | "left" | "right";
 export type TableColumnSortable = false | true | "custom";
 export type TableColumnSortOrders = "ascending" | "descending" | null;
-export type Align = "left" | "center" | "right";
 export type TableColumnFilterPlacement =
   | "top-start"
   | "top-end"
@@ -23,6 +23,18 @@ export type TableColumnFilterPlacement =
 type RH = { column: TableColumnCtx<any>; $index: number };
 
 type FilterMethods = (value, row: any, column: TableColumnCtx<any>) => void;
+
+export interface TableColumnScope {
+  row?: any;
+  column: TableColumn;
+  $index: number;
+}
+
+export interface TableColumnRenderer extends TableColumnScope {
+  index: number;
+  props: PureTableProps;
+  attrs: any;
+}
 
 /**
  * @description `element-plus` 的 `table` 中 `Table-column` 属性，未扩展
@@ -89,3 +101,20 @@ export type TableColumn = {
   /** 选中的数据过滤项，如果需要自定义表头过滤的渲染方式，可能会需要此属性 */
   filteredValue?: Array<any>;
 };
+
+/**
+ * @description `element-plus` 的 `table` 中 `Table-column` 属性，已扩展，额外增加 `hide` 、`slot` 、`cellRenderer` 、`headerRenderer` 四个属性
+ * @see {@link https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7}
+ */
+export interface TableColumns extends TableColumn {
+  /** 是否隐藏 必须是个函数 */
+  hide?: CallableFunction;
+  /** 自定义插槽 */
+  slot?: string;
+  /** 多级表头，内部实现原理：嵌套 `el-table-column` */
+  children?: Array<TableColumns>;
+  /** 自定义单元格渲染器 */
+  cellRenderer?: (data: TableColumnRenderer) => VNode;
+  /** 自定义头部渲染器 */
+  headerRenderer?: (data: TableColumnRenderer) => VNode;
+}

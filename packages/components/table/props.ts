@@ -6,7 +6,7 @@ export default {
     default: []
   },
   /** Integrate Table-column with align property into Table property */
-  align: {
+  alignWhole: {
     type: String,
     default: "left"
   },
