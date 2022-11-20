@@ -1,4 +1,4 @@
-import { ElTable } from "element-plus";
+import defaultProps from "element-plus/es/components/table/src/table/defaults";
 
 export default {
   columns: {
@@ -37,5 +37,5 @@ export default {
     type: Boolean,
     default: false
   },
-  ...ElTable.props
+  ...defaultProps
 };
