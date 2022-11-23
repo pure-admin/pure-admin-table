@@ -67,8 +67,15 @@ export default defineComponent({
       unref(pagination).pageSize;
 
     const renderColumns = (columns: Record<string, any>, index: number) => {
-      const { cellRenderer, slot, headerRenderer, hide, children, ...args } =
-        columns;
+      const {
+        cellRenderer,
+        slot,
+        headerRenderer,
+        hide,
+        children,
+        prop,
+        ...args
+      } = columns;
 
       const defaultSlots = {
         default: (scope: TableColumnScope) => {
@@ -125,6 +132,7 @@ export default defineComponent({
         <ElTableColumn
           key={index}
           {...args}
+          prop={isFunction(prop) && prop(index) ? prop(index) : prop}
           align={columns?.align ? columns.align : unref(alignWhole)}
           headerAlign={
             columns?.headerAlign ? columns.headerAlign : unref(headerAlign)

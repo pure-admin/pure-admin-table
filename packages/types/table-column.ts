@@ -44,7 +44,7 @@ export type TableColumn = {
   /** 显示的标题 */
   label?: string;
   /** 字段名称，对应列内容的字段名，也可以使用 `property` 属性 */
-  prop?: string;
+  prop?: string | ((index: number) => string);
   /** 对应列的类型，如果设置了 `selection` 则显示多选框；如果设置了 `index` 则显示该行的索引（从 `1` 开始计算）；如果设置了 `expand` 则显示为一个可展开的按钮 */
   type?: TableColumnType;
   /** 如果设置了 `type=index`，可以通过传递 `index` 属性来自定义索引 */
