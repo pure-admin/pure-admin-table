@@ -9,6 +9,7 @@
 English | [简体中文](./README.md)
 
 - [Preview](https://xiaoxian521.github.io/pure-admin-table/)
+- [MoreExamples](https://yiming_chang.gitee.io/vue-pure-admin/#/pure-table/index?username=sso&roles=admin&accessToken=eyJhbGciOiJIUzUxMiJ9.admin)
 
 ## 🤔 Original intention of development
 
