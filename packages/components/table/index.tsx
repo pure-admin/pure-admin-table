@@ -3,7 +3,6 @@ import {
   toRefs,
   computed,
   nextTick,
-  type Ref,
   onMounted,
   defineComponent,
   getCurrentInstance,
