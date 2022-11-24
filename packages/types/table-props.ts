@@ -139,6 +139,8 @@ export type TableProps = {
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-%E5%B1%9E%E6%80%A7}
  */
 export interface PureTableProps extends TableProps {
+  /** 唯一键，如果单个页面有多个表格实例，但是您只获取到一个表格实例，设置key即可解决，不过大多数情况下不需要设置，会自动处理 */
+  key?: String | Number;
   /** `Table-column` 配置 `该属性为必填属性` */
   columns: Array<TableColumns>;
   /** 对齐方式，默认值 `left` */
@@ -147,6 +149,8 @@ export interface PureTableProps extends TableProps {
   headerAlign?: Align;
   /** 当内容过长被隐藏时显示 `tooltip`，默认值 `false` */
   showOverflowTooltip?: boolean;
+  /** 鼠标经过行时，行的背景色，默认 `--el-table-row-hover-bg-color`，具体看 https://github.com/element-plus/element-plus/blob/dev/packages/theme-chalk/src/table.scss#L607-L611 */
+  rowHoverBgColor?: string;
   /** 分页相关配置 */
   pagination?: PaginationProps;
   /** 是否使用小型分页样式，默认值：`false` (这里暴露出来主要是满足一些特殊场景，一般情况下可直接在 `pagination` 中设置) */

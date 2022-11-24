@@ -1,31 +1,47 @@
+import {
+  unref,
+  toRefs,
+  computed,
+  nextTick,
+  type Ref,
+  onMounted,
+  defineComponent,
+  getCurrentInstance,
+  type CSSProperties
+} from "vue";
 import "./index.css";
 import props from "./props";
 import Renderer from "../renderer";
 import { isFunction } from "../helper";
-import {
-  ref,
-  unref,
-  toRefs,
-  computed,
-  defineComponent,
-  type CSSProperties
-} from "vue";
 import { PureTableProps, TableColumnScope } from "../../types";
 import { ElTable, ElTableColumn, ElPagination } from "element-plus";
-
-const TableRef = ref();
 
 export default defineComponent({
   name: "PureTable",
   props,
-  methods: {
-    /** Get Table Methods */
-    getTableRef() {
-      return TableRef.value;
-    }
-  },
   emits: ["size-change", "current-change"],
-  setup(props, { slots, attrs, emit }) {
+  setup(props, { slots, attrs, emit, expose }) {
+    const instance = getCurrentInstance()!;
+
+    function getTableRef() {
+      return instance?.proxy?.$refs[`TableRef${props.key}`];
+    }
+
+    function getTableDoms() {
+      return (getTableRef() as any).$refs;
+    }
+
+    onMounted(() => {
+      nextTick(() => {
+        if (!props.rowHoverBgColor) return;
+        getTableDoms().tableWrapper.style.setProperty(
+          "--el-table-row-hover-bg-color",
+          props.rowHoverBgColor,
+          "important"
+        );
+      });
+    });
+
     const {
       columns,
       alignWhole,
@@ -148,9 +164,16 @@ export default defineComponent({
       );
     };
 
+    expose({
+      /** @description Get Table Instance */
+      getTableRef,
+      /** @description Get Table Doms */
+      getTableDoms
+    });
+
     return () => (
       <>
-        <ElTable {...props} {...attrs} ref={TableRef}>
+        <ElTable {...props} {...attrs} ref={`TableRef${props.key}`}>
           {{
             default: () => unref(columns).map(renderColumns),
             append: () => slots.append && slots.append(),

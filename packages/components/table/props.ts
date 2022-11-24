@@ -1,6 +1,12 @@
 import defaultProps from "element-plus/es/components/table/src/table/defaults";
 
 export default {
+  /** Unique key, if there are multiple table instances on a single page, but you only get one table instance, you can solve it by setting the key, but in most cases you don’t need to set it, it will be processed automatically */
+  key: {
+    type: String || Number,
+    default: "0"
+  },
+  /** Table columns config */
   columns: {
     type: Array,
     default: []
@@ -20,7 +26,12 @@ export default {
     type: Boolean,
     default: false
   },
-  /** pagination config */
+  /** The background color of the row when the mouse is over the row */
+  rowHoverBgColor: {
+    type: String,
+    default: ""
+  },
+  /** Pagination config */
   pagination: {
     type: Object,
     default: {
@@ -32,7 +43,7 @@ export default {
       layout: "total, sizes, prev, pager, next, jumper"
     }
   },
-  /** pagination size */
+  /** Pagination size */
   paginationSmall: {
     type: Boolean,
     default: false
