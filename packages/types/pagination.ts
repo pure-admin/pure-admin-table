@@ -1,5 +1,5 @@
-import { Align } from "./index";
 import type { CSSProperties } from "vue";
+import { Align } from "./index";
 
 /**
  * @description 分页相关配置。注意：`pageSize`、`total`、`currentPage` 这三个属性必传

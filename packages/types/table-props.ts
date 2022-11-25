@@ -1,41 +1,21 @@
-import type { TableColumnCtx } from "element-plus/es/components/table/src/table-column/defaults";
 import {
   PaginationProps,
   TableColumns,
-  Align,
-  Size,
   Effect,
-  Layout
+  Layout,
+  Align,
+  Size
 } from "./index";
 import type {
-  ColumnCls,
-  ColumnStyle,
+  TableColumnCtx,
   SummaryMethod,
+  ColumnStyle,
+  ColumnCls,
+  CellStyle,
   TreeNode,
+  CellCls,
   Sort
 } from "element-plus";
-import type { CSSProperties } from "vue";
-
-/**
- * @todo https://github.com/element-plus/element-plus/commit/d8a116c37f934788b9ef331112c21dfa73df48f7
- */
-type CellCls<T> =
-  | string
-  | ((data: {
-      row: T;
-      rowIndex: number;
-      column: TableColumnCtx<T>;
-      columnIndex: number;
-    }) => string);
-
-type CellStyle<T> =
-  | CSSProperties
-  | ((data: {
-      row: T;
-      rowIndex: number;
-      column: TableColumnCtx<T>;
-      columnIndex: number;
-    }) => CSSProperties);
 
 /**
  * @description `element-plus` 的 `table` 属性，未扩展

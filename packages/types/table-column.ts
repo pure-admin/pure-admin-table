@@ -1,11 +1,11 @@
-import type { TableColumnCtx } from "element-plus/es/components/table/src/table-column/defaults";
+import type { TableColumnCtx } from "element-plus";
 import { PureTableProps, Align } from "./index";
 import type { VNode } from "vue";
 
-export type TableColumnType = "selection" | "index" | "expand";
-export type TableColumnFixed = true | "left" | "right";
-export type TableColumnSortable = false | true | "custom";
 export type TableColumnSortOrders = "ascending" | "descending" | null;
+export type TableColumnType = "selection" | "index" | "expand";
+export type TableColumnSortable = false | true | "custom";
+export type TableColumnFixed = true | "left" | "right";
 export type TableColumnFilterPlacement =
   | "top-start"
   | "top-end"
@@ -20,9 +20,9 @@ export type TableColumnFilterPlacement =
   | "right-end"
   | "right";
 
-type RH = { column: TableColumnCtx<any>; $index: number };
-
 type FilterMethods = (value, row: any, column: TableColumnCtx<any>) => void;
+
+type RH = { column: TableColumnCtx<any>; $index: number };
 
 export interface TableColumnScope {
   row?: any;

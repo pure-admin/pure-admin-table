@@ -1,3 +1,4 @@
+import "./index.css";
 import {
   unref,
   toRefs,
@@ -8,12 +9,11 @@ import {
   getCurrentInstance,
   type CSSProperties
 } from "vue";
-import "./index.css";
-import props from "./props";
-import Renderer from "../renderer";
-import { isFunction } from "../helper";
-import { PureTableProps, TableColumnScope } from "../../types";
 import { ElTable, ElTableColumn, ElPagination } from "element-plus";
+import { PureTableProps, TableColumnScope } from "../../types";
+import { isFunction } from "../helper";
+import Renderer from "../renderer";
+import props from "./props";
 
 export default defineComponent({
   name: "PureTable",

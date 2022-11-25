@@ -1,37 +1,37 @@
 import {
-  TableColumnType,
-  TableColumnFixed,
-  TableColumnSortable,
-  TableColumnSortOrders,
   TableColumnFilterPlacement,
-  TableColumnScope,
+  TableColumnSortOrders,
+  TableColumnSortable,
   TableColumnRenderer,
-  TableColumn,
-  TableColumns
+  TableColumnFixed,
+  TableColumnScope,
+  TableColumnType,
+  TableColumns,
+  TableColumn
 } from "./table-column";
-import { PaginationProps } from "./pagination";
 import { TableProps, PureTableProps } from "./table-props";
+import { PaginationProps } from "./pagination";
 
-type Align = "left" | "center" | "right";
 type Size = "large" | "default" | "small";
+type Align = "left" | "center" | "right";
 type Effect = "dark" | "light";
 type Layout = "fixed" | "auto";
 
 export type {
-  TableColumnType,
-  TableColumnFixed,
-  TableColumnSortable,
-  TableColumnSortOrders,
   TableColumnFilterPlacement,
-  TableColumnScope,
+  TableColumnSortOrders,
+  TableColumnSortable,
   TableColumnRenderer,
-  TableColumn,
-  TableColumns,
+  TableColumnScope,
+  TableColumnFixed,
+  TableColumnType,
   PaginationProps,
-  TableProps,
   PureTableProps,
-  Align,
-  Size,
+  TableColumns,
+  TableColumn,
+  TableProps,
+  Layout,
   Effect,
-  Layout
+  Align,
+  Size
 };

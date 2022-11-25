@@ -53,7 +53,7 @@
     "element-plus": "^2.0.0"
   },
   "dependencies": {
-    "element-plus": "^2.2.22",
+    "element-plus": "^2.2.25",
     "vue": "^3.2.45"
   },
   "devDependencies": {
