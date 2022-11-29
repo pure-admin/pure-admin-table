@@ -24,8 +24,8 @@ function getConfigs(): UserConfig {
             external: ["vue", "element-plus"],
             output: {
               globals: {
-                vue: "vue",
-                "element-plus": "elementPlus"
+                vue: "Vue",
+                "element-plus": "ElementPlus"
               },
               exports: "named"
             },
@@ -33,13 +33,13 @@ function getConfigs(): UserConfig {
           }
         }
       }
-    : {
+    : ({
         base: "/pure-admin-table/",
         build: {
           sourcemap: false,
           chunkSizeWarningLimit: 4000
         }
-      };
+      } as any);
 }
 
 // https://cn.vitejs.dev/guide/build.html#library-mode
