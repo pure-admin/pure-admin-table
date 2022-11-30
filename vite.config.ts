@@ -15,7 +15,7 @@ function getConfigs(): UserConfig {
         build: {
           lib: {
             entry: path.resolve(__dirname, "packages/index.ts"),
-            name: "@pureadmin/table",
+            name: "PureTable",
             fileName: format => `index.${format}.js`
           },
           // https://rollupjs.org/guide/en/#big-list-of-options

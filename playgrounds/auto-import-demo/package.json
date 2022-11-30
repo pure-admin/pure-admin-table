@@ -1,22 +1,22 @@
 {
   "name": "auto-import-demo",
-  "version": "1.2.0",
+  "version": "1.8.1",
   "scripts": {
     "dev": "vite",
     "serve": "vite",
     "preview": "vite build && vite preview"
   },
   "dependencies": {
-    "@pureadmin/table": "^1.2.0",
-    "element-plus": "^2.2.17",
-    "vue": "^3.2.40"
+    "@pureadmin/table": "^1.8.1",
+    "element-plus": "^2.2.25",
+    "vue": "^3.2.45"
   },
   "devDependencies": {
-    "@types/node": "^18.8.3",
-    "@vitejs/plugin-vue": "^3.1.2",
-    "sass": "^1.55.0",
-    "typescript": "^4.8.4",
-    "unplugin-vue-components": "^0.22.8",
-    "vite": "^3.1.6"
+    "@types/node": "^18.11.9",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "sass": "^1.56.1",
+    "typescript": "^4.9.3",
+    "unplugin-vue-components": "^0.22.11",
+    "vite": "^3.2.4"
   }
 }
