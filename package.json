@@ -61,6 +61,7 @@
     "@commitlint/config-conventional": "^17.0.2",
     "@esbuild-kit/cjs-loader": "^2.2.0",
     "@intlify/vite-plugin-vue-i18n": "^6.0.0",
+    "@pureadmin/utils": "^1.7.4",
     "@types/node": "^18.0.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vitejs/plugin-vue-jsx": "^2.1.1",

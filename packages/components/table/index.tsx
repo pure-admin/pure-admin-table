@@ -11,7 +11,7 @@ import {
 } from "vue";
 import props from "./props";
 import Renderer from "../renderer";
-import { isFunction } from "../helper";
+import { isFunction, useDark } from "@pureadmin/utils";
 import { PureTableProps, TableColumnScope } from "../../types";
 import { ElTable, ElTableColumn, ElPagination } from "element-plus";
 
@@ -20,6 +20,7 @@ export default defineComponent({
   props,
   emits: ["size-change", "current-change"],
   setup(props, { slots, attrs, emit, expose }) {
+    const { isDark } = useDark();
     const instance = getCurrentInstance()!;
 
     function getTableRef() {
@@ -60,6 +61,12 @@ export default defineComponent({
         "element-loading-svg": svg,
         "element-loading-svg-view-box": viewBox
       };
+    });
+
+    const loadingBackground = computed(() => {
+      return unref(loadingConfig)?.background ?? isDark.value
+        ? "rgba(0, 0, 0, 0.45)"
+        : "rgba(255, 255, 255, 0.45)";
     });
 
     const handleSizeChange = val => {
@@ -187,9 +194,7 @@ export default defineComponent({
       <div
         class="pure-table"
         v-loading={unref(loading)}
-        element-loading-background={
-          unref(loadingConfig)?.background ?? "rgba(255, 255, 255, 0.45)"
-        }
+        element-loading-background={unref(loadingBackground)}
         {...unref(convertLoadingConfig)}
       >
         <ElTable {...props} {...attrs} ref={`TableRef${props.key}`}>
