@@ -37,6 +37,7 @@
       border
       row-key="id"
       alignWhole="center"
+      :height="dataList && dataList.length > 0 ? 635.5 : 0"
       showOverflowTooltip
       :data="
         dataList.slice(
