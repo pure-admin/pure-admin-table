@@ -190,43 +190,54 @@ export default defineComponent({
       getTableDoms
     });
 
-    return () => (
-      <div
-        class="pure-table"
-        v-loading={unref(loading)}
-        element-loading-background={unref(loadingBackground)}
-        {...unref(convertLoadingConfig)}
-      >
-        <ElTable {...props} {...attrs} ref={`TableRef${props.key}`}>
-          {{
-            default: () => unref(columns).map(renderColumns),
-            append: () => slots.append && slots.append(),
-            empty: () => slots.empty && slots.empty()
-          }}
-        </ElTable>
-        {conditions ? (
-          <ElPagination
-            {...attrs}
-            class="pure-pagination"
-            style={unref(getStyle)}
-            {...unref(pagination)}
-            small={
-              props?.paginationSmall
-                ? props?.paginationSmall
-                : unref(pagination).small
-                ? unref(pagination).small
-                : false
-            }
-            layout={
-              unref(pagination).layout ??
-              "total, sizes, prev, pager, next, jumper"
-            }
-            pageSizes={unref(pagination).pageSizes ?? [5, 10, 15, 20]}
-            onSizeChange={val => handleSizeChange(val)}
-            onCurrentChange={val => handleCurrentChange(val)}
-          ></ElPagination>
-        ) : null}
-      </div>
-    );
+    let renderTable = () => {
+      return (
+        <>
+          <ElTable {...props} {...attrs} ref={`TableRef${props.key}`}>
+            {{
+              default: () => unref(columns).map(renderColumns),
+              append: () => slots.append && slots.append(),
+              empty: () => slots.empty && slots.empty()
+            }}
+          </ElTable>
+          {conditions ? (
+            <ElPagination
+              {...attrs}
+              class="pure-pagination"
+              style={unref(getStyle)}
+              {...unref(pagination)}
+              small={
+                props?.paginationSmall
+                  ? props?.paginationSmall
+                  : unref(pagination).small
+                  ? unref(pagination).small
+                  : false
+              }
+              layout={
+                unref(pagination).layout ??
+                "total, sizes, prev, pager, next, jumper"
+              }
+              pageSizes={unref(pagination).pageSizes ?? [5, 10, 15, 20]}
+              onSizeChange={val => handleSizeChange(val)}
+              onCurrentChange={val => handleCurrentChange(val)}
+            ></ElPagination>
+          ) : null}
+        </>
+      );
+    };
+
+    return () =>
+      unref(loading) ? (
+        <div
+          class="pure-table"
+          v-loading={unref(loading)}
+          element-loading-background={unref(loadingBackground)}
+          {...unref(convertLoadingConfig)}
+        >
+          {renderTable()}
+        </div>
+      ) : (
+        renderTable()
+      );
   }
 });
