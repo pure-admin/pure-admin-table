@@ -1,6 +1,6 @@
 {
   "name": "@pureadmin/table",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "packageManager": "pnpm@7.0.1",
   "description": "Use tsx syntax to encapsulate element-plus Table twice to provide flexible configuration items",
   "keywords": [
