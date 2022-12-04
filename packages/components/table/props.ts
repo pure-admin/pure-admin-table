@@ -11,6 +11,16 @@ export default {
     type: Array,
     default: []
   },
+  /** Table loading */
+  loading: {
+    type: Boolean,
+    default: false
+  },
+  /** Table loading config */
+  loadingConfig: {
+    type: Object,
+    default: () => {}
+  },
   /** Integrate Table-column with align property into Table property */
   alignWhole: {
     type: String,

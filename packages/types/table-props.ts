@@ -1,5 +1,6 @@
 import {
   PaginationProps,
+  LoadingConfig,
   TableColumns,
   Effect,
   Layout,
@@ -123,6 +124,10 @@ export interface PureTableProps extends TableProps {
   key?: String | Number;
   /** `Table-column` 配置 `该属性为必填属性` */
   columns: Array<TableColumns>;
+  /** 是否开启加载动画，默认值：`false` */
+  loading?: boolean;
+  /** 加载动画的相关配置 */
+  loadingConfig?: LoadingConfig;
   /** 对齐方式，默认值 `left` */
   alignWhole?: Align;
   /** 表头对齐方式，若不设置该项，则使用表格的对齐方式 */

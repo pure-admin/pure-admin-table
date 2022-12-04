@@ -9,11 +9,11 @@ import {
   getCurrentInstance,
   type CSSProperties
 } from "vue";
-import { ElTable, ElTableColumn, ElPagination } from "element-plus";
-import { PureTableProps, TableColumnScope } from "../../types";
-import { isFunction } from "../helper";
-import Renderer from "../renderer";
 import props from "./props";
+import Renderer from "../renderer";
+import { isFunction } from "../helper";
+import { PureTableProps, TableColumnScope } from "../../types";
+import { ElTable, ElTableColumn, ElPagination } from "element-plus";
 
 export default defineComponent({
   name: "PureTable",
@@ -43,11 +43,24 @@ export default defineComponent({
 
     const {
       columns,
+      loading,
+      loadingConfig,
       alignWhole,
       headerAlign,
       showOverflowTooltip,
       pagination
     } = toRefs(props) as unknown as PureTableProps;
+
+    let convertLoadingConfig = computed(() => {
+      if (!unref(loadingConfig)) return;
+      let { text, spinner, svg, viewBox } = unref(loadingConfig);
+      return {
+        "element-loading-text": text,
+        "element-loading-spinner": spinner,
+        "element-loading-svg": svg,
+        "element-loading-svg-view-box": viewBox
+      };
+    });
 
     const handleSizeChange = val => {
       unref(pagination).pageSize = val;
@@ -171,7 +184,14 @@ export default defineComponent({
     });
 
     return () => (
-      <>
+      <div
+        class="pure-table"
+        v-loading={unref(loading)}
+        element-loading-background={
+          unref(loadingConfig)?.background ?? "rgba(255, 255, 255, 0.45)"
+        }
+        {...unref(convertLoadingConfig)}
+      >
         <ElTable {...props} {...attrs} ref={`TableRef${props.key}`}>
           {{
             default: () => unref(columns).map(renderColumns),
@@ -201,7 +221,7 @@ export default defineComponent({
             onCurrentChange={val => handleCurrentChange(val)}
           ></ElPagination>
         ) : null}
-      </>
+      </div>
     );
   }
 });

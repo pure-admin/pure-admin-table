@@ -8,6 +8,7 @@ export type {
   TableColumnType,
   PaginationProps,
   PureTableProps,
+  LoadingConfig,
   TableColumns,
   TableColumn,
   TableProps,

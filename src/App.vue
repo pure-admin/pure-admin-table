@@ -29,78 +29,76 @@
     </el-tooltip>
   </el-space>
 
-  <div v-loading="loading" style="height: 635px">
-    <el-config-provider :locale="language ? zhCn : en">
-      <PureTable
-        v-if="!loading"
-        ref="tableRef"
-        border
-        row-key="id"
-        alignWhole="center"
-        :height="dataList.length > 0 ? 635.5 : ''"
-        showOverflowTooltip
-        :data="
-          dataList.slice(
-            (pagination.currentPage - 1) * pagination.pageSize,
-            pagination.currentPage * pagination.pageSize
-          )
-        "
-        :columns="columns"
-        :pagination="pagination"
-        :header-cell-style="{
-          background: 'var(--el-table-row-hover-bg-color)',
-          color: 'var(--el-text-color-primary)'
-        }"
-        @selection-change="handleSelectionChange"
-        @row-click="rowClick"
-        @size-change="onSizeChange"
-        @current-change="onCurrentChange"
-      >
-        <template #empty>
-          <el-empty :description="t('text.empty')" :image-size="60">
-            <template #image>
-              <empty />
-            </template>
-          </el-empty>
-        </template>
-        <template #append>
-          <p style="text-align: center">
-            {{ t("text.hope") }}
-            <el-link
-              type="primary"
-              href="https://github.com/xiaoxian521/pure-admin-table"
-              target="_blank"
-            >
-              @pureadmin/table
-            </el-link>
-            {{ t("text.help") }}
-          </p>
-        </template>
-        <template #operation="{ row }">
-          <el-button
-            class="reset-margin"
-            link
+  <el-config-provider :locale="language ? zhCn : en">
+    <PureTable
+      ref="tableRef"
+      :loading="loading"
+      :loadingConfig="loadingConfig"
+      border
+      row-key="id"
+      alignWhole="center"
+      showOverflowTooltip
+      :data="
+        dataList.slice(
+          (pagination.currentPage - 1) * pagination.pageSize,
+          pagination.currentPage * pagination.pageSize
+        )
+      "
+      :columns="columns"
+      :pagination="pagination"
+      :header-cell-style="{
+        background: 'var(--el-table-row-hover-bg-color)',
+        color: 'var(--el-text-color-primary)'
+      }"
+      @selection-change="handleSelectionChange"
+      @row-click="rowClick"
+      @size-change="onSizeChange"
+      @current-change="onCurrentChange"
+    >
+      <template #empty>
+        <el-empty :description="t('text.empty')" :image-size="60">
+          <template #image>
+            <empty />
+          </template>
+        </el-empty>
+      </template>
+      <template #append>
+        <p style="text-align: center">
+          {{ t("text.hope") }}
+          <el-link
             type="primary"
-            @click="handleUpdate(row)"
+            href="https://github.com/xiaoxian521/pure-admin-table"
+            target="_blank"
           >
-            {{ t("button.edit") }}
-          </el-button>
-          <el-popconfirm :title="t('text.sure')">
-            <template #reference>
-              <el-button
-                class="reset-margin"
-                link
-                type="primary"
-                @click="handleDelete(row)"
-              >
-                {{ t("button.delete") }}
-              </el-button>
-            </template>
-          </el-popconfirm>
-        </template>
-      </PureTable>
-    </el-config-provider>
-  </div>
+            @pureadmin/table
+          </el-link>
+          {{ t("text.help") }}
+        </p>
+      </template>
+      <template #operation="{ row }">
+        <el-button
+          class="reset-margin"
+          link
+          type="primary"
+          @click="handleUpdate(row)"
+        >
+          {{ t("button.edit") }}
+        </el-button>
+        <el-popconfirm :title="t('text.sure')">
+          <template #reference>
+            <el-button
+              class="reset-margin"
+              link
+              type="primary"
+              @click="handleDelete(row)"
+            >
+              {{ t("button.delete") }}
+            </el-button>
+          </template>
+        </el-popconfirm>
+      </template>
+    </PureTable>
+  </el-config-provider>
 </template>
 
 <script setup lang="ts">
@@ -111,7 +109,11 @@ import { ElDivider } from "element-plus";
 import { h, ref, reactive, onMounted } from "vue";
 import en from "element-plus/lib/locale/lang/en";
 import zhCn from "element-plus/lib/locale/lang/zh-cn";
-import { PureTable, type PaginationProps } from "../packages";
+import {
+  PureTable,
+  type PaginationProps,
+  type LoadingConfig
+} from "../packages";
 // import { PureTable } from "../dist/index.es";
 // import { type PaginationProps } from "../dist";
 
@@ -136,6 +138,21 @@ const pagination = reactive<PaginationProps>({
   total: dataList.value.length
 });
 
+const loadingConfig: LoadingConfig = {
+  text: "加载中",
+  viewBox: "-10, -10, 50, 50",
+  spinner: `
+        <path class="path" d="
+          M 30 15
+          L 28 17
+          M 25.61 25.61
+          A 15 15, 0, 0, 1, 15 30
+          A 15 15, 0, 1, 1, 27.99 7.5
+          L 15 15
+        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+      `
+};
+
 const { columns } = useColumns();
 
 const tableRef = ref();
@@ -146,7 +163,7 @@ function onRefresh() {
   pagination.total = dataMock.length;
   setTimeout(() => {
     loading.value = false;
-  }, 500);
+  }, 800);
 }
 
 function onEmpty() {
@@ -185,7 +202,7 @@ function onCurrentChange(val) {
   loading.value = true;
   setTimeout(() => {
     loading.value = false;
-  }, 300);
+  }, 800);
 }
 
 function dataThemeChange(val) {
