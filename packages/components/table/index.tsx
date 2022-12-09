@@ -1,4 +1,3 @@
-import "./index.css";
 import {
   unref,
   toRefs,
@@ -64,9 +63,13 @@ export default defineComponent({
     });
 
     const loadingBackground = computed(() => {
-      return unref(loadingConfig)?.background ?? isDark.value
-        ? "rgba(0, 0, 0, 0.45)"
-        : "rgba(255, 255, 255, 0.45)";
+      if (!unref(loading)) return;
+      return {
+        "element-loading-background":
+          unref(loadingConfig)?.background ?? isDark.value
+            ? "rgba(0, 0, 0, 0.45)"
+            : "rgba(255, 255, 255, 0.45)"
+      };
     });
 
     const handleSizeChange = val => {
@@ -226,18 +229,15 @@ export default defineComponent({
       );
     };
 
-    return () =>
-      unref(loading) ? (
-        <div
-          class="pure-table"
-          v-loading={unref(loading)}
-          element-loading-background={unref(loadingBackground)}
-          {...unref(convertLoadingConfig)}
-        >
-          {renderTable()}
-        </div>
-      ) : (
-        renderTable()
-      );
+    return () => (
+      <div
+        class="pure-table"
+        v-loading={unref(loading)}
+        {...unref(loadingBackground)}
+        {...unref(convertLoadingConfig)}
+      >
+        {renderTable()}
+      </div>
+    );
   }
 });
