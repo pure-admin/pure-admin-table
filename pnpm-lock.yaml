@@ -5,7 +5,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.0.2
   '@esbuild-kit/cjs-loader': ^2.2.0
   '@intlify/vite-plugin-vue-i18n': ^6.0.0
-  '@pureadmin/utils': ^1.8.1
+  '@pureadmin/utils': ^1.8.2
   '@types/node': ^18.0.0
   '@vitejs/plugin-vue': ^3.2.0
   '@vitejs/plugin-vue-jsx': ^2.1.1
@@ -37,7 +37,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.0.3
   '@esbuild-kit/cjs-loader': 2.3.0
   '@intlify/vite-plugin-vue-i18n': 6.0.0_vite@3.2.4+vue-i18n@9.2.2
-  '@pureadmin/utils': 1.8.1_vue@3.2.45
+  '@pureadmin/utils': 1.8.2_vue@3.2.45
   '@types/node': 18.0.0
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
   '@vitejs/plugin-vue-jsx': 2.1.1_vite@3.2.4+vue@3.2.45
@@ -750,8 +750,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@pureadmin/utils/1.8.1_vue@3.2.45:
-    resolution: {integrity: sha512-2jpoPGDt4VHG8MrWkc6Kcf3PWcuPXJPIgFiEfl9S9CnvP40sRTCnYhgZiW3iyfgfWg42KE71Q0IDzSaFIUvWoQ==}
+  /@pureadmin/utils/1.8.2_vue@3.2.45:
+    resolution: {integrity: sha512-9mr/y3RZJZGCYpKuRVngR6XVumdMjRNPLkFfljwU9KS5UQio70cfqsH6TQ8uL/Oh0eepDym+/KkSVTMx2EsOyQ==}
     peerDependencies:
       echarts: '*'
       vue: '*'
