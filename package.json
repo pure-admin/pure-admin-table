@@ -21,6 +21,9 @@
     "type": "git",
     "url": "https://github.com/xiaoxian521/pure-admin-table"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
