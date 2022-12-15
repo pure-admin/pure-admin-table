@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.0.2
   '@esbuild-kit/cjs-loader': ^2.2.0
   '@intlify/vite-plugin-vue-i18n': ^6.0.0
+  '@pureadmin/release': ^0.0.3
   '@pureadmin/utils': ^1.8.2
   '@types/node': ^18.0.0
   '@vitejs/plugin-vue': ^3.2.0
@@ -37,6 +38,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.0.3
   '@esbuild-kit/cjs-loader': 2.3.0
   '@intlify/vite-plugin-vue-i18n': 6.0.0_vite@3.2.4+vue-i18n@9.2.2
+  '@pureadmin/release': 0.0.3
   '@pureadmin/utils': 1.8.2_vue@3.2.45
   '@types/node': 18.0.0
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
@@ -748,6 +750,11 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: true
+
+  /@pureadmin/release/0.0.3:
+    resolution: {integrity: sha512-0EcQCeMmIOLsY7Hq78NETvd+BdTkkvOvvPkzD5kdzqKTC/h6/haZm5rBW6RYqh/K5PgAJz7NT/JO7rZAVBbymg==}
+    hasBin: true
     dev: true
 
   /@pureadmin/utils/1.8.2_vue@3.2.45:
