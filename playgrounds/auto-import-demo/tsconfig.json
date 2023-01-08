@@ -15,7 +15,7 @@
       "~/*": ["src/*"]
     },
     "skipLibCheck": true,
-    "types": ["@pureadmin/table/volar"]
+    "types": ["element-plus/global", "@pureadmin/table/volar"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

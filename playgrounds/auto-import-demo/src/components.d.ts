@@ -9,4 +9,7 @@ declare module "@vue/runtime-core" {
   export interface GlobalComponents {
     ElConfigProvider: typeof import("element-plus/es")["ElConfigProvider"];
   }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import("element-plus/es")["ElLoadingDirective"];
+  }
 }
