@@ -5,7 +5,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.0.2
   '@esbuild-kit/cjs-loader': ^2.2.0
   '@intlify/vite-plugin-vue-i18n': ^6.0.0
-  '@pureadmin/release': ^0.0.3
+  '@pureadmin/release': ^1.0.0
   '@pureadmin/utils': ^1.8.2
   '@types/node': ^18.0.0
   '@vitejs/plugin-vue': ^3.2.0
@@ -38,7 +38,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.0.3
   '@esbuild-kit/cjs-loader': 2.3.0
   '@intlify/vite-plugin-vue-i18n': 6.0.0_vite@3.2.4+vue-i18n@9.2.2
-  '@pureadmin/release': 0.0.3
+  '@pureadmin/release': 1.0.0
   '@pureadmin/utils': 1.8.2_vue@3.2.45
   '@types/node': 18.0.0
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
@@ -593,8 +593,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 9.3.0-beta.10
-      '@intlify/shared': 9.3.0-beta.10
+      '@intlify/message-compiler': 9.3.0-beta.13
+      '@intlify/shared': 9.3.0-beta.13
       jsonc-eslint-parser: 1.4.1
       source-map: 0.6.1
       vue-i18n: 9.2.2_vue@3.2.45
@@ -626,11 +626,11 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /@intlify/message-compiler/9.3.0-beta.10:
-    resolution: {integrity: sha512-RoOC6yceOykLRhN0NlbkNOBUx1el6iphx3W8NfOx3jHVNtfT1FYokx14/5sU3F1F0uxeG4sp6q+ppKvaF8o+ww==}
+  /@intlify/message-compiler/9.3.0-beta.13:
+    resolution: {integrity: sha512-6vVGAOqzSurfp8leQ+9ySBTxCTTJyucMBVVXxW1/ENWGxZg1SDdIIZG3FcZo+kZEfbm46AWVByCL8FdcHS2QGw==}
     engines: {node: '>= 14'}
     dependencies:
-      '@intlify/shared': 9.3.0-beta.10
+      '@intlify/shared': 9.3.0-beta.13
       source-map: 0.6.1
     dev: true
 
@@ -639,8 +639,8 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  /@intlify/shared/9.3.0-beta.10:
-    resolution: {integrity: sha512-h93uAanbAt/XgjDHclrVB7xix6r7Uz11wx0iGNOCdHP7aA2LCJjUT3uNbekJjjbo+Fl5jzTSJZdm2SexzoqhRA==}
+  /@intlify/shared/9.3.0-beta.13:
+    resolution: {integrity: sha512-94pkO11UTh/7b1B9RGe6iEFG6e89I+qDN8MjA3rhc4dnMt7rGzg7/xhxMmavzGTieYQRfv86jv+EOUmP4cc5Wg==}
     engines: {node: '>= 14'}
     dev: true
 
@@ -660,7 +660,7 @@ packages:
         optional: true
     dependencies:
       '@intlify/bundle-utils': 3.4.0_vue-i18n@9.2.2
-      '@intlify/shared': 9.3.0-beta.10
+      '@intlify/shared': 9.3.0-beta.13
       '@rollup/pluginutils': 4.2.1
       debug: 4.3.4
       fast-glob: 3.2.11
@@ -752,8 +752,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@pureadmin/release/0.0.3:
-    resolution: {integrity: sha512-0EcQCeMmIOLsY7Hq78NETvd+BdTkkvOvvPkzD5kdzqKTC/h6/haZm5rBW6RYqh/K5PgAJz7NT/JO7rZAVBbymg==}
+  /@pureadmin/release/1.0.0:
+    resolution: {integrity: sha512-cFXev9X+TQNmpb8E8agD53ZfL5DCYpY25SPpLUXo42Twa62vmJckc+xqh95r4tvgMi0eqUEFRuiSHr1oS3pHmQ==}
     hasBin: true
     dev: true
 
