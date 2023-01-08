@@ -1,3 +1,11 @@
+# Changelog
+
+## 2.0.0 (2023-01-08)
+
+### ✔️ refactor
+
+- 分页事件名变更 `size-change` 变更为 `page-size-change`、`current-change` 变更为 `page-current-change`
+
 ## 1.9.0 (2022-12-09)
 
 ### 🍏 Perf

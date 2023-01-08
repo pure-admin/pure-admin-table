@@ -53,8 +53,8 @@
       }"
       @selection-change="handleSelectionChange"
       @row-click="rowClick"
-      @size-change="onSizeChange"
-      @current-change="onCurrentChange"
+      @page-size-change="pageSizeChange"
+      @page-current-change="pageCurrentChange"
     >
       <template #empty>
         <el-empty :description="t('text.empty')" :image-size="60">
@@ -194,12 +194,12 @@ function rowClick(row, column, event) {
   console.log("rowClick", row, column, event);
 }
 
-function onSizeChange(val) {
-  console.log("onSizeChange", val);
+function pageSizeChange(val) {
+  console.log("pageSizeChange", val);
 }
 
-function onCurrentChange(val) {
-  console.log("onCurrentChange", val);
+function pageCurrentChange(val) {
+  console.log("pageCurrentChange", val);
   loading.value = true;
   setTimeout(() => {
     loading.value = false;

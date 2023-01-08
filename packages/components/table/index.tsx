@@ -17,7 +17,7 @@ import { ElTable, ElTableColumn, ElPagination } from "element-plus";
 export default defineComponent({
   name: "PureTable",
   props,
-  emits: ["size-change", "current-change"],
+  emits: ["page-size-change", "page-current-change"],
   setup(props, { slots, attrs, emit, expose }) {
     const { isDark } = useDark();
     const instance = getCurrentInstance()!;
@@ -74,12 +74,12 @@ export default defineComponent({
 
     const handleSizeChange = val => {
       unref(pagination).pageSize = val;
-      emit("size-change", val);
+      emit("page-size-change", val);
     };
 
     const handleCurrentChange = val => {
       unref(pagination).currentPage = val;
-      emit("current-change", val);
+      emit("page-current-change", val);
     };
 
     const getStyle = computed((): CSSProperties => {
