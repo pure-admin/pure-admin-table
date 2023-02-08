@@ -11,15 +11,15 @@
     "vite",
     "tsx"
   ],
-  "homepage": "https://github.com/xiaoxian521/pure-admin-table/tree/main/#readme",
+  "homepage": "https://github.com/pure-admin/pure-admin-table/tree/main/#readme",
   "bugs": {
-    "url": "https://github.com/xiaoxian521/pure-admin-table/issues"
+    "url": "https://github.com/pure-admin/pure-admin-table/issues"
   },
   "license": "MIT",
   "author": "xiaoxian521",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xiaoxian521/pure-admin-table"
+    "url": "https://github.com/pure-admin/pure-admin-table"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

@@ -8,7 +8,7 @@
 
 English | [简体中文](./README.md)
 
-[Preview](https://xiaoxian521.github.io/pure-admin-table/)  
+[Preview](https://pure-admin.github.io/pure-admin-table/)  
 [MoreExamples](https://yiming_chang.gitee.io/vue-pure-admin/#/pure-table/index?username=sso&roles=admin&accessToken=eyJhbGciOiJIUzUxMiJ9.admin)
 
 ## 🤔 Original intention of development
@@ -61,7 +61,7 @@ const app = createApp(App);
 app.use(Table).mount("#app");
 ```
 
-[Click to view the usage of on-demand, global and Html file import](https://github.com/xiaoxian521/pure-admin-table/tree/main/playgrounds)
+[Click to view the usage of on-demand, global and Html file import](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
 
 ## Volar support
 

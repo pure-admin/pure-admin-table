@@ -68,7 +68,7 @@
           {{ t("text.hope") }}
           <el-link
             type="primary"
-            href="https://github.com/xiaoxian521/pure-admin-table"
+            href="https://github.com/pure-admin/pure-admin-table"
             target="_blank"
           >
             @pureadmin/table

@@ -8,7 +8,7 @@
 
 简体中文 | [English](./README.en-US.md)
 
-[预览地址](https://xiaoxian521.github.io/pure-admin-table/)  
+[预览地址](https://pure-admin.github.io/pure-admin-table/)  
 [更多示例](https://yiming_chang.gitee.io/vue-pure-admin/#/pure-table/index?username=sso&roles=admin&accessToken=eyJhbGciOiJIUzUxMiJ9.admin)
 
 ## 🤔 开发初衷
@@ -61,7 +61,7 @@ const app = createApp(App);
 app.use(Table).mount("#app");
 ```
 
-[点击查看按需、全局以及 Html 文件引入的用法](https://github.com/xiaoxian521/pure-admin-table/tree/main/playgrounds)
+[点击查看按需、全局以及 Html 文件引入的用法](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
 
 ## Volar 支持
 
