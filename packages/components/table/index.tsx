@@ -10,8 +10,8 @@ import {
 } from "vue";
 import props from "./props";
 import Renderer from "../renderer";
-import { isFunction, useDark } from "@pureadmin/utils";
 import { PureTableProps, TableColumnScope } from "../../types";
+import { isFunction, isBoolean, useDark } from "@pureadmin/utils";
 import { ElTable, ElTableColumn, ElPagination } from "element-plus";
 
 export default defineComponent({
@@ -115,6 +115,14 @@ export default defineComponent({
         ...args
       } = columns;
 
+      if (isFunction(hide) && hide(attrs)) {
+        return hide(attrs);
+      }
+
+      if (isBoolean(hide) && hide) {
+        return hide;
+      }
+
       const defaultSlots = {
         default: (scope: TableColumnScope) => {
           if (cellRenderer) {
@@ -157,10 +165,6 @@ export default defineComponent({
             ...defaultSlots
           }
         : defaultSlots;
-
-      if (isFunction(hide) && hide(attrs)) {
-        return hide(attrs);
-      }
 
       if (children?.length > 0) {
         scopedSlots = children.map(renderColumns);

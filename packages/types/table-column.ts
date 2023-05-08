@@ -107,8 +107,8 @@ export type TableColumn = {
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7}
  */
 export interface TableColumns extends TableColumn {
-  /** 是否隐藏 必须是个函数 */
-  hide?: CallableFunction;
+  /** 是否隐藏 */
+  hide?: boolean | CallableFunction;
   /** 自定义插槽 */
   slot?: string;
   /** 多级表头，内部实现原理：嵌套 `el-table-column` */
