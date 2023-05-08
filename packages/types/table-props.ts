@@ -17,6 +17,7 @@ import type {
   CellCls,
   Sort
 } from "element-plus";
+import type { TableOverflowTooltipOptions } from "element-plus/es/components/table/src/util";
 
 /**
  * @description `element-plus` 的 `table` 属性，未扩展
@@ -72,6 +73,8 @@ export type TableProps = {
   defaultSort?: Sort;
   /** `tooltip effect` 属性，默认值为 `dark` */
   tooltipEffect?: Effect;
+  /** 溢出 tooltip 的选项 参考 https://element-plus.org/zh-CN/component/tooltip.html#attributes  默认值为 `{ enterable: true, placement: 'top', showArrow: true, hideAfter: 200, popperOptions: { strategy: 'fixed' } }` */
+  tooltipOptions?: TableOverflowTooltipOptions;
   /** 是否在表尾显示合计行，默认值为 `false` */
   showSummary?: boolean;
   /** 合计行第一列的文本，默认值为 `合计` */

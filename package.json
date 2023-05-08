@@ -1,7 +1,6 @@
 {
   "name": "@pureadmin/table",
   "version": "2.0.0",
-  "packageManager": "pnpm@7.0.1",
   "description": "Use tsx syntax to encapsulate element-plus Table twice to provide flexible configuration items",
   "keywords": [
     "@pureadmin/table",
@@ -57,8 +56,8 @@
     "element-plus": "^2.0.0"
   },
   "dependencies": {
-    "element-plus": "^2.2.25",
-    "vue": "^3.2.45"
+    "element-plus": "^2.3.4",
+    "vue": "^3.2.47"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
