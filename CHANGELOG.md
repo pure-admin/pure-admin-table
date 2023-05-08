@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0 (2023-05-08)
+
+### 🎫 Feat
+
+- `TableColumns` 中 `hide` 属性支持 `Boolean` 类型
+
+### 🍏 Perf
+
+- 适配 `el-table` 新增的 `tooltipOptions` 属性
+
 ## 2.0.0 (2023-01-08)
 
 ### ✔️ refactor
