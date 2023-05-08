@@ -79,4 +79,4 @@ If you are using `Volar`, you can configure `compilerOptions.types` in `tsconfig
 
 ## License
 
-[MIT © xiaoxian521-latest](./LICENSE)
+[MIT © 2022-present, pure-admin](./LICENSE)

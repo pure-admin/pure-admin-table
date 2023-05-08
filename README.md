@@ -79,4 +79,4 @@ app.use(Table).mount("#app");
 
 ## 许可证
 
-[MIT © xiaoxian521-latest](./LICENSE)
+[MIT © 2022-present, pure-admin](./LICENSE)
