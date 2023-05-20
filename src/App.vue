@@ -76,6 +76,7 @@
           {{ t("text.help") }}
         </p>
       </template>
+      <template #operateHeader> operate </template>
       <template #operation="{ row }">
         <el-button
           class="reset-margin"

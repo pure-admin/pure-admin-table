@@ -109,12 +109,14 @@ export type TableColumn = {
 export interface TableColumns extends TableColumn {
   /** 是否隐藏 */
   hide?: boolean | CallableFunction;
-  /** 自定义插槽 */
+  /** 自定义列的内容插槽 */
   slot?: string;
+  /** 自定义表头的内容插槽 */
+  headerSlot?: string;
   /** 多级表头，内部实现原理：嵌套 `el-table-column` */
   children?: Array<TableColumns>;
-  /** 自定义单元格渲染器 */
+  /** 自定义单元格渲染器（`jsx`语法） */
   cellRenderer?: (data: TableColumnRenderer) => VNode;
-  /** 自定义头部渲染器 */
+  /** 自定义头部渲染器（`jsx`语法） */
   headerRenderer?: (data: TableColumnRenderer) => VNode;
 }

@@ -109,6 +109,7 @@ export default defineComponent({
         cellRenderer,
         slot,
         headerRenderer,
+        headerSlot,
         hide,
         children,
         prop,
@@ -160,6 +161,19 @@ export default defineComponent({
                     attrs
                   })}
                 ></Renderer>
+              );
+            },
+            ...defaultSlots
+          }
+        : slots?.[headerSlot]
+        ? {
+            header: (scope: TableColumnScope) => {
+              return slots?.[headerSlot]?.(
+                Object.assign(scope, {
+                  index: scope.$index,
+                  props,
+                  attrs
+                })
               );
             },
             ...defaultSlots

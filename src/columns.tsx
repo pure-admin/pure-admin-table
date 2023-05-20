@@ -118,7 +118,8 @@ export function useColumns() {
     //   prop: "remark"
     // },
     {
-      label: "Operate",
+      // label: "Operate",
+      headerSlot: "operateHeader",
       fixed: "right",
       slot: "operation"
     }
