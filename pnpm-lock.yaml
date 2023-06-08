@@ -6,7 +6,7 @@ specifiers:
   '@esbuild-kit/cjs-loader': ^2.2.0
   '@intlify/vite-plugin-vue-i18n': ^6.0.0
   '@pureadmin/release': ^1.0.0
-  '@pureadmin/utils': ^1.8.9
+  '@pureadmin/utils': ^1.9.3
   '@types/node': ^18.0.0
   '@vitejs/plugin-vue': ^3.2.0
   '@vitejs/plugin-vue-jsx': ^2.1.1
@@ -39,7 +39,7 @@ devDependencies:
   '@esbuild-kit/cjs-loader': 2.3.0
   '@intlify/vite-plugin-vue-i18n': 6.0.0_vite@3.2.4+vue-i18n@9.2.2
   '@pureadmin/release': 1.0.0
-  '@pureadmin/utils': 1.8.9_vue@3.2.47
+  '@pureadmin/utils': 1.9.3_vue@3.2.47
   '@types/node': 18.0.0
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.47
   '@vitejs/plugin-vue-jsx': 2.1.1_vite@3.2.4+vue@3.2.47
@@ -640,6 +640,11 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
+  /@intlify/shared/9.3.0-beta.19:
+    resolution: {integrity: sha512-+lhQggrLvlQ/O5OmIYAc9gadcYXMoaDi0Doef+X/f6TLZFr9PTMjOpBWmpwNNHi026e54jckntUn6GzqDtIN4w==}
+    engines: {node: '>= 16'}
+    dev: true
+
   /@intlify/vite-plugin-vue-i18n/6.0.0_vite@3.2.4+vue-i18n@9.2.2:
     resolution: {integrity: sha512-9hvd846YWACtSr6akOR57utxSP2205XJqVfidiQVZLTkHTVHjDhPiRg1ShdZBT909fzW2+71e2tgG4lRi4r87Q==}
     engines: {node: '>= 14.6'}
@@ -656,7 +661,7 @@ packages:
         optional: true
     dependencies:
       '@intlify/bundle-utils': 6.0.0_vue-i18n@9.2.2
-      '@intlify/shared': 9.3.0-beta.17
+      '@intlify/shared': 9.3.0-beta.19
       '@rollup/pluginutils': 4.2.1
       debug: 4.3.4
       fast-glob: 3.2.11
@@ -753,8 +758,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@pureadmin/utils/1.8.9_vue@3.2.47:
-    resolution: {integrity: sha512-P+MfCuCImwHXeXmZuKQVEYdx7O0FDTuhSUD0HaXamPRerbd5LTuwSV0MN2pMsNUCYrHySHKRPkmah2wXl0XDjw==}
+  /@pureadmin/utils/1.9.3_vue@3.2.47:
+    resolution: {integrity: sha512-2sAen4puE67Bb4YYH+8Gm9qDfQtpX1hQNg6T87wune5nRrDTXpiD0pyCP7owaLJrwPnbiUbBUHVvSEXN/VYKqQ==}
     peerDependencies:
       echarts: '*'
       vue: '*'
