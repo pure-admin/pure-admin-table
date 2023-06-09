@@ -20,6 +20,20 @@ import type {
 import type { TableOverflowTooltipOptions } from "element-plus/es/components/table/src/util";
 
 /**
+ * @description 撑满内容区自适应高度相关配置
+ */
+export type AdaptiveConfig = {
+  /** 表格距离页面底部的偏移量，默认值为 `96` */
+  offsetBottom?: number;
+  /** 是否固定表头，默认值为 `true` */
+  fixHeader?: boolean;
+  /** 页面 `resize` 时的防抖时间，默认值为 `60` ms */
+  timeout?: number;
+  /** 表头的 `z-index`，默认值为 `100` */
+  zIndex?: number;
+};
+
+/**
  * @description `element-plus` 的 `table` 属性，未扩展
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-%E5%B1%9E%E6%80%A7}
  */
@@ -119,11 +133,11 @@ export type TableProps = {
 };
 
 /**
- * @description `element-plus` 的 `table` 属性，已扩展，额外增加 `columns` 、`align` 、`headerAlign` 、`showOverflowTooltip` 、`pagination` 、`paginationSmall` 六个属性
+ * @description `element-plus` 的 `table` 属性，已扩展，额外增加 `key` 、`columns` 、`loading` 、`loadingConfig` 、`alignWhole` 、`headerAlign` 、`showOverflowTooltip` 、`rowHoverBgColor`、`pagination` 、`paginationSmall` 、`adaptive` 、`adaptiveConfig` 十二个属性
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-%E5%B1%9E%E6%80%A7}
  */
 export interface PureTableProps extends TableProps {
-  /** 唯一键，如果单个页面有多个表格实例，但是您只获取到一个表格实例，设置key即可解决，不过大多数情况下不需要设置，会自动处理 */
+  /** 唯一键，如果单个页面有多个表格实例，但是您只获取到一个表格实例，设置 `key` 即可解决，不过大多数情况下不需要设置，会自动处理 */
   key?: String | Number;
   /** `Table-column` 配置 `该属性为必填属性` */
   columns: Array<TableColumns>;
@@ -137,10 +151,14 @@ export interface PureTableProps extends TableProps {
   headerAlign?: Align;
   /** 当内容过长被隐藏时显示 `tooltip`，默认值 `false` */
   showOverflowTooltip?: boolean;
-  /** 鼠标经过行时，行的背景色，默认 `--el-table-row-hover-bg-color`，具体看 https://github.com/element-plus/element-plus/blob/dev/packages/theme-chalk/src/table.scss#L607-L611 */
+  /** 鼠标经过行时，行的背景色，默认 `--el-table-row-hover-bg-color`，具体看 https://github.com/element-plus/element-plus/blob/dev/packages/theme-chalk/src/table.scss#L602-L606 */
   rowHoverBgColor?: string;
   /** 分页相关配置 */
   pagination?: PaginationProps;
   /** 是否使用小型分页样式，默认值：`false` (这里暴露出来主要是满足一些特殊场景，一般情况下可直接在 `pagination` 中设置) */
   paginationSmall?: boolean;
+  /** 表格是否撑满内容区自适应高度，默认 `false` */
+  adaptive?: boolean;
+  /** 撑满内容区自适应高度相关配置 */
+  adaptiveConfig?: AdaptiveConfig;
 }

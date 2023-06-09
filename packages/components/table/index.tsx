@@ -4,6 +4,7 @@ import {
   computed,
   nextTick,
   onMounted,
+  onBeforeUnmount,
   defineComponent,
   getCurrentInstance,
   type CSSProperties
@@ -11,45 +12,34 @@ import {
 import props from "./props";
 import Renderer from "../renderer";
 import { PureTableProps, TableColumnScope } from "../../types";
-import { isFunction, isBoolean, useDark } from "@pureadmin/utils";
 import { ElTable, ElTableColumn, ElPagination } from "element-plus";
+import { isFunction, isBoolean, useDark, debounce } from "@pureadmin/utils";
 
 export default defineComponent({
   name: "PureTable",
   props,
   emits: ["page-size-change", "page-current-change"],
   setup(props, { slots, attrs, emit, expose }) {
-    const { isDark } = useDark();
-    const instance = getCurrentInstance()!;
-
-    function getTableRef() {
-      return instance?.proxy?.$refs[`TableRef${props.key}`];
-    }
-
-    function getTableDoms() {
-      return (getTableRef() as any).$refs;
-    }
-
-    onMounted(() => {
-      nextTick(() => {
-        if (!props.rowHoverBgColor) return;
-        getTableDoms().tableWrapper.style.setProperty(
-          "--el-table-row-hover-bg-color",
-          props.rowHoverBgColor,
-          "important"
-        );
-      });
-    });
-
     const {
+      key,
       columns,
       loading,
-      loadingConfig,
+      adaptive,
+      pagination,
       alignWhole,
       headerAlign,
-      showOverflowTooltip,
-      pagination
+      loadingConfig,
+      adaptiveConfig,
+      rowHoverBgColor,
+      showOverflowTooltip
     } = toRefs(props) as unknown as PureTableProps;
+
+    const { isDark } = useDark();
+    const instance = getCurrentInstance()!;
+    let conditions =
+      unref(pagination) &&
+      unref(pagination).currentPage &&
+      unref(pagination).pageSize;
 
     let convertLoadingConfig = computed(() => {
       if (!unref(loadingConfig)) return;
@@ -72,16 +62,6 @@ export default defineComponent({
       };
     });
 
-    const handleSizeChange = val => {
-      unref(pagination).pageSize = val;
-      emit("page-size-change", val);
-    };
-
-    const handleCurrentChange = val => {
-      unref(pagination).currentPage = val;
-      emit("page-current-change", val);
-    };
-
     const getStyle = computed((): CSSProperties => {
       return Object.assign(
         {
@@ -99,10 +79,15 @@ export default defineComponent({
       );
     });
 
-    let conditions =
-      unref(pagination) &&
-      unref(pagination).currentPage &&
-      unref(pagination).pageSize;
+    const handleSizeChange = val => {
+      unref(pagination).pageSize = val;
+      emit("page-size-change", val);
+    };
+
+    const handleCurrentChange = val => {
+      unref(pagination).currentPage = val;
+      emit("page-current-change", val);
+    };
 
     const renderColumns = (columns: Record<string, any>, index: number) => {
       const {
@@ -204,17 +189,76 @@ export default defineComponent({
       );
     };
 
+    const getTableRef = () => instance?.proxy?.$refs[`TableRef${unref(key)}`];
+
+    const getTableDoms = () => (getTableRef() as any).$refs;
+
+    const setAdaptive = () => {
+      const tableWrapper = getTableDoms().tableWrapper;
+      const offsetBottom = unref(adaptiveConfig).offsetBottom ?? 96;
+      tableWrapper.style.height = `${
+        window.innerHeight -
+        tableWrapper.getBoundingClientRect().top -
+        offsetBottom
+      }px`;
+    };
+
+    const debounceSetAdaptive = debounce(
+      setAdaptive,
+      unref(adaptiveConfig).timeout ?? 60
+    );
+
+    const setHeaderSticky = (zIndex = 100) => {
+      const headerStyle = getTableDoms().tableHeaderRef.$el.style;
+      headerStyle.position = "sticky";
+      headerStyle.top = 0;
+      headerStyle.zIndex = zIndex;
+    };
+
+    onMounted(() => {
+      nextTick(() => {
+        if (unref(rowHoverBgColor)) {
+          getTableDoms().tableWrapper.style.setProperty(
+            "--el-table-row-hover-bg-color",
+            unref(rowHoverBgColor),
+            "important"
+          );
+        }
+
+        if (unref(adaptive)) {
+          setAdaptive();
+          window.addEventListener("resize", debounceSetAdaptive);
+          const hasFixHeader = Reflect.has(unref(adaptiveConfig), "fixHeader");
+          if (hasFixHeader && !unref(adaptiveConfig).fixHeader) {
+            return;
+          } else {
+            setHeaderSticky(unref(adaptiveConfig).zIndex ?? 100);
+          }
+        }
+      });
+    });
+
+    onBeforeUnmount(() => {
+      if (unref(adaptive)) {
+        window.removeEventListener("resize", debounceSetAdaptive);
+      }
+    });
+
     expose({
-      /** @description Get Table Instance */
+      /** 获取表格实例 */
       getTableRef,
-      /** @description Get Table Doms */
-      getTableDoms
+      /** 获取表格多个`Dom`元素 */
+      getTableDoms,
+      /** 设置表格自适应高度 */
+      setAdaptive,
+      /** 设置表头为 `sticky` 布局 */
+      setHeaderSticky
     });
 
     let renderTable = () => {
       return (
         <>
-          <ElTable {...props} {...attrs} ref={`TableRef${props.key}`}>
+          <ElTable {...props} {...attrs} ref={`TableRef${unref(key)}`}>
             {{
               default: () => unref(columns).map(renderColumns),
               append: () => slots.append && slots.append(),
