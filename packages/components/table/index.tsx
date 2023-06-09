@@ -193,7 +193,8 @@ export default defineComponent({
 
     const getTableDoms = () => (getTableRef() as any).$refs;
 
-    const setAdaptive = () => {
+    const setAdaptive = async () => {
+      await nextTick();
       const tableWrapper = getTableDoms().tableWrapper;
       const offsetBottom = unref(adaptiveConfig).offsetBottom ?? 96;
       tableWrapper.style.height = `${
@@ -208,7 +209,8 @@ export default defineComponent({
       unref(adaptiveConfig).timeout ?? 60
     );
 
-    const setHeaderSticky = (zIndex = 100) => {
+    const setHeaderSticky = async (zIndex = 100) => {
+      await nextTick();
       const headerStyle = getTableDoms().tableHeaderRef.$el.style;
       headerStyle.position = "sticky";
       headerStyle.top = 0;
