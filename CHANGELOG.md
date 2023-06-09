@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.3.0 (2023-06-09)
+
+### 🎫 Feat
+
+- 新增 `adaptive` 表格属性，支持表格自适应内容区高度
+- 新增 `adaptiveConfig` 表格属性，自适应内容区高度相关配置（`offsetBottom`：表格距离页面底部的偏移量，默认值为 `96`、`fixHeader`：是否固定表头，默认值为 `true`、`timeout`：页面 `resize` 时的防抖时间，默认值为 `60` ms、`zIndex`：表头的 `z-index`，默认值为 `100`）
+- 新增并暴露出 `setAdaptive` 方法，可以设置表格自适应高度（用于表格外的元素高度改变或者元素隐藏时主动对表格进行自适应高度调整）
+- 新增并暴露出 `setHeaderSticky` 方法，可以设置表头为 `sticky` 布局
+
+### 🐞 Bug fixes
+
+- 修复设置表格属性 `table-layout="auto"` 后，表头不会固定的问题
+
 ## 2.2.0 (2023-05-20)
 
 ### 🎫 Feat
