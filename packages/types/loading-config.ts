@@ -11,6 +11,6 @@ export type LoadingConfig = {
   svg?: string;
   /** 自定义 `svg` 加载图标的大小 */
   viewBox?: string;
-  /** 背景遮罩的颜色 */
+  /** 背景遮罩的颜色，默认值：暗黑模式下为`rgba(0, 0, 0, 0.45)`，正常模式下为`rgba(255, 255, 255, 0.45)` */
   background?: string;
 };

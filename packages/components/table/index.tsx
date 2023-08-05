@@ -55,10 +55,11 @@ export default defineComponent({
     const loadingBackground = computed(() => {
       if (!unref(loading)) return;
       return {
-        "element-loading-background":
-          unref(loadingConfig)?.background ?? isDark.value
-            ? "rgba(0, 0, 0, 0.45)"
-            : "rgba(255, 255, 255, 0.45)"
+        "element-loading-background": unref(loadingConfig)?.background
+          ? unref(loadingConfig)?.background
+          : isDark.value
+          ? "rgba(0, 0, 0, 0.45)"
+          : "rgba(255, 255, 255, 0.45)"
       };
     });
 
