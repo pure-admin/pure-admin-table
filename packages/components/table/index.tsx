@@ -18,7 +18,7 @@ import { isFunction, isBoolean, useDark, debounce } from "@pureadmin/utils";
 export default defineComponent({
   name: "PureTable",
   props,
-  emits: ["page-size-change", "page-current-change"],
+  emits: ["page-size-change", "page-current-change", "current-change"],
   setup(props, { slots, attrs, emit, expose }) {
     const {
       key,
@@ -88,6 +88,10 @@ export default defineComponent({
     const handleCurrentChange = val => {
       unref(pagination).currentPage = val;
       emit("page-current-change", val);
+    };
+
+    const TableCurrentChange = val => {
+      emit("current-change", val);
     };
 
     const renderColumns = (columns: Record<string, any>, index: number) => {
@@ -261,7 +265,12 @@ export default defineComponent({
     let renderTable = () => {
       return (
         <>
-          <ElTable {...props} {...attrs} ref={`TableRef${unref(key)}`}>
+          <ElTable
+            {...props}
+            {...attrs}
+            ref={`TableRef${unref(key)}`}
+            onCurrentChange={val => TableCurrentChange(val)}
+          >
             {{
               default: () => unref(columns).map(renderColumns),
               append: () => slots.append && slots.append(),
