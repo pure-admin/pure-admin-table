@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.4 (2023-10-20)
+
+### 🐞 Bug fixes
+
+- 修复 `Cannot find type definition file for '@pureadmin/table/volar'` 警告
+
 ## 2.3.3 (2023-08-05)
 
 ### 🐞 Bug fixes
