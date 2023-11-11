@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>@pureadmin/table</title>
+  <!-- Import element-plus style -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-plus/dist/index.css" />
+  <!-- Import Vue 3 -->
+  <script src="https://unpkg.com/vue@3"></script>
+  <!-- Import element-plus component library -->
+  <script src="https://unpkg.com/element-plus"></script>
+    <!-- Import element-plus zh-cn locale -->
+  <script src="https://unpkg.com/element-plus/dist/locale/zh-cn.min.js"></script>
+  <!-- Import @pureadmin/table -->
+  <script src="../../dist/index.umd.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <h1 style="text-align: center">Html引入示例</h1>
+    <pure-table border :data="tableData" :columns="columns" :pagination="pagination"></pure-table>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          columns: [
+            {
+              label: "Date",
+              prop: "date",
+            }, {
+              label: "Name",
+              prop: "name",
+            }, {
+              label: "Address",
+              prop: "address",
+            }
+          ],
+          tableData: [
+            {
+              date: '2016-05-03',
+              name: 'Tom',
+              address: 'No. 189, Grove St, Los Angeles',
+            },
+            {
+              date: '2016-05-02',
+              name: 'Tom',
+              address: 'No. 189, Grove St, Los Angeles',
+            },
+            {
+              date: '2016-05-04',
+              name: 'Tom',
+              address: 'No. 189, Grove St, Los Angeles',
+            },
+            {
+              date: '2016-05-01',
+              name: 'Tom',
+              address: 'No. 189, Grove St, Los Angeles',
+            },
+          ],
+          pagination: {
+            pageSize: 5,
+            currentPage: 1,
+            background: true,
+            total: 0
+          }
+        }
+      },
+      mounted() {
+        this.pagination.total = this.tableData.length
+      }
+    })
+
+    app.use(ElementPlus, { locale: ElementPlusLocaleZhCn }).use(PureTable.default).mount("#app")
+  </script>
+
+</body>
+
+</html>
