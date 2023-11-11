@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.4.0 (2023-11-11)
+
+### 🎫 Feat
+
+- 新增 `cdn` 示例静态页面在线地址 https://pure-admin.github.io/pure-admin-table/cdn.html
+
+### 🐞 Bug fixes
+
+- 修复 `cdn` 模式报错 `Uncaught ReferenceError: process is not defined`
+
 ## 2.3.4 (2023-10-20)
 
 ### 🐞 Bug fixes
