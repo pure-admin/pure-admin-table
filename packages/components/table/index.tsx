@@ -286,6 +286,7 @@ export default defineComponent({
                 "total, sizes, prev, pager, next, jumper"
               }
               pageSizes={unref(pagination).pageSizes ?? [5, 10, 15, 20]}
+              // @ts-expect-error
               onSizeChange={val => handleSizeChange(val)}
               onCurrentChange={val => handleCurrentChange(val)}
             ></ElPagination>

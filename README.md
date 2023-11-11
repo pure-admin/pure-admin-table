@@ -33,9 +33,9 @@ pnpm add @pureadmin/table
 ## 🕸️ `CDN`
 
 ```html
-<script src="https://unpkg.com/@pureadmin/table"></script>
+<script src="//unpkg.com/@pureadmin/table"></script>
 or
-<script src="https://cdn.jsdelivr.net/npm/@pureadmin/table"></script>
+<script src="//cdn.jsdelivr.net/npm/@pureadmin/table"></script>
 ```
 
 ## 🦄 用法

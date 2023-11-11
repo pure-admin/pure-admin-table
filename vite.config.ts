@@ -1,10 +1,10 @@
-import * as path from "path";
+import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
 import svgLoader from "vite-svg-loader";
+import terser from "@rollup/plugin-terser";
 import vueJsx from "@vitejs/plugin-vue-jsx";
-import { terser } from "rollup-plugin-terser";
-import VueI18n from "@intlify/vite-plugin-vue-i18n";
 import { defineConfig, type UserConfig } from "vite";
+import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 
 const lifecycle = process.env.npm_lifecycle_event;
 
@@ -14,7 +14,7 @@ function getConfigs(): UserConfig {
         publicDir: false,
         build: {
           lib: {
-            entry: path.resolve(__dirname, "packages/index.ts"),
+            entry: resolve(__dirname, "packages/index.ts"),
             name: "PureTable",
             fileName: format => `index.${format}.js`
           },
@@ -48,12 +48,14 @@ export default defineConfig({
     vue(),
     vueJsx(),
     svgLoader(),
-    VueI18n({
+    VueI18nPlugin({
       runtimeOnly: true,
       compositionOnly: true,
-      include: [path.resolve(__dirname, "locales/**")]
+      include: [resolve(__dirname, "locales/**")]
     })
   ],
+  // https://cn.vitejs.dev/guide/build.html#library-mode 环境变量
+  define: { "process.env.NODE_ENV": '"production"' },
   server: {
     host: "0.0.0.0"
   },

@@ -109,15 +109,15 @@ import { useI18n } from "vue-i18n";
 import { useColumns } from "./columns";
 import { ElDivider } from "element-plus";
 import { h, ref, reactive, onMounted } from "vue";
-import en from "element-plus/lib/locale/lang/en";
-import zhCn from "element-plus/lib/locale/lang/zh-cn";
+import en from "element-plus/dist/locale/en.mjs";
+import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 import {
   PureTable,
   type PaginationProps,
   type LoadingConfig
 } from "../packages";
-// import { PureTable } from "../dist/index.es";
-// import { type PaginationProps } from "../dist";
+// import { PureTable } from "../dist/index.es"
+// import type { PaginationProps, LoadingConfig } from "../dist"
 
 import empty from "./svg/empty.svg?component";
 import dayIcon from "./svg/day.svg";

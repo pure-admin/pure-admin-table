@@ -1,6 +1,7 @@
 {
   "name": "@pureadmin/table",
   "version": "2.3.4",
+  "packageManager": "pnpm@8.6.10",
   "description": "Use tsx syntax to encapsulate element-plus Table twice to provide flexible configuration items",
   "keywords": [
     "@pureadmin/table",
@@ -59,35 +60,35 @@
     "element-plus": "^2.0.0"
   },
   "dependencies": {
-    "element-plus": "^2.3.5",
-    "vue": "^3.2.47"
+    "element-plus": "^2.4.2",
+    "vue": "^3.3.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
-    "@esbuild-kit/cjs-loader": "^2.2.0",
-    "@intlify/vite-plugin-vue-i18n": "^6.0.0",
+    "@esbuild-kit/cjs-loader": "^2.4.4",
+    "@intlify/unplugin-vue-i18n": "^1.5.0",
     "@pureadmin/release": "^1.0.0",
-    "@pureadmin/utils": "^1.9.3",
+    "@pureadmin/utils": "^1.9.10",
+    "@rollup/plugin-terser": "^0.4.4",
     "@types/node": "^18.0.0",
-    "@vitejs/plugin-vue": "^3.2.0",
-    "@vitejs/plugin-vue-jsx": "^2.1.1",
-    "@vue/test-utils": "^2.2.3",
+    "@vitejs/plugin-vue": "^4.4.1",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "@vue/test-utils": "^2.4.1",
     "husky": "^8.0.1",
-    "jsdom": "^20.0.2",
+    "jsdom": "^22.1.0",
     "lint-staged": "^13.0.2",
     "prettier": "^2.7.1",
     "resize-observer-polyfill": "^1.5.1",
-    "rollup": "^2.75.7",
-    "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.56.1",
-    "sass-loader": "^13.2.0",
-    "typescript": "^4.9.3",
-    "vite": "^3.2.4",
-    "vite-svg-loader": "^3.4.0",
-    "vitest": "^0.25.2",
-    "vue-i18n": "^9.2.2",
-    "vue-tsc": "^1.0.9"
+    "rollup": "^4.3.0",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "typescript": "^5.2.2",
+    "vite": "4.5.0",
+    "vite-svg-loader": "^4.0.0",
+    "vitest": "^0.34.6",
+    "vue-i18n": "^9.6.5",
+    "vue-tsc": "^1.8.22"
   },
   "pnpm": {
     "peerDependencyRules": {
