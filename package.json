@@ -60,7 +60,7 @@
     "element-plus": "^2.0.0"
   },
   "dependencies": {
-    "element-plus": "^2.4.2",
+    "element-plus": "^2.4.3",
     "vue": "^3.3.8"
   },
   "devDependencies": {

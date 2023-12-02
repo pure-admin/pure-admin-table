@@ -210,7 +210,7 @@ export default defineComponent({
       unref(adaptiveConfig).timeout ?? 60
     );
 
-    const setHeaderSticky = async (zIndex = 100) => {
+    const setHeaderSticky = async (zIndex = 3) => {
       await nextTick();
       const headerStyle = getTableDoms().tableHeaderRef.$el.style;
       headerStyle.position = "sticky";
@@ -235,7 +235,7 @@ export default defineComponent({
           if (hasFixHeader && !unref(adaptiveConfig).fixHeader) {
             return;
           } else {
-            setHeaderSticky(unref(adaptiveConfig).zIndex ?? 100);
+            setHeaderSticky(unref(adaptiveConfig).zIndex ?? 3);
           }
         }
       });

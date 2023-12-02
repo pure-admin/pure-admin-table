@@ -29,7 +29,7 @@ export type AdaptiveConfig = {
   fixHeader?: boolean;
   /** 页面 `resize` 时的防抖时间，默认值为 `60` ms */
   timeout?: number;
-  /** 表头的 `z-index`，默认值为 `100` */
+  /** 表头的 `z-index`，默认值为 `3` */
   zIndex?: number;
 };
 

@@ -59,7 +59,7 @@ export default {
       offsetBottom: 96,
       fixHeader: true,
       timeout: 60,
-      zIndex: 100
+      zIndex: 3
     }
   },
   ...defaultProps
