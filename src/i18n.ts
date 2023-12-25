@@ -1,5 +1,7 @@
 import { App } from "vue";
-import { type I18n, createI18n } from "vue-i18n";
+import { type I18n, createI18n } from "vue-i18n"; // element-plus国际化
+import enLocale from "element-plus/dist/locale/en.mjs";
+import zhLocale from "element-plus/dist/locale/zh-cn.mjs";
 
 function siphonI18n(prefix = "zh-CN") {
   return Object.fromEntries(
@@ -14,10 +16,12 @@ function siphonI18n(prefix = "zh-CN") {
 
 export const localesConfigs = {
   zh: {
-    ...siphonI18n("zh-CN")
+    ...siphonI18n("zh-CN"),
+    ...zhLocale
   },
   en: {
-    ...siphonI18n("en")
+    ...siphonI18n("en"),
+    ...enLocale
   }
 };
 

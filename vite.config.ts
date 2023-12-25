@@ -21,7 +21,7 @@ function getConfigs(): UserConfig {
           // https://rollupjs.org/guide/en/#big-list-of-options
           rollupOptions: {
             treeshake: true,
-            external: ["vue", "element-plus"],
+            external: ["vue", "element-plus", "vue-i18n"],
             output: {
               globals: {
                 vue: "Vue",
