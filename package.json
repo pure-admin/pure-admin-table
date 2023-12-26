@@ -39,12 +39,14 @@
     },
     "./volar": {
       "types": "./volar.d.ts"
-    }
+    },
+    "./*": "./*"
   },
   "files": [
     "dist",
     "volar.d.ts"
   ],
+  "style": "dist/style.css",
   "sideEffects": false,
   "scripts": {
     "dev": "vite",
