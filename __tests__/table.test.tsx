@@ -1,14 +1,10 @@
 import { mount } from "@vue/test-utils";
-import { ElLoading } from "element-plus";
 import { describe, expect, it, test, vi } from "vitest";
 import { nextTick, type VNode, reactive, ref } from "vue";
 import { PureTable, type PaginationProps } from "../packages";
 
 const _mount = (render: () => VNode) => {
   return mount(render, {
-    global: {
-      plugins: [ElLoading]
-    },
     attachTo: document.body
   });
 };
