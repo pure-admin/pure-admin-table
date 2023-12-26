@@ -1,14 +1,11 @@
 <template>
   <h1 style="text-align: center">按需引入示例</h1>
-  <el-config-provider :locale="zhCn">
-    <pure-table border :loading="loading" :data="tableData" :columns="columns" :pagination="pagination"></pure-table>
-  </el-config-provider>
+  <pure-table locale="zhCn" border :loading="loading" :data="tableData" :columns="columns" :pagination="pagination" />
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive } from "vue"
 import type { TableColumns } from "@pureadmin/table"
-import zhCn from "element-plus/lib/locale/lang/zh-cn"
 
 const columns: Array<TableColumns> = [{
   label: "Date",

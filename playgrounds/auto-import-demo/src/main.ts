@@ -6,10 +6,7 @@ import "element-plus/es/components/table/style/css";
 import "element-plus/es/components/pagination/style/css";
 import "element-plus/es/components/loading/style/css";
 
-// ElLoading 指令必须手动注册下
-import { ElLoading } from "element-plus";
-
-import Table from "@pureadmin/table";
+import PureTable from "@pureadmin/table";
 
 const app = createApp(App);
-app.use(ElLoading).use(Table).mount("#app");
+app.use(PureTable).mount("#app");
