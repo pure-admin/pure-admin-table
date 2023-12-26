@@ -7,24 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>@pureadmin/table</title>
 
-  <!-- unpkg cdn -->
-  <!-- Import element-plus style -->
-  <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
-  <!-- Import Vue 3 -->
-  <script src="//unpkg.com/vue/dist/vue.global.prod.js"></script>
-  <!-- Import element-plus component library -->
-  <script src="//unpkg.com/element-plus/dist/index.full.min.js"></script>
-  <!-- Import element-plus zh-cn locale -->
-  <script src="//unpkg.com/element-plus/dist/locale/zh-cn.min.js"></script>
-  <!-- Import @pureadmin/table -->
-  <script src="//unpkg.com/@pureadmin/table"></script>
-
   <!-- jsdelivr cdn -->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/element-plus/dist/index.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/element-plus/dist/index.css" />
   <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.global.prod.js"></script>
   <script src="//cdn.jsdelivr.net/npm/element-plus/dist/index.full.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/element-plus/dist/locale/zh-cn.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@pureadmin/table"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/@pureadmin/table"></script>
+
+  <!-- unpkg cdn -->
+  <!-- <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+  <script src="//unpkg.com/vue/dist/vue.global.prod.js"></script>
+  <script src="//unpkg.com/element-plus/dist/index.full.min.js"></script>
+  <script src="//unpkg.com/@pureadmin/table"></script> -->
 </head>
 
 <body>
@@ -52,22 +45,22 @@
           ],
           tableData: [
             {
-              date: '2016-05-03',
+              date: '2030-05-01',
               name: 'Tom',
               address: 'No. 189, Grove St, Los Angeles',
             },
             {
-              date: '2016-05-02',
+              date: '2030-05-02',
               name: 'Tom',
               address: 'No. 189, Grove St, Los Angeles',
             },
             {
-              date: '2016-05-04',
+              date: '2030-05-03',
               name: 'Tom',
               address: 'No. 189, Grove St, Los Angeles',
             },
             {
-              date: '2016-05-01',
+              date: '2030-05-04',
               name: 'Tom',
               address: 'No. 189, Grove St, Los Angeles',
             },
@@ -85,7 +78,7 @@
       }
     })
 
-    app.use(ElementPlus, { locale: ElementPlusLocaleZhCn }).use(PureTable.default).mount("#app")
+    app.use(ElementPlus).use(PureTable.default, { locale: "zhCn" }).mount("#app")
   </script>
 
 </body>

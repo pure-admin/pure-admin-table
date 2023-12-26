@@ -29,78 +29,76 @@
     </el-tooltip>
   </el-space>
 
-  <el-config-provider :locale="language ? zhCn : en">
-    <PureTable
-      ref="tableRef"
-      :loading="loading"
-      :loadingConfig="loadingConfig"
-      border
-      row-key="id"
-      alignWhole="center"
-      height="687"
-      showOverflowTooltip
-      :data="
-        dataList.slice(
-          (pagination.currentPage - 1) * pagination.pageSize,
-          pagination.currentPage * pagination.pageSize
-        )
-      "
-      :columns="columns"
-      :pagination="pagination"
-      :header-cell-style="{
-        background: 'var(--el-table-row-hover-bg-color)',
-        color: 'var(--el-text-color-primary)'
-      }"
-      @selection-change="handleSelectionChange"
-      @row-click="rowClick"
-      @page-size-change="pageSizeChange"
-      @page-current-change="pageCurrentChange"
-    >
-      <template #empty>
-        <el-empty :description="t('text.empty')" :image-size="60">
-          <template #image>
-            <empty />
-          </template>
-        </el-empty>
-      </template>
-      <template #append>
-        <p style="text-align: center">
-          {{ t("text.hope") }}
-          <el-link
-            type="primary"
-            href="https://github.com/pure-admin/pure-admin-table"
-            target="_blank"
-          >
-            @pureadmin/table
-          </el-link>
-          {{ t("text.help") }}
-        </p>
-      </template>
-      <template #operateHeader> operate </template>
-      <template #operation="{ row }">
-        <el-button
-          class="reset-margin"
-          link
+  <PureTable
+    ref="tableRef"
+    :loading="loading"
+    :loadingConfig="loadingConfig"
+    border
+    row-key="id"
+    alignWhole="center"
+    height="687"
+    showOverflowTooltip
+    :data="
+      dataList.slice(
+        (pagination.currentPage - 1) * pagination.pageSize,
+        pagination.currentPage * pagination.pageSize
+      )
+    "
+    :columns="columns"
+    :pagination="pagination"
+    :header-cell-style="{
+      background: 'var(--el-table-row-hover-bg-color)',
+      color: 'var(--el-text-color-primary)'
+    }"
+    @selection-change="handleSelectionChange"
+    @row-click="rowClick"
+    @page-size-change="pageSizeChange"
+    @page-current-change="pageCurrentChange"
+  >
+    <template #empty>
+      <el-empty :description="t('text.empty')" :image-size="60">
+        <template #image>
+          <empty />
+        </template>
+      </el-empty>
+    </template>
+    <template #append>
+      <p style="text-align: center">
+        {{ t("text.hope") }}
+        <el-link
           type="primary"
-          @click="handleUpdate(row)"
+          href="https://github.com/pure-admin/pure-admin-table"
+          target="_blank"
         >
-          {{ t("button.edit") }}
-        </el-button>
-        <el-popconfirm :title="t('text.sure')">
-          <template #reference>
-            <el-button
-              class="reset-margin"
-              link
-              type="primary"
-              @click="handleDelete(row)"
-            >
-              {{ t("button.delete") }}
-            </el-button>
-          </template>
-        </el-popconfirm>
-      </template>
-    </PureTable>
-  </el-config-provider>
+          @pureadmin/table
+        </el-link>
+        {{ t("text.help") }}
+      </p>
+    </template>
+    <template #operateHeader> operate </template>
+    <template #operation="{ row }">
+      <el-button
+        class="reset-margin"
+        link
+        type="primary"
+        @click="handleUpdate(row)"
+      >
+        {{ t("button.edit") }}
+      </el-button>
+      <el-popconfirm :title="t('text.sure')">
+        <template #reference>
+          <el-button
+            class="reset-margin"
+            link
+            type="primary"
+            @click="handleDelete(row)"
+          >
+            {{ t("button.delete") }}
+          </el-button>
+        </template>
+      </el-popconfirm>
+    </template>
+  </PureTable>
 </template>
 
 <script setup lang="ts">
@@ -109,15 +107,7 @@ import { useI18n } from "vue-i18n";
 import { useColumns } from "./columns";
 import { ElDivider } from "element-plus";
 import { h, ref, reactive, onMounted } from "vue";
-import en from "element-plus/dist/locale/en.mjs";
-import zhCn from "element-plus/dist/locale/zh-cn.mjs";
-import {
-  PureTable,
-  type PaginationProps,
-  type LoadingConfig
-} from "../packages";
-// import { PureTable } from "../dist/index.es"
-// import type { PaginationProps, LoadingConfig } from "../dist"
+import { type PaginationProps, type LoadingConfig } from "../packages";
 
 import empty from "./svg/empty.svg?component";
 import dayIcon from "./svg/day.svg";

@@ -1,17 +1,18 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 
-import "./dark.scss";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
+import "element-plus/theme-chalk/src/dark/css-vars.scss";
 
-import { useI18n } from "./i18n";
+import { useI18n, i18n } from "./i18n";
 
-// import Table from "../dist/index.es";
+import PureTable from "../packages";
 
 const app = createApp(App);
 
 app.use(useI18n);
-app.use(ElementPlus);
-// app.use(ElementPlus).use(Table);
+app.use(ElementPlus).use(PureTable, {
+  i18n
+});
 app.mount("#app");

@@ -1,7 +1,9 @@
 import {
+  DefaultLanguage,
   PaginationProps,
   LoadingConfig,
   TableColumns,
+  Language,
   Effect,
   Layout,
   Align,
@@ -138,7 +140,7 @@ export type TableProps = {
  */
 export interface PureTableProps extends TableProps {
   /** 唯一键，如果单个页面有多个表格实例，但是您只获取到一个表格实例，设置 `key` 即可解决，不过大多数情况下不需要设置，会自动处理 */
-  key?: String | Number;
+  key?: string | number;
   /** `Table-column` 配置 `该属性为必填属性` */
   columns: Array<TableColumns>;
   /** 是否开启加载动画，默认值：`false` */
@@ -161,4 +163,6 @@ export interface PureTableProps extends TableProps {
   adaptive?: boolean;
   /** 撑满内容区自适应高度相关配置 */
   adaptiveConfig?: AdaptiveConfig;
+  /** 国际化配置。简体中文：`zhCn`、繁体中文：`zhTw`、英语: `en`，也可以自定义国际化语言 https://element-plus.org/zh-CN/guide/i18n.html */
+  locale?: DefaultLanguage | Language;
 }

@@ -1,10 +1,10 @@
-import { ref } from "vue";
 import type { TableColumns } from "../packages/index";
+const { BASE_URL } = import.meta.env;
 
 let srcList: Array<string> = [];
 
 for (let i = 1; i <= 11; i++) {
-  srcList.push(`./imgs/${i}.jpg`);
+  srcList.push(`${BASE_URL}/imgs/${i}.jpg`);
 }
 
 export function useColumns() {
