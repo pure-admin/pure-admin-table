@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@pureadmin/table':
-    specifier: ^2.4.2
-    version: 2.4.2(element-plus@2.4.4)(typescript@5.3.3)
+    specifier: ^2.4.4
+    version: 2.4.4(element-plus@2.4.4)(typescript@5.3.3)
   element-plus:
     specifier: ^2.4.4
     version: 2.4.4(vue@3.3.13)
@@ -297,8 +297,8 @@ packages:
   /@jridgewell/sourcemap-codec@1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
 
-  /@pureadmin/table@2.4.2(element-plus@2.4.4)(typescript@5.3.3):
-    resolution: {integrity: sha512-jTjfOXf0vHrNwCnqAGZI/Q6cCR7oTJmuod3PMOq0lMt4iaMpvrOnMKwXDTyMUg/885cz92U0GyjYkzS89BPhoQ==}
+  /@pureadmin/table@2.4.4(element-plus@2.4.4)(typescript@5.3.3):
+    resolution: {integrity: sha512-R/ZroVanqJ9cF7I1saIL8pyEuLt8/H+d/BthPYnnsR7RLl23nwBWk/KtZN23V7pakn65t2xovAqOSMPiVYtfag==}
     peerDependencies:
       element-plus: ^2.0.0
     dependencies:
