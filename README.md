@@ -20,7 +20,7 @@
 🦾 **灵活度高、强类型**: 使用`tsx`语法编写，拥有强大的类型推导提示和灵活、方便的配置  
 ⚡ **完全可摇树**: 自带 Tree-shaking，只对引入的代码进行打包  
 🫶 **代码零侵入**: 保持`element-plus` [Table](https://element-plus.org/zh-CN/component/table.html) 的所有属性、插槽、事件、方法的同时，提供更灵活的配置，而且还内置了可通过配置渲染的分页组件和加载动画以及表格自适应内容区高度等  
-🌍 **国际化友好**: 内置三种精简的国际化（简体中文：`zhCn`、繁体中文：`zhTw`、英语: `en`）支持，提供三种国际化配置方法，使其配置更灵活、方便。当然也可结合 [vue-i18n](https://vue-i18n.intlify.dev/) ，让表格自适应国际化语言  
+🌍 **国际化友好**: 内置三种精简的国际化（简体中文：`zhCn`、繁体中文：`zhTw`、英语: `en`），提供三种国际化配置方法，使其配置更灵活、方便。当然也可以结合 [vue-i18n](https://vue-i18n.intlify.dev/) ，让表格自适应国际化语言  
 💚 **SSR友好**: 完全兼容`Nuxt3`  
 📡 **可通过`CDN`引用**: 同时支持`jsdelivr`和`unpkg`
 
@@ -28,9 +28,9 @@
 
 ```bash
 npm install @pureadmin/table
-or
+# or
 yarn add @pureadmin/table
-or
+# or
 pnpm add @pureadmin/table
 ```
 
@@ -38,7 +38,7 @@ pnpm add @pureadmin/table
 
 ```html
 <script src="//cdn.jsdelivr.net/npm/@pureadmin/table"></script>
-or
+<!-- or -->
 <script src="//unpkg.com/@pureadmin/table"></script>
 ```
 

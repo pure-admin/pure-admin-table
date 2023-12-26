@@ -28,9 +28,9 @@ English | [简体中文](./README.md)
 
 ```bash
 npm install @pureadmin/table
-or
+# or
 yarn add @pureadmin/table
-or
+# or
 pnpm add @pureadmin/table
 ```
 
@@ -38,7 +38,7 @@ pnpm add @pureadmin/table
 
 ```html
 <script src="//cdn.jsdelivr.net/npm/@pureadmin/table"></script>
-or
+<!-- or -->
 <script src="//unpkg.com/@pureadmin/table"></script>
 ```
 
