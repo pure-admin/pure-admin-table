@@ -163,6 +163,6 @@ export interface PureTableProps extends TableProps {
   adaptive?: boolean;
   /** 撑满内容区自适应高度相关配置 */
   adaptiveConfig?: AdaptiveConfig;
-  /** 国际化配置。简体中文：`zhCn`、繁体中文：`zhTw`、美国英语: `en`，也可以自定义国际化语言 https://element-plus.org/zh-CN/guide/i18n.html */
+  /** 国际化配置。简体中文：`zhCn`、繁体中文：`zhTw`、英语: `en`，也可以自定义国际化语言 https://element-plus.org/zh-CN/guide/i18n.html */
   locale?: DefaultLanguage | Language;
 }

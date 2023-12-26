@@ -13,39 +13,43 @@
 
 ## 🤔 开发初衷
 
-`element-plus` [Table](https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7) 的`Table-column`属性目前只能写在`<template></template>`模版里，这样不是很灵活，如果表格的`column`足够多，代码写、看起来很臃肿，但`element-plus` [Virtualized Table](https://element-plus.org/zh-CN/component/table-v2.html) 可配置性就很高，为了保持统一，我将`Table`二次封装并沿用了`cellRenderer`、`headerRenderer`这两个自定义 renderer，内置了可通过配置渲染的分页组件，当然还有一些额外的属性，让我们一起探索吧
+`element-plus` [Table](https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7) 的`Table-column`属性目前只能写在`<template></template>`模版里，这样不是很灵活，如果表格的`column`足够多，代码写、看起来很臃肿，但`element-plus` [Virtualized Table](https://element-plus.org/zh-CN/component/table-v2.html) 可配置性就很高，为了保持统一，我将`Table`二次封装并沿用了`cellRenderer`、`headerRenderer`这两个自定义`renderer`，内置了可通过配置渲染的分页组件，当然还有一些额外的属性，让我们一起探索吧
 
 ## 🚀 特性
 
-🦾 **灵活度高**: 使用`tsx`语法编写，保证类型的同时，给开发者提供了更灵活的写法，给使用者提供了更方便的配置  
+🦾 **灵活度高、强类型**: 使用`tsx`语法编写，拥有强大的类型推导提示和灵活、方便的配置  
 ⚡ **完全可摇树**: 自带 Tree-shaking，只对引入的代码进行打包  
-🫶 **代码零侵入**: 保持`element-plus` [Table](https://element-plus.org/zh-CN/component/table.html) 的所有属性、插槽、事件、方法的同时，提供更灵活的配置，而且还内置了可通过配置渲染的分页组件  
-⚓ **代码提交前校验**: 使用 [husky](https://typicode.github.io/husky/#/) 对提交代码前进行规则校验，强制规范开发流程，防止开发失误
+🫶 **代码零侵入**: 保持`element-plus` [Table](https://element-plus.org/zh-CN/component/table.html) 的所有属性、插槽、事件、方法的同时，提供更灵活的配置，而且还内置了可通过配置渲染的分页组件和加载动画以及表格自适应内容区高度等  
+🌍 **国际化友好**: 内置三种精简的国际化（简体中文：`zhCn`、繁体中文：`zhTw`、英语: `en`）支持，提供三种国际化配置方法，使其配置更灵活、方便。当然也可结合 [vue-i18n](https://vue-i18n.intlify.dev/) ，让表格自适应国际化语言  
+💚 **SSR友好**: 完全兼容`Nuxt3`  
+📡 **可通过`CDN`引用**: 同时支持`jsdelivr`和`unpkg`
 
 ## 📦 安装
 
 ```bash
 npm install @pureadmin/table
 or
+yarn add @pureadmin/table
+or
 pnpm add @pureadmin/table
 ```
 
-## 🕸️ `CDN`
+## 📡 `CDN`
 
 ```html
-<script src="//unpkg.com/@pureadmin/table"></script>
-or
 <script src="//cdn.jsdelivr.net/npm/@pureadmin/table"></script>
+or
+<script src="//unpkg.com/@pureadmin/table"></script>
 ```
 
-## 🦄 用法
+## ⚙️ 用法
 
 ### 局部注册（单文件）
 
 ```ts
 import { PureTable } from "@pureadmin/table";
 
-<pure-table :data="dataList" :columns="columns" :pagination="pagination"></pure-table>
+<pure-table locale="zhCn" :data="dataList" :columns="columns" :pagination="pagination"></pure-table>
 ```
 
 ### 全局注册（main.ts）
@@ -54,16 +58,16 @@ import { PureTable } from "@pureadmin/table";
 import { createApp } from "vue";
 import App from "./App.vue";
 
-import Table from "@pureadmin/table";
+import PureTable from "@pureadmin/table";
 
 const app = createApp(App);
 
-app.use(Table).mount("#app");
+app.use(PureTable, { locale: "zhCn" }).mount("#app");
 ```
 
 [点击查看按需、全局以及 Html 文件引入的用法](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
 
-## Volar 支持
+## 🔮 `Volar`支持
 
 如果您在使用 `Volar`，那么可以在 `tsconfig.json` 中配置 `compilerOptions.types` 来指定全局组件类型（尤其是全局注册时要想获得类型提示就需要加上下面配置）
 

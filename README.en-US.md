@@ -17,28 +17,32 @@ English | [简体中文](./README.md)
 
 ## 🚀 Features
 
-🦾 **High flexibility**: Written using `tsx` syntax, while ensuring the type, it provides developers with more flexible writing methods and provides users with more convenient configuration  
-⚡ **Fully tree-shaking**: Comes with Tree-shaking, only packages the imported code  
-🫶 **Code Zero Intrusion**: While keeping all `properties`, `slot`, `events` and `methods` of `element-plus` [Table](https://element-plus.org/en-US/component/table.html), Provides more flexible configuration, It also has built-in `Pagination` components that can be rendered by configuration  
-⚓ **Verification before code submission**: Use [husky](https://typicode.github.io/husky/#/) to verify the rules before submitting code, enforce standard development process and prevent development mistakes
+🦾 **High flexibility and strong typing**: Written using `tsx` syntax, with powerful type derivation prompts and flexible and convenient configuration  
+⚡ **Completely tree-shakable**: Comes with Tree-shaking, only packages imported code  
+🫶 **Zero code intrusion**: Keep all properties, slots, events, and methods of `element-plus` [Table](https://element-plus.org/en-US/component/table.html) At the same time, it provides more flexible configuration, and also has built-in paging components and loading animations that can be rendered through configuration, as well as table adaptive content area height, etc.  
+🌍 **Internationalization friendly**: Built-in three streamlined internationalization (Simplified Chinese: `zhCn`, Traditional Chinese: `zhTw`, English: `en`) support, providing three internationalization configuration methods to configure it More flexible and convenient. Of course, it can also be combined with [vue-i18n](https://vue-i18n.intlify.dev/) to make the table adapt to international languages  
+💚 **SSR friendly**: fully compatible with `Nuxt3`  
+📡 **Can be referenced through `CDN`**: Supports both `jsdelivr` and `unpkg`
 
 ## 📦 Install
 
 ```bash
 npm install @pureadmin/table
 or
+yarn add @pureadmin/table
+or
 pnpm add @pureadmin/table
 ```
 
-## 🕸️ `CDN`
+## 📡 `CDN`
 
 ```html
-<script src="//unpkg.com/@pureadmin/table"></script>
-or
 <script src="//cdn.jsdelivr.net/npm/@pureadmin/table"></script>
+or
+<script src="//unpkg.com/@pureadmin/table"></script>
 ```
 
-## 🦄 Usage
+## ⚙️ Usage
 
 ### Partial registration (single file)
 
@@ -54,16 +58,16 @@ import { PureTable } from "@pureadmin/table";
 import { createApp } from "vue";
 import App from "./App.vue";
 
-import Table from "@pureadmin/table";
+import PureTable from "@pureadmin/table";
 
 const app = createApp(App);
 
-app.use(Table).mount("#app");
+app.use(PureTable).mount("#app");
 ```
 
 [Click to view the usage of on-demand, global and Html file import](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
 
-## Volar support
+## 🔮 Volar support
 
 If you are using `Volar`, you can configure `compilerOptions.types` in `tsconfig.json` to specify the global component type (especially if you want to get type hints when registering globally, you need to add the following configuration)
 

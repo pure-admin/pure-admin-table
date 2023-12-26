@@ -127,8 +127,8 @@ export default defineComponent({
         "element-loading-background": unref(loadingConfig)?.background
           ? unref(loadingConfig)?.background
           : isDark.value
-          ? "rgba(0, 0, 0, 0.45)"
-          : "rgba(255, 255, 255, 0.45)"
+            ? "rgba(0, 0, 0, 0.45)"
+            : "rgba(255, 255, 255, 0.45)"
       };
     });
 
@@ -142,8 +142,8 @@ export default defineComponent({
             unref(pagination).align === "left"
               ? "flex-start"
               : unref(pagination).align === "center"
-              ? "center"
-              : "flex-end"
+                ? "center"
+                : "flex-end"
         },
         unref(pagination).style ?? {}
       );
@@ -221,19 +221,19 @@ export default defineComponent({
             ...defaultSlots
           }
         : slots?.[headerSlot]
-        ? {
-            header: (scope: TableColumnScope) => {
-              return slots?.[headerSlot]?.(
-                Object.assign(scope, {
-                  index: scope.$index,
-                  props,
-                  attrs
-                })
-              );
-            },
-            ...defaultSlots
-          }
-        : defaultSlots;
+          ? {
+              header: (scope: TableColumnScope) => {
+                return slots?.[headerSlot]?.(
+                  Object.assign(scope, {
+                    index: scope.$index,
+                    props,
+                    attrs
+                  })
+                );
+              },
+              ...defaultSlots
+            }
+          : defaultSlots;
 
       if (children?.length > 0) {
         scopedSlots = children.map(renderColumns);
@@ -348,8 +348,8 @@ export default defineComponent({
                 props?.paginationSmall
                   ? props?.paginationSmall
                   : unref(pagination).small
-                  ? unref(pagination).small
-                  : false
+                    ? unref(pagination).small
+                    : false
               }
               layout={
                 unref(pagination).layout ??
