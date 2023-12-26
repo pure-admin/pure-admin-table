@@ -37,8 +37,10 @@ pnpm add @pureadmin/table
 ## 📡 `CDN`
 
 ```html
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@pureadmin/table/dist/style.css" />
 <script src="//cdn.jsdelivr.net/npm/@pureadmin/table"></script>
 <!-- or -->
+<link rel="stylesheet" href="//unpkg.com/@pureadmin/table/dist/style.css" />
 <script src="//unpkg.com/@pureadmin/table"></script>
 ```
 
@@ -47,6 +49,7 @@ pnpm add @pureadmin/table
 ### Partial registration (single file)
 
 ```ts
+import "@pureadmin/table/dist/style.css";
 import { PureTable } from "@pureadmin/table";
 
 <pure-table :data="dataList" :columns="columns" :pagination="pagination"></pure-table>
@@ -58,6 +61,7 @@ import { PureTable } from "@pureadmin/table";
 import { createApp } from "vue";
 import App from "./App.vue";
 
+import "@pureadmin/table/dist/style.css";
 import PureTable from "@pureadmin/table";
 
 const app = createApp(App);
@@ -65,7 +69,7 @@ const app = createApp(App);
 app.use(PureTable).mount("#app");
 ```
 
-[Click to view the usage of on-demand, global and Html file import](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
+[Click to view usage examples introduced by on-demand, global, `nuxt3` and `Html` files](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
 
 ## 🔮 Volar support
 
