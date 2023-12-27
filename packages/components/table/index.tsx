@@ -74,9 +74,11 @@ export default defineComponent({
 
     let globalI18n = computed(() => {
       if (!unref(i18n)) return;
-      const elLocale = i18n.global.getLocaleMessage(
-        unref(i18n.global.locale)
-      )?.["el"];
+      const elLocale =
+        // vue-i18n
+        i18n?.global?.getLocaleMessage(unref(i18n?.global?.locale))?.["el"] ||
+        // @ts-expect-error @nuxtjs/i18n
+        i18n?.getLocaleMessage(unref(i18n?.locale))?.["el"];
       if (elLocale) {
         return { el: elLocale } as Language;
       } else {
