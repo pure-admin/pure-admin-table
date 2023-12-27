@@ -3,8 +3,12 @@ import { useI18n } from "vue-i18n";
 import { ElDivider } from "element-plus";
 import { useDark, delay } from "@pureadmin/utils";
 import { h, ref, reactive, onMounted, watch } from "vue";
-import type { PaginationProps, Align } from "../packages";
-import type { TableColumns, LoadingConfig } from "../packages";
+import type {
+  Align,
+  TableColumns,
+  LoadingConfig,
+  PaginationProps
+} from "../packages";
 
 import empty from "./svg/empty.svg?component";
 import dayIcon from "./svg/day.svg?component";
