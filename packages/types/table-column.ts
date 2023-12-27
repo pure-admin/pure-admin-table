@@ -58,7 +58,7 @@ export type TableColumn = {
   /** 列是否固定在左侧或者右侧。`true` 表示固定在左侧 */
   fixed?: TableColumnFixed;
   /** 列标题 `Label` 区域渲染使用的 `Function` */
-  renderHeader?: (data: RH) => VNode;
+  renderHeader?: (data: RH) => VNode | string;
   /** 对应列是否可以排序， 如果设置为 `'custom'`，则代表用户希望远程排序，需要监听 `Table` 的 `sort-change `事件，默认值为 `false` */
   sortable?: TableColumnSortable;
   /** 指定数据按照哪个属性进行排序，仅当 `sortable` 设置为 `true` 的时候有效。应该如同 `Array.sort` 那样返回一个 `Number` */
@@ -116,7 +116,7 @@ export interface TableColumns extends TableColumn {
   /** 多级表头，内部实现原理：嵌套 `el-table-column` */
   children?: Array<TableColumns>;
   /** 自定义单元格渲染器（`jsx`语法） */
-  cellRenderer?: (data: TableColumnRenderer) => VNode;
+  cellRenderer?: (data: TableColumnRenderer) => VNode | string;
   /** 自定义头部渲染器（`jsx`语法） */
-  headerRenderer?: (data: TableColumnRenderer) => VNode;
+  headerRenderer?: (data: TableColumnRenderer) => VNode | string;
 }

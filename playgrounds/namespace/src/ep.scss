@@ -1,0 +1,6 @@
+@forward "element-plus/theme-chalk/src/mixins/config.scss" with (
+  $namespace: "ep"
+);
+
+// 全局引入时下面代码必须引入
+@use "element-plus/theme-chalk/src/index.scss" as *;

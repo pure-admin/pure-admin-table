@@ -19,7 +19,7 @@ English | [简体中文](./README.md)
 
 🦾 **High flexibility and strong typing**: Written using `tsx` syntax, with powerful type derivation prompts and flexible and convenient configuration  
 ⚡ **Completely tree-shakable**: Comes with Tree-shaking, only packages imported code  
-🫶 **Zero code intrusion**: Keep all properties, slots, events, and methods of `element-plus` [Table](https://element-plus.org/en-US/component/table.html) At the same time, it provides more flexible configuration, and also has built-in paging components and loading animations that can be rendered through configuration, as well as table adaptive content area height, etc.  
+🫶 **Zero code intrusion**: Keep all properties, slots, events, and methods of `element-plus` [Table](https://element-plus.org/en-US/component/table.html) At the same time, it provides more flexible configuration, and also has built-in paging components and loading animations that can be rendered through configuration, as well as table adaptive content area height, etc. Of course [custom namespace](https://element-plus.org/en-US/guide/namespace.html) will not be affected in any way  
 🌍 **Internationalization friendly**: Built-in three streamlined internationalization (Simplified Chinese: `zhCn`, Traditional Chinese: `zhTw`, English: `en`) support, providing three internationalization configuration methods to configure it More flexible and convenient. Of course, it can also be combined with [vue-i18n](https://vue-i18n.intlify.dev/) to make the table adapt to international languages  
 💚 **SSR friendly**: fully compatible with `Nuxt3`  
 📡 **Can be referenced through `CDN`**: Supports both `jsdelivr` and `unpkg`
@@ -69,7 +69,7 @@ const app = createApp(App);
 app.use(PureTable).mount("#app");
 ```
 
-[Click to view usage examples introduced by on-demand, global, `nuxt3` and `Html` files](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
+[Click to view usage examples introduced by on-demand, global, namespace, `nuxt3` and `Html` files](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
 
 ## 🔮 Volar support
 

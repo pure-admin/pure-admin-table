@@ -29,8 +29,8 @@ devDependencies:
     specifier: ^1.0.0
     version: 1.0.0
   '@pureadmin/utils':
-    specifier: ^2.0.0
-    version: 2.0.0(vue@3.3.13)
+    specifier: ^2.0.1
+    version: 2.0.1(vue@3.3.13)
   '@rollup/plugin-terser':
     specifier: ^0.4.4
     version: 0.4.4(rollup@4.3.0)
@@ -945,8 +945,8 @@ packages:
     hasBin: true
     dev: true
 
-  /@pureadmin/utils@2.0.0(vue@3.3.13):
-    resolution: {integrity: sha512-0uxudGll2zmTl/hPyK9LV2rZOA8Kv2MgOQir5UI+T41nQO3ksQFzkVAuYyvqaktLodmU4/oVPhygQGpN8YH0bg==}
+  /@pureadmin/utils@2.0.1(vue@3.3.13):
+    resolution: {integrity: sha512-8yOw1AFv5b5thUWUT2igqLMuztDyFemSV+8ydc2LNAedLPi3TABmscXQb5tvHcWm/O9otSuYmZlyRKfwMW/Lew==}
     peerDependencies:
       echarts: '*'
       vue: '*'

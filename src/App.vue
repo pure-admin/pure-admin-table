@@ -1,42 +1,105 @@
+<script setup lang="ts">
+import { useColumns } from "./columns";
+
+const {
+  empty,
+  dayIcon,
+  darkIcon,
+  chineseIcon,
+  englishIcon,
+  locale,
+  spacer,
+  loading,
+  columns,
+  dataList,
+  language,
+  tableSize,
+  pagination,
+  tableHeight,
+  loadingConfig,
+  paginationSmall,
+  paginationAlign,
+  t,
+  rowClick,
+  onEmpty,
+  onChange,
+  onRefresh,
+  handleUpdate,
+  handleDelete,
+  pageSizeChange,
+  getTableMethods,
+  pageCurrentChange,
+  handleSelectionChange,
+  isDark,
+  toggleDark
+} = useColumns();
+</script>
+
 <template>
-  <el-space :spacer="spacer">
-    <el-switch
-      v-model="isDark"
-      inline-prompt
-      size="large"
-      :active-icon="dayIcon"
-      :inactive-icon="darkIcon"
-      @change="dataThemeChange"
-    />
-    <el-switch
-      v-model="language"
-      inline-prompt
-      size="large"
-      :active-icon="chineseIcon"
-      :inactive-icon="englishIcon"
-      @change="locale = language ? 'zh' : 'en'"
-    />
-    <el-button type="primary" @click="onRefresh">
-      {{ t("button.refresh") }}
-    </el-button>
-    <el-button type="primary" @click="onEmpty">
-      {{ t("button.empty") }}
-    </el-button>
-    <el-tooltip :content="t('text.console')">
-      <el-button type="primary" @click="getTableMethods">
-        {{ t("button.methods") }}
+  <el-config-provider size="small">
+    <el-space class="pure-space" wrap :spacer="spacer">
+      <el-switch
+        v-model="isDark"
+        inline-prompt
+        size="default"
+        :active-icon="dayIcon"
+        :inactive-icon="darkIcon"
+        @change="toggleDark"
+      />
+      <el-switch
+        v-model="language"
+        inline-prompt
+        size="default"
+        :active-icon="chineseIcon"
+        :inactive-icon="englishIcon"
+        @change="locale = language ? 'zh' : 'en'"
+      />
+      <el-button type="primary" @click="onRefresh">
+        {{ t("button.refresh") }}
       </el-button>
-    </el-tooltip>
-  </el-space>
+      <el-button type="primary" @click="onEmpty">
+        {{ t("button.empty") }}
+      </el-button>
+      <el-tooltip :content="t('text.console')">
+        <el-button type="primary" @click="getTableMethods">
+          {{ t("button.methods") }}
+        </el-button>
+      </el-tooltip>
+      <div class="pure-radio">
+        <p class="pure-small">{{ t("text.size") }}</p>
+        <el-radio-group v-model="tableSize">
+          <el-radio-button label="large">large</el-radio-button>
+          <el-radio-button label="default">default</el-radio-button>
+          <el-radio-button label="small">small</el-radio-button>
+        </el-radio-group>
+      </div>
+      <div class="pure-radio">
+        <p class="pure-small">{{ t("text.page") }}</p>
+        <el-radio-group v-model="paginationSmall" @change="onChange">
+          <el-radio-button :label="false">no small</el-radio-button>
+          <el-radio-button :label="true">small</el-radio-button>
+        </el-radio-group>
+      </div>
+      <div class="pure-radio">
+        <p class="pure-small">{{ t("text.align") }}</p>
+        <el-radio-group v-model="paginationAlign">
+          <el-radio-button label="right">right</el-radio-button>
+          <el-radio-button label="center">center</el-radio-button>
+          <el-radio-button label="left">left</el-radio-button>
+        </el-radio-group>
+      </div>
+    </el-space>
+  </el-config-provider>
 
   <PureTable
     ref="tableRef"
     :loading="loading"
     :loadingConfig="loadingConfig"
+    :size="tableSize as any"
+    :height="tableHeight"
     border
     row-key="id"
     alignWhole="center"
-    height="687"
     showOverflowTooltip
     :data="
       dataList.slice(
@@ -64,35 +127,23 @@
     </template>
     <template #append>
       <p style="text-align: center">
-        {{ t("text.hope") }}
         <el-link
           type="primary"
           href="https://github.com/pure-admin/pure-admin-table"
           target="_blank"
         >
-          @pureadmin/table
+          MIT License | Copyright (c) 2022-present, pure-admin
         </el-link>
-        {{ t("text.help") }}
       </p>
     </template>
-    <template #operateHeader> operate </template>
+    <template #operateHeader> {{ t("table.operate") }}</template>
     <template #operation="{ row }">
-      <el-button
-        class="reset-margin"
-        link
-        type="primary"
-        @click="handleUpdate(row)"
-      >
+      <el-button link type="primary" @click="handleUpdate(row)">
         {{ t("button.edit") }}
       </el-button>
       <el-popconfirm :title="t('text.sure')">
         <template #reference>
-          <el-button
-            class="reset-margin"
-            link
-            type="primary"
-            @click="handleDelete(row)"
-          >
+          <el-button link type="primary" @click="handleDelete(row)">
             {{ t("button.delete") }}
           </el-button>
         </template>
@@ -101,118 +152,21 @@
   </PureTable>
 </template>
 
-<script setup lang="ts">
-import { dataMock } from "./mock";
-import { useI18n } from "vue-i18n";
-import { useColumns } from "./columns";
-import { ElDivider } from "element-plus";
-import { h, ref, reactive, onMounted } from "vue";
-import { type PaginationProps, type LoadingConfig } from "../packages";
-
-import empty from "./svg/empty.svg?component";
-import dayIcon from "./svg/day.svg";
-import darkIcon from "./svg/dark.svg";
-import chineseIcon from "./svg/chinese.svg";
-import englishIcon from "./svg/english.svg";
-
-let loading = ref(true);
-let isDark = ref(false);
-let language = ref(true);
-let dataList = ref<any>([]);
-const { t, locale } = useI18n();
-const spacer = h(ElDivider, { direction: "vertical" });
-
-const pagination = reactive<PaginationProps>({
-  pageSize: 5,
-  currentPage: 1,
-  background: true,
-  class: "testClassName",
-  total: dataList.value.length
-});
-
-const loadingConfig: LoadingConfig = {
-  text: "加载中",
-  viewBox: "-10, -10, 50, 50",
-  spinner: `
-        <path class="path" d="
-          M 30 15
-          L 28 17
-          M 25.61 25.61
-          A 15 15, 0, 0, 1, 15 30
-          A 15 15, 0, 1, 1, 27.99 7.5
-          L 15 15
-        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
-      `
-};
-
-const { columns } = useColumns();
-
-const tableRef = ref();
-
-function onRefresh() {
-  loading.value = true;
-  dataList.value = dataMock;
-  pagination.total = dataMock.length;
-  setTimeout(() => {
-    loading.value = false;
-  }, 800);
+<style scoped>
+:deep(.el-empty__description) {
+  margin: 0;
 }
 
-function onEmpty() {
-  dataList.value = [];
-  pagination.pageSize = 5;
-  pagination.currentPage = 1;
-  pagination.total = 0;
+.pure-space {
+  margin-bottom: 2px;
 }
 
-function getTableMethods() {
-  console.log("methods", tableRef.value.getTableRef());
+.pure-radio {
+  display: flex;
 }
 
-function handleUpdate(row) {
-  console.log(row);
-}
-
-function handleDelete(row) {
-  console.log(row);
-}
-
-function handleSelectionChange(val) {
-  console.log("handleSelectionChange", val);
-}
-
-function rowClick(row, column, event) {
-  console.log("rowClick", row, column, event);
-}
-
-function pageSizeChange(val) {
-  console.log("pageSizeChange", val);
-}
-
-function pageCurrentChange(val) {
-  console.log("pageCurrentChange", val);
-  loading.value = true;
-  setTimeout(() => {
-    loading.value = false;
-  }, 800);
-}
-
-function dataThemeChange(val) {
-  isDark.value = val;
-  if (val) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-}
-
-onMounted(() => {
-  onRefresh();
-});
-</script>
-
-<style>
-.el-empty__description {
-  margin: 0 !important;
+.pure-small {
+  font-size: 14px;
+  line-height: 20px;
 }
 </style>

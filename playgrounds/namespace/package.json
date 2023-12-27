@@ -1,0 +1,22 @@
+{
+  "name": "namespace",
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "serve": "vite",
+    "preview": "vite build && vite preview"
+  },
+  "dependencies": {
+    "@pureadmin/table": "^2.4.4",
+    "element-plus": "^2.4.4",
+    "vue": "^3.3.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "sass": "^1.69.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
+  }
+}

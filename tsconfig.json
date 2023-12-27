@@ -14,7 +14,8 @@
     "types": [
       "node",
       "vite/client",
-      "vitest/globals"
+      "vitest/globals",
+      "element-plus/global"
     ],
   },
   "include": [

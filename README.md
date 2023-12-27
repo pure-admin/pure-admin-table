@@ -19,7 +19,7 @@
 
 🦾 **灵活度高、强类型**: 使用`tsx`语法编写，拥有强大的类型推导提示和灵活、方便的配置  
 ⚡ **完全可摇树**: 自带`Tree-shaking`，只对引入的代码进行打包  
-🫶 **代码零侵入**: 保持`element-plus` [Table](https://element-plus.org/zh-CN/component/table.html) 的所有属性、插槽、事件、方法的同时，提供更灵活的配置，而且还内置了可通过配置渲染的分页组件和加载动画以及表格自适应内容区高度等  
+🫶 **代码零侵入**: 保持`element-plus` [Table](https://element-plus.org/zh-CN/component/table.html) 的所有属性、插槽、事件、方法的同时，提供更灵活的配置，而且还内置了可通过配置渲染的分页组件和加载动画以及表格自适应内容区高度等，当然 [自定义命名空间](https://element-plus.org/zh-CN/guide/namespace.html) 也不会受到任何影响  
 🌍 **国际化友好**: 内置三种精简的国际化（简体中文：`zhCn`、繁体中文：`zhTw`、英语: `en`），提供三种国际化配置方法，使其配置更灵活、方便。当然也可以结合 [vue-i18n](https://vue-i18n.intlify.dev/) ，让表格自适应国际化语言  
 💚 **SSR友好**: 完全兼容`Nuxt3`  
 📡 **可通过`CDN`引用**: 同时支持`jsdelivr`和`unpkg`
@@ -69,7 +69,7 @@ const app = createApp(App);
 app.use(PureTable, { locale: "zhCn" }).mount("#app");
 ```
 
-[点击查看按需、全局、`nuxt3`以及`Html`文件引入的用法示例](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
+[点击查看按需、全局、自定义命名空间、`nuxt3`以及`Html`文件引入的用法示例](https://github.com/pure-admin/pure-admin-table/tree/main/playgrounds)
 
 ## 🔮 `Volar`支持
 

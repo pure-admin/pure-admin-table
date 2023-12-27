@@ -73,7 +73,7 @@
     "@commitlint/types": "^18.4.3",
     "@intlify/unplugin-vue-i18n": "^2.0.0",
     "@pureadmin/release": "^1.0.0",
-    "@pureadmin/utils": "^2.0.0",
+    "@pureadmin/utils": "^2.0.1",
     "@rollup/plugin-terser": "^0.4.4",
     "@types/node": "^20.10.5",
     "@vitejs/plugin-vue": "^4.4.1",

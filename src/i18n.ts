@@ -1,18 +1,24 @@
-import { App } from "vue";
-import { type I18n, createI18n } from "vue-i18n"; // element-plus国际化
+import type { App } from "vue";
+import { type I18n, createI18n } from "vue-i18n";
+
+// element-plus国际化
 import enLocale from "element-plus/dist/locale/en.mjs";
 import zhLocale from "element-plus/dist/locale/zh-cn.mjs";
 
-function siphonI18n(prefix = "zh-CN") {
-  return Object.fromEntries(
+const siphonI18n = (function () {
+  // 仅初始化一次国际化配置
+  let cache = Object.fromEntries(
     Object.entries(
       import.meta.glob("../locales/*.y(a)?ml", { eager: true })
     ).map(([key, value]: any) => {
       const matched = key.match(/([A-Za-z0-9-_]+)\./i)[1];
       return [matched, value.default];
     })
-  )[prefix];
-}
+  );
+  return (prefix = "zh-CN") => {
+    return cache[prefix];
+  };
+})();
 
 export const localesConfigs = {
   zh: {

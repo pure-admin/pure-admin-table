@@ -5,8 +5,15 @@ button:
   edit: Edit
   delete: Delete
 text: 
-  hope: Hope
-  help: can help you. If you like it, please give it a star
   empty: No Data
   sure: Whether to confirm the deletion?
   console: Please open the console to watch
+  size: Table Size：
+  page: Page Size：
+  align: Page Align：
+table:
+  department: Department Name
+  operate: Operate
+  loading: Loading page 1 ...
+  loadingPage: Loading page
+  page: ...
