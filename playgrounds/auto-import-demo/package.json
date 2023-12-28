@@ -1,6 +1,6 @@
 {
   "name": "auto-import-demo",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -8,7 +8,7 @@
     "preview": "vite build && vite preview"
   },
   "dependencies": {
-    "@pureadmin/table": "^2.4.4",
+    "@pureadmin/table": "^3.0.0",
     "element-plus": "^2.4.4",
     "vue": "^3.3.13"
   },
