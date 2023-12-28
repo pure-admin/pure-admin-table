@@ -8,23 +8,36 @@
   <title>@pureadmin/table</title>
 
   <!-- jsdelivr cdn -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@pureadmin/table/dist/style.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/element-plus/dist/index.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/element-plus/theme-chalk/dark/css-vars.css" />
   <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.global.prod.js"></script>
   <script src="//cdn.jsdelivr.net/npm/element-plus/dist/index.full.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@element-plus/icons-vue"></script>
+  <script src="//cdn.jsdelivr.net/npm/@pureadmin/utils@latest"></script>
   <script src="//cdn.jsdelivr.net/npm/@pureadmin/table@latest"></script>
 </head>
 
 <body>
 
   <div id="app">
-    <h1 style="text-align: center">Html引入示例</h1>
+    <div style="display: flex;align-items: center;justify-content: space-around;width: 12em;">
+      <h3>Html引入示例</h3>
+      <el-switch v-model="isDark" inline-prompt size="large" :active-icon="Sunny" :inactive-icon="Moon"
+        @change="toggleDark" />
+    </div>
     <pure-table border :data="tableData" :columns="columns" :pagination="pagination"></pure-table>
   </div>
 
   <script>
+    const { createApp, ref } = Vue
+    const { toggleDark } = PureUtils.useDark()
+
     const app = Vue.createApp({
       data() {
         return {
+          Moon: ElementPlusIconsVue.Moon,
+          Sunny: ElementPlusIconsVue.Sunny,
+          isDark: false,
           columns: [
             {
               label: "Date",
@@ -69,7 +82,10 @@
       },
       mounted() {
         this.pagination.total = this.tableData.length
-      }
+      },
+      methods: {
+        toggleDark
+      },
     })
 
     app.use(ElementPlus).use(PureTable.default, { locale: "zhCn" }).mount("#app")
