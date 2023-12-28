@@ -1,5 +1,33 @@
 # Changelog
 
+## 3.0.0 (2023-12-28)
+
+### 🎫 Feat
+
+- 添加自定义命名空间和`nuxt3`示例
+- 提供表格整体所需的单独的`@pureadmin/table/dist/style.css`文件
+- 提供内置国际化（简体中文：`zhCn`、繁体中文：`zhTw`、美国英语: `en`）支持，当然内置的国际化文件是精简后的，也就是只内置表格完整组成所需的国际化文件。
+
+1. 权重最高，组件可传`locale`属性，代表国际化配置，可传`zhCn`、`zhTw`、`en`也可以自定义国际化，配置后会覆盖下面`2`、`3`方法；
+2. 权重第二，使用`app.use`全局注册`PureTable`时，在第二个参数中可传两个可选属性，第一个属性`locale`代表国际化配置，可传`zhCn`、`zhTw`、`en`也可以自定义国际化，第二个属性`i18n`，需要配合`vue-i18n`，将`element-plus`的国际化文件配置到`vue-i18n`，统一传入`i18n`属性中后`@pureadmin/table`就会根据当前语言环境自适应表格国际化，如下
+
+```ts
+app.use(PureTable, {
+  locale: "zhCn",
+  i18n // 如果配置了i18n，上面的locale就无需配置，它会根据当前语言环境自适应
+});
+```
+
+3.权重最低，使用`element-plus`提供的 [ConfigProvider](https://element-plus.org/zh-CN/guide/i18n.html#configprovider) 在 `app.vue` 中配置全局的国际化，如果使用 `ConfigProvider`，就不要使用上面`2`方法了，因为`2`方法权重第二，使用后会覆盖`ConfigProvider`，也就是`ConfigProvider`对`PureTable`无效了
+
+### 🍏 Perf
+
+- 完全兼容`nuxt3`
+
+### 🎫 types
+
+- 优化类型
+
 ## 2.4.1 (2023-12-02)
 
 ### 🐞 Bug fixes
