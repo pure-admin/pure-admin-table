@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { useColumns } from "./columns";
+import { ref } from "vue";
 
+const tableRef = ref();
+import { useColumns } from "./columns";
 const {
   empty,
   dayIcon,
@@ -32,7 +34,7 @@ const {
   handleSelectionChange,
   isDark,
   toggleDark
-} = useColumns();
+} = useColumns(tableRef);
 </script>
 
 <template>

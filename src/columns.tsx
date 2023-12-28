@@ -2,7 +2,7 @@ import { dataMock } from "./mock";
 import { useI18n } from "vue-i18n";
 import { ElDivider } from "element-plus";
 import { useDark, delay } from "@pureadmin/utils";
-import { h, ref, reactive, onMounted, watch } from "vue";
+import { type Ref, h, ref, reactive, onMounted, watch } from "vue";
 import type {
   Align,
   TableColumns,
@@ -23,7 +23,7 @@ for (let i = 1; i <= 11; i++) {
   srcList.push(`${BASE_URL}/imgs/${i}.jpg`);
 }
 
-export function useColumns() {
+export function useColumns(tableRef: Ref) {
   const { t, locale } = useI18n();
 
   const columns: Array<TableColumns> = [
@@ -104,7 +104,6 @@ export function useColumns() {
   const paginationSmall = ref(false);
   const paginationAlign = ref("right");
 
-  const tableRef = ref();
   let loading = ref(true);
   let language = ref(true);
   let dataList = ref<any>([]);
