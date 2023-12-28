@@ -340,7 +340,7 @@ export default defineComponent({
               empty: () => slots.empty && slots.empty()
             }}
           </ElTable>
-          {conditions && unref(isClient) ? (
+          {conditions ? (
             <ElPagination
               {...attrs}
               class="pure-pagination"
@@ -367,28 +367,29 @@ export default defineComponent({
       );
     };
 
-    return () => (
-      <div
-        class="pure-table"
-        style="width:100%"
-        v-loading={unref(loading)}
-        {...unref(loadingBackground)}
-        {...unref(convertLoadingConfig)}
-      >
-        {unref(globalI18n) || unref(globalLocale) || unref(locales) ? (
-          <ElConfigProvider
-            locale={
-              unref(locales)
-                ? unref(locales)
-                : unref(globalI18n) || unref(globalLocale)
-            }
-          >
-            {renderTable()}
-          </ElConfigProvider>
-        ) : (
-          renderTable()
-        )}
-      </div>
-    );
+    return () =>
+      unref(isClient) && (
+        <div
+          class="pure-table"
+          style="width:100%"
+          v-loading={unref(loading)}
+          {...unref(loadingBackground)}
+          {...unref(convertLoadingConfig)}
+        >
+          {unref(globalI18n) || unref(globalLocale) || unref(locales) ? (
+            <ElConfigProvider
+              locale={
+                unref(locales)
+                  ? unref(locales)
+                  : unref(globalI18n) || unref(globalLocale)
+              }
+            >
+              {renderTable()}
+            </ElConfigProvider>
+          ) : (
+            renderTable()
+          )}
+        </div>
+      );
   }
 });
