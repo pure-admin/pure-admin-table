@@ -94,6 +94,8 @@ export type TableColumn = {
   filters?: Array<{ text: string; value: string }>;
   /** 过滤弹出框的定位 */
   filterPlacement?: TableColumnFilterPlacement;
+  /** 过滤弹出框的 `className` */
+  filterClassName?: string;
   /** 数据过滤的选项是否多选，默认值为 `true` */
   filterMultiple?: boolean;
   /** 数据过滤使用的方法，如果是多选的筛选项，对每一条数据会执行多次，任意一次返回 `true` 就会显示 */

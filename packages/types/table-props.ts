@@ -130,7 +130,7 @@ export type TableProps = {
   tableLayout?: Layout;
   /** 总是显示滚动条，默认值为 `false` */
   scrollbarAlwaysOn?: boolean;
-  /** 确保主轴的最小尺寸，默认值为 `false` */
+  /** 确保主轴的最小尺寸，以便不超过内容，默认值为 `false` */
   flexible?: boolean;
 };
 
