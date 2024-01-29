@@ -44,10 +44,15 @@ export default defineComponent({
   },
   emits: ["page-size-change", "page-current-change"],
   setup(props, { slots, attrs, emit, expose }) {
-    const { locale: defaultLocale, i18n } = inject<PureTableInstallOptions>(
-      "locale",
-      { locale: null, i18n: null }
-    );
+    const {
+      locale: defaultLocale,
+      i18n,
+      ssr
+    } = inject<PureTableInstallOptions>("locale", {
+      locale: null,
+      i18n: null,
+      ssr: false
+    });
 
     const {
       key,
@@ -367,8 +372,8 @@ export default defineComponent({
       );
     };
 
-    return () =>
-      unref(isClient) && (
+    let renderPureTable = () => {
+      return (
         <div
           class="pure-table"
           style="width:100%"
@@ -391,5 +396,9 @@ export default defineComponent({
           )}
         </div>
       );
+    };
+
+    return () =>
+      ssr ? isClient.value && renderPureTable() : renderPureTable();
   }
 });

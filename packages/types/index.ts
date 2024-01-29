@@ -24,6 +24,8 @@ type PureTableInstallOptions = {
   locale?: DefaultLanguage | Language;
   /** 自适应国际化语言。如果不想使用 [ConfigProvider](https://element-plus.org/zh-CN/guide/i18n.html#configprovider) 提供的响应式`locale`根据当前语言环境自适应表格国际化，那么可以安装并初始化 [vue-i18n](https://vue-i18n.intlify.dev/guide/installation.html#package-managers)，然后传入到`i18n`中，`@pureadmin/table`就会根据当前语言环境自适应表格国际化 */
   i18n?: I18n;
+  /** 是否是服务端渲染 */
+  ssr?: boolean;
 };
 
 export type {

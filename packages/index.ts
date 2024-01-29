@@ -10,7 +10,7 @@ import "element-plus/es/components/pagination/style/css";
 export const PureTable = Object.assign(Table, {
   install: (app: App, options?: PureTableInstallOptions) => {
     app.component(Table.name, Table);
-    app.provide("locale", options ?? { locale: null, i18n: null });
+    app.provide("locale", options ?? { locale: null, i18n: null, ssr: false });
   }
 });
 
