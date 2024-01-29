@@ -1,6 +1,6 @@
 {
   "name": "@pureadmin/table",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "packageManager": "pnpm@8.6.10",
   "description": "二次封装element-plus的Table，提供灵活的配置项",
   "keywords": [
