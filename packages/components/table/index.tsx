@@ -145,6 +145,7 @@ export default defineComponent({
           width: "100%",
           margin: "16px 0",
           display: "flex",
+          flexWrap: "wrap",
           justifyContent:
             unref(pagination).align === "left"
               ? "flex-start"
