@@ -37,7 +37,7 @@ export interface TableColumnRenderer extends TableColumnScope {
 }
 
 /**
- * @description `element-plus` 的 `table` 中 `Table-column` 属性，未扩展
+ * @description `element-plus` 的 `table` 中 `Table-column` 属性，未拓展
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7}
  */
 export type TableColumn = {
@@ -105,7 +105,7 @@ export type TableColumn = {
 };
 
 /**
- * @description `element-plus` 的 `table` 中 `Table-column` 属性，已扩展，额外增加 `hide` 、`slot` 、`cellRenderer` 、`headerRenderer` 四个属性
+ * @description `element-plus` 的 `table` 中 `Table-column` 属性，已拓展，额外增加 `hide` 、`slot` 、`cellRenderer` 、`headerRenderer` 四个属性
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7}
  */
 export interface TableColumns extends TableColumn {

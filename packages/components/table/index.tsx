@@ -55,10 +55,10 @@ export default defineComponent({
     });
 
     const {
-      key,
       locale,
       columns,
       loading,
+      tableKey,
       adaptive,
       pagination,
       alignWhole,
@@ -266,7 +266,8 @@ export default defineComponent({
       );
     };
 
-    const getTableRef = () => instance?.proxy?.$refs[`TableRef${unref(key)}`];
+    const getTableRef = () =>
+      instance?.proxy?.$refs[`TableRef${unref(tableKey)}`];
 
     const getTableDoms = () => (getTableRef() as any).$refs;
 
@@ -338,7 +339,7 @@ export default defineComponent({
     let renderTable = () => {
       return (
         <>
-          <ElTable {...props} {...attrs} ref={`TableRef${unref(key)}`}>
+          <ElTable {...props} {...attrs} ref={`TableRef${unref(tableKey)}`}>
             {{
               default: () => unref(columns).map(renderColumns),
               append: () => slots.append && slots.append(),

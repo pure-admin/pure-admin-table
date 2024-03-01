@@ -64,8 +64,8 @@
     "element-plus": "^2.0.0"
   },
   "dependencies": {
-    "element-plus": "^2.5.0",
-    "vue": "^3.3.13"
+    "element-plus": "^2.6.0",
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",

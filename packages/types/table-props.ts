@@ -36,7 +36,7 @@ export type AdaptiveConfig = {
 };
 
 /**
- * @description `element-plus` 的 `table` 属性，未扩展
+ * @description `element-plus` 的 `table` 属性，未拓展
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-%E5%B1%9E%E6%80%A7}
  */
 export type TableProps = {
@@ -135,12 +135,12 @@ export type TableProps = {
 };
 
 /**
- * @description `element-plus` 的 `table` 属性，已扩展，额外增加 `key` 、`columns` 、`loading` 、`loadingConfig` 、`alignWhole` 、`headerAlign` 、`showOverflowTooltip` 、`rowHoverBgColor`、`pagination` 、`paginationSmall` 、`adaptive` 、`adaptiveConfig` 十二个属性
+ * @description 拓展 `element-plus` 的 `table` 属性
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-%E5%B1%9E%E6%80%A7}
  */
 export interface PureTableProps extends TableProps {
-  /** 唯一键，如果单个页面有多个表格实例，但是您只获取到一个表格实例，设置 `key` 即可解决，不过大多数情况下不需要设置，会自动处理 */
-  key?: string | number;
+  /** 唯一键，如果单个页面有多个表格实例，但是您只获取到一个表格实例，设置 `tableKey` 即可解决，不过大多数情况下不需要设置，会自动处理 */
+  tableKey?: string | number;
   /** `Table-column` 配置 `该属性为必填属性` */
   columns: Array<TableColumns>;
   /** 是否开启加载动画，默认值：`false` */

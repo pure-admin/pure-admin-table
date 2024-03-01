@@ -4,7 +4,7 @@ import defaultProps from "element-plus/es/components/table/src/table/defaults";
 
 // https://github.com/pure-admin/pure-admin-table/blob/main/packages/types/table-props.ts
 export default {
-  key: {
+  tableKey: {
     type: [String, Number] as PropType<string | number>,
     default: "0"
   },

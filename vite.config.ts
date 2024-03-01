@@ -55,7 +55,10 @@ export default defineConfig({
     })
   ],
   // https://cn.vitejs.dev/guide/build.html#library-mode 环境变量
-  define: { "process.env.NODE_ENV": '"production"' },
+  define: {
+    "process.env.NODE_ENV": '"production"',
+    __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false
+  },
   server: {
     host: "0.0.0.0"
   },

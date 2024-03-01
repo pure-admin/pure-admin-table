@@ -70,24 +70,24 @@ const {
       <div class="pure-radio">
         <p class="pure-small">{{ t("text.size") }}</p>
         <el-radio-group v-model="tableSize">
-          <el-radio-button label="large">large</el-radio-button>
-          <el-radio-button label="default">default</el-radio-button>
-          <el-radio-button label="small">small</el-radio-button>
+          <el-radio-button value="large">large</el-radio-button>
+          <el-radio-button value="default">default</el-radio-button>
+          <el-radio-button value="small">small</el-radio-button>
         </el-radio-group>
       </div>
       <div class="pure-radio">
         <p class="pure-small">{{ t("text.page") }}</p>
         <el-radio-group v-model="paginationSmall" @change="onChange">
-          <el-radio-button :label="false">no small</el-radio-button>
-          <el-radio-button :label="true">small</el-radio-button>
+          <el-radio-button :value="false">no small</el-radio-button>
+          <el-radio-button :value="true">small</el-radio-button>
         </el-radio-group>
       </div>
       <div class="pure-radio">
         <p class="pure-small">{{ t("text.align") }}</p>
         <el-radio-group v-model="paginationAlign">
-          <el-radio-button label="right">right</el-radio-button>
-          <el-radio-button label="center">center</el-radio-button>
-          <el-radio-button label="left">left</el-radio-button>
+          <el-radio-button value="right">right</el-radio-button>
+          <el-radio-button value="center">center</el-radio-button>
+          <el-radio-button value="left">left</el-radio-button>
         </el-radio-group>
       </div>
     </el-space>
