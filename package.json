@@ -21,7 +21,7 @@
   "author": "xiaoxian521",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pure-admin/pure-admin-table"
+    "url": "git+https://github.com/pure-admin/pure-admin-table.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
