@@ -5,26 +5,29 @@ on:
   push:
     branches:
       - main
+      
 jobs:
   deploy:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup node
-        uses: actions/setup-node@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version: 20
           registry-url: https://registry.npmjs.com/
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        id: pnpm-install
         with:
-          version: latest
+          version: 8.6.10
+          run_install: false
 
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      - name: Deploy 🔧
         run: |
           pnpm install --no-frozen-lockfile
           pnpm build

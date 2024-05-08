@@ -9,7 +9,7 @@
 简体中文 | [English](./README.en-US.md)
 
 [预览地址](https://pure-admin.github.io/pure-admin-table/)  
-[更多示例，基本所有的用法这里都有](https://yiming_chang.gitee.io/vue-pure-admin/#/pure-table/index?username=sso&roles=admin&accessToken=eyJhbGciOiJIUzUxMiJ9.admin)
+[更多示例，基本所有的用法这里都有](https://pure-admin.github.io/vue-pure-admin/#/table/index?username=sso&roles=admin&accessToken=eyJhbGciOiJIUzUxMiJ9.admin)
 
 ## 🤔 开发初衷
 
