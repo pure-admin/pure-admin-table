@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.0 (2024-08-12)
+
+### ✔️ refactor
+
+- 兼容 `element-plus` 最新版 `v2.8.0`，适配 `el-pagination` 新增的 `size` 属性，使用 `pagination.size` 替换表格 `paginationSmall` 属性
+
 ## 3.1.0 (2024-03-01)
 
 ### ✔️ refactor
