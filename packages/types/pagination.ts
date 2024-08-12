@@ -1,13 +1,13 @@
 import type { CSSProperties } from "vue";
-import { Align } from "./index";
+import { Align, Size } from "./index";
 
 /**
  * @description 分页相关配置。注意：`pageSize`、`total`、`currentPage` 这三个属性必传
  * @see {@link https://element-plus.org/zh-CN/component/pagination.html#%E5%B1%9E%E6%80%A7}
  */
 export type PaginationProps = {
-  /** 是否使用小型分页样式，默认值：`false` */
-  small?: boolean;
+  /** 分页大小，默认值：`default` */
+  size?: Size;
   /** 是否为分页按钮添加背景色，默认值：`false` */
   background?: boolean;
   /** 每页显示条目个数，默认值 `5` `该属性为必填属性` */

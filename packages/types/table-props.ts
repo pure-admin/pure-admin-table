@@ -157,8 +157,6 @@ export interface PureTableProps extends TableProps {
   rowHoverBgColor?: string;
   /** 分页相关配置 */
   pagination?: PaginationProps;
-  /** 是否使用小型分页样式，默认值：`false` (这里暴露出来主要是满足一些特殊场景，一般情况下可直接在 `pagination` 中设置) */
-  paginationSmall?: boolean;
   /** 表格是否撑满内容区自适应高度，默认 `false` */
   adaptive?: boolean;
   /** 撑满内容区自适应高度相关配置 */

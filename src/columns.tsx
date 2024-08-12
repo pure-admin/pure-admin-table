@@ -101,7 +101,6 @@ export function useColumns(tableRef: Ref) {
 
   const tableHeight = ref(687);
   const tableSize = ref("default");
-  const paginationSmall = ref(false);
   const paginationAlign = ref("right");
 
   let loading = ref(true);
@@ -112,9 +111,9 @@ export function useColumns(tableRef: Ref) {
   const pagination = reactive<PaginationProps>({
     pageSize: 5,
     currentPage: 1,
-    small: false,
     background: true,
     align: "right",
+    size: "default",
     total: dataList.value.length
   });
 
@@ -135,7 +134,7 @@ export function useColumns(tableRef: Ref) {
   });
 
   function onChange(val) {
-    pagination.small = val;
+    pagination.size = val;
   }
 
   function onRefresh() {
@@ -225,7 +224,6 @@ export function useColumns(tableRef: Ref) {
     pagination,
     tableHeight,
     loadingConfig,
-    paginationSmall,
     paginationAlign,
     t,
     rowClick,

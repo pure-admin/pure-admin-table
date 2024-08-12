@@ -19,7 +19,6 @@ const {
   pagination,
   tableHeight,
   loadingConfig,
-  paginationSmall,
   paginationAlign,
   t,
   rowClick,
@@ -77,9 +76,10 @@ const {
       </div>
       <div class="pure-radio">
         <p class="pure-small">{{ t("text.page") }}</p>
-        <el-radio-group v-model="paginationSmall" @change="onChange">
-          <el-radio-button :value="false">no small</el-radio-button>
-          <el-radio-button :value="true">small</el-radio-button>
+        <el-radio-group v-model="pagination.size" @change="onChange">
+          <el-radio-button value="large">large</el-radio-button>
+          <el-radio-button value="default">default</el-radio-button>
+          <el-radio-button value="small">small</el-radio-button>
         </el-radio-group>
       </div>
       <div class="pure-radio">

@@ -353,13 +353,6 @@ export default defineComponent({
               class="pure-pagination"
               style={unref(getStyle)}
               {...unref(pagination)}
-              small={
-                props?.paginationSmall
-                  ? props?.paginationSmall
-                  : unref(pagination).small
-                    ? unref(pagination).small
-                    : false
-              }
               layout={
                 unref(pagination).layout ??
                 "total, sizes, prev, pager, next, jumper"

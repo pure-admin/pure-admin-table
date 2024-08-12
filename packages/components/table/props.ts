@@ -42,14 +42,11 @@ export default {
       total: 0,
       pageSize: 5,
       align: "right",
+      size: "default",
       background: false,
       pageSizes: [5, 10, 15, 20],
       layout: "total, sizes, prev, pager, next, jumper"
     }
-  },
-  paginationSmall: {
-    type: Boolean,
-    default: false
   },
   adaptive: {
     type: Boolean,
