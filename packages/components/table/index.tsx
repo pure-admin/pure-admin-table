@@ -244,7 +244,7 @@ export default defineComponent({
           : defaultSlots;
 
       if (children?.length > 0) {
-        scopedSlots = children.map(renderColumns);
+        scopedSlots.default = () => children.map(renderColumns);
       }
 
       return (
