@@ -19,6 +19,7 @@ import type {
   CellCls,
   Sort
 } from "element-plus";
+import type { VNode } from "vue";
 import type { TableOverflowTooltipOptions } from "element-plus/es/components/table/src/util";
 
 /**
@@ -83,7 +84,7 @@ export type TableProps = {
   emptyText?: string;
   /** 是否默认展开所有行，当 `Table` 包含展开行存在或者为树形表格时有效，默认值为 `false` */
   defaultExpandAll?: boolean;
-  /** 可以通过该属性设置 `Table` 目前的展开行，需要设置 `row-key` 属性才能使用，该属性为展开行的 `keys` 数组 */
+  /** 可以通过该属性设置 `Table` 目前的展开行，需要设置 `row-key` 属性才能使用，该属性为展开行的 `keys` 数组。 从 [element-plus](https://element-plus.org/zh-CN/component/table.html#table-%E5%B1%9E%E6%80%A7) 的 `2.10.3` 版本开始，支持使用数字类型的键 */
   expandRowKeys?: any[];
   /** 默认的排序列的 `prop` 和顺序。它的 `prop` 属性指定默认的排序的列，`order` 指定默认排序的顺序，默认值为 `如果 prop 已配置, 同时 order 未配置, 那么 order 默认为升序` */
   defaultSort?: Sort;
@@ -91,6 +92,8 @@ export type TableProps = {
   tooltipEffect?: Effect;
   /** 溢出 tooltip 的选项 参考 https://element-plus.org/zh-CN/component/tooltip.html#attributes  默认值为 `{ enterable: true, placement: 'top', showArrow: true, hideAfter: 200, popperOptions: { strategy: 'fixed' } }` */
   tooltipOptions?: TableOverflowTooltipOptions;
+  /** 挂载到哪个 `DOM` 元素 */
+  appendFilterPanelTo?: string;
   /** 是否在表尾显示合计行，默认值为 `false` */
   showSummary?: boolean;
   /** 合计行第一列的文本，默认值为 `合计` */
@@ -132,6 +135,18 @@ export type TableProps = {
   scrollbarAlwaysOn?: boolean;
   /** 确保主轴的最小尺寸，以便不超过内容，默认值为 `false` */
   flexible?: boolean;
+  /** `body` 的滚动条的包裹容器 `tabindex` */
+  scrollbarTabindex?: string | number;
+  /** 是否允许拖动最后一列，默认值为 `true` */
+  allowDragLastColumn?: boolean;
+  /** 自定义 `show-overflow-tooltip` 时的 `tooltip` 内容 */
+  tooltipFormatter?: (data: {
+    row: any;
+    column: any;
+    cellValue: any;
+  }) => VNode | string;
+  /** 在折叠后是否在 `DOM` 中保留展开行内容，默认值为 `false` */
+  preserveExpandedContent?: boolean;
 };
 
 /**

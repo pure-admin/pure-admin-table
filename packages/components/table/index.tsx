@@ -173,6 +173,8 @@ export default defineComponent({
         slot,
         headerRenderer,
         headerSlot,
+        filterIconSlot,
+        expandSlot,
         hide,
         children,
         prop,
@@ -212,36 +214,58 @@ export default defineComponent({
         }
       };
 
-      let scopedSlots = headerRenderer
-        ? {
-            header: (scope: TableColumnScope) => {
-              return (
-                <Renderer
-                  render={headerRenderer}
-                  params={Object.assign(scope, {
-                    index: scope.$index,
-                    props,
-                    attrs
-                  })}
-                ></Renderer>
-              );
-            },
-            ...defaultSlots
-          }
-        : slots?.[headerSlot]
-          ? {
-              header: (scope: TableColumnScope) => {
-                return slots?.[headerSlot]?.(
-                  Object.assign(scope, {
-                    index: scope.$index,
-                    props,
-                    attrs
-                  })
-                );
-              },
-              ...defaultSlots
-            }
-          : defaultSlots;
+      const scopedSlots: { [key: string]: (scope: TableColumnScope) => any } = {
+        ...defaultSlots
+      };
+
+      if (headerRenderer) {
+        scopedSlots.header = (scope: TableColumnScope) => {
+          return (
+            <Renderer
+              render={headerRenderer}
+              params={Object.assign(scope, {
+                index: scope.$index,
+                props,
+                attrs
+              })}
+            />
+          );
+        };
+      } else if (slots?.[headerSlot]) {
+        scopedSlots.header = (scope: TableColumnScope) => {
+          return slots[headerSlot]?.(
+            Object.assign(scope, {
+              index: scope.$index,
+              props,
+              attrs
+            })
+          );
+        };
+      }
+
+      if (slots?.[filterIconSlot]) {
+        scopedSlots["filter-icon"] = (scope: TableColumnScope) => {
+          return slots[filterIconSlot]?.(
+            Object.assign(scope, {
+              index: scope.$index,
+              props,
+              attrs
+            })
+          );
+        };
+      }
+
+      if (slots?.[expandSlot]) {
+        scopedSlots.expand = (scope: TableColumnScope) => {
+          return slots[expandSlot]?.(
+            Object.assign(scope, {
+              index: scope.$index,
+              props,
+              attrs
+            })
+          );
+        };
+      }
 
       if (children?.length > 0) {
         scopedSlots.default = () => children.map(renderColumns);

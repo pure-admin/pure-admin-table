@@ -102,6 +102,12 @@ export type TableColumn = {
   filterMethod?: FilterMethods;
   /** 选中的数据过滤项，如果需要自定义表头过滤的渲染方式，可能会需要此属性 */
   filteredValue?: Array<any>;
+  /** 使用 `show-overflow-tooltip` 时自定义 `tooltip` 内容 */
+  tooltipFormatter?: (data: {
+    row: any;
+    column: any;
+    cellValue: any;
+  }) => VNode | string;
 };
 
 /**
@@ -115,6 +121,10 @@ export interface TableColumns extends TableColumn {
   slot?: string;
   /** 自定义表头的内容插槽 */
   headerSlot?: string;
+  /** 自定义 `filter` 图标插槽 */
+  filterIconSlot?: string;
+  /** 展开列的自定义内容插槽 */
+  expandSlot?: string;
   /** 多级表头，内部实现原理：嵌套 `el-table-column` */
   children?: Array<TableColumns>;
   /** 自定义单元格渲染器（`jsx`语法） */
